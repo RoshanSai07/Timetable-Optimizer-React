@@ -27,6 +27,7 @@ type HelpSection = {
 };
 
 type HelpAnswer = {
+  id?: string;
   question: string;
   answer: string;
   keywords: string[];
@@ -111,7 +112,15 @@ const helpAnswers: HelpAnswer[] = [
     question: "How do I share my selections with friends?",
     answer:
       "Go to the JSON Export tab in the Import & Export Center. Copy the text or download the JSON file, then send it to a friend. They can use the JSON Import tab to load your selections instantly.",
-    keywords: ["share", "friend", "classmate", "json", "send", "import", "export"],
+    keywords: [
+      "share",
+      "friend",
+      "classmate",
+      "json",
+      "send",
+      "import",
+      "export",
+    ],
   },
   {
     id: "export-formats",
@@ -182,11 +191,7 @@ function getAnswerScore(answer: HelpAnswer, query: string) {
   if (!normalizedQuery) return 0;
 
   const terms = normalizedQuery.split(/\s+/);
-  const searchableText = [
-    answer.question,
-    answer.answer,
-    ...answer.keywords,
-  ]
+  const searchableText = [answer.question, answer.answer, ...answer.keywords]
     .join(" ")
     .toLowerCase();
 
@@ -228,7 +233,9 @@ export default function HelpDialog({ open, onClose }: HelpDialogProps) {
       .filter((answer) => answer.score > 0)
       .sort((first, second) => second.score - first.score);
 
-    return question.trim() ? rankedAnswers.slice(0, 3) : helpAnswers.slice(0, 4);
+    return question.trim()
+      ? rankedAnswers.slice(0, 3)
+      : helpAnswers.slice(0, 4);
   }, [question]);
 
   if (!open) return null;
@@ -374,7 +381,9 @@ export default function HelpDialog({ open, onClose }: HelpDialogProps) {
                     </p>
                   </div>
                   <div className="rounded-xl border border-border bg-card p-4">
-                    <div className="text-2xl font-bold text-secondary">Live</div>
+                    <div className="text-2xl font-bold text-secondary">
+                      Live
+                    </div>
                     <div className="mt-1 text-sm font-semibold text-foreground">
                       Clash checks
                     </div>
@@ -383,9 +392,7 @@ export default function HelpDialog({ open, onClose }: HelpDialogProps) {
                     </p>
                   </div>
                   <div className="rounded-xl border border-border bg-card p-4">
-                    <div className="text-2xl font-bold text-primary">
-                      Local
-                    </div>
+                    <div className="text-2xl font-bold text-primary">Local</div>
                     <div className="mt-1 text-sm font-semibold text-foreground">
                       Session only
                     </div>
@@ -403,8 +410,8 @@ export default function HelpDialog({ open, onClose }: HelpDialogProps) {
                       Ask a question
                     </h3>
                     <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      Type naturally, like “why is timetable locked?” or “how
-                      do clashes work?”
+                      Type naturally, like “why is timetable locked?” or “how do
+                      clashes work?”
                     </p>
                   </div>
 
