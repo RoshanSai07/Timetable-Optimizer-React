@@ -31,6 +31,13 @@ export default function Courses({
       updatedCourses = selectedCourses.filter(
         (selected) => selected.code !== course.code,
       );
+      const selectedFaculty = JSON.parse(
+        sessionStorage.getItem("selectedFaculty") || "[]",
+      );
+      const updatedFaculty = selectedFaculty.filter(
+        (faculty: { courseCode: string }) => faculty.courseCode !== course.code,
+      );
+      sessionStorage.setItem("selectedFaculty", JSON.stringify(updatedFaculty));
     } else {
       updatedCourses = [...selectedCourses, course];
     }
@@ -61,7 +68,7 @@ export default function Courses({
           </p>
         </div>
         {selectedCourses.length > 0 && (
-          <div className="rounded-xl border border-border bg-card p-6">
+          <div className="rounded-lg border border-border bg-card p-6">
             <div className="flex items-start justify-between">
               <div>
                 <h2 className="text-xl font-semibold text-foreground">
@@ -77,7 +84,7 @@ export default function Courses({
                 className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
               >
                 <div>Continue</div>
-                <ArrowRight className="text-card w-5 h-5" />
+                <ArrowRight className="text-primary-foreground w-5 h-5" />
               </button>
             </div>
             <div className="mt-5 flex flex-wrap gap-2">
@@ -102,7 +109,7 @@ export default function Courses({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search courses or course codes..."
-            className="w-full rounded-md border border-input bg-card py-3 pl-11 pr-5 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-1 focus:ring-ring focus:ring-offset-1"
+            className="w-full rounded-md border border-input bg-card py-3 pl-11 pr-5 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-1 focus:ring-ring focus:ring-offset-1 focus:ring-offset-background"
           />
         </div>
         <div className="grid grid-cols-2 gap-4">

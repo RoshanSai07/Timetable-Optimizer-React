@@ -3,8 +3,21 @@ import type { SelectedFaculty } from "../types/selectedFaculty";
 import { generateTimetable } from "../utils/generateTimetable";
 import type { Course } from "../types/course";
 import FacultySummary from "./facultyInfo";
+import { useState } from "react";
+import { ArrowLeft, Share2 } from "lucide-react";
+import ExportCenter from "./ExportCenter";
 
-export default function Timetable() {
+type TimetableProps = {
+  currentSection?: string;
+  setCurrentSection?: React.Dispatch<React.SetStateAction<string>>;
+  onImportSuccess?: () => void;
+};
+
+export default function Timetable({
+  setCurrentSection,
+  onImportSuccess,
+}: TimetableProps) {
+  const [exportOpen, setExportOpen] = useState(false);
   const student: Student = JSON.parse(
     sessionStorage.getItem("student") || "{}",
   );
@@ -14,25 +27,36 @@ export default function Timetable() {
   const timetable = generateTimetable(selectedFaculty);
   const days = Object.keys(timetable);
   const rows = timetable[days[0]] || [];
-  const getFacultyShortName = (name: string) => {
-    return name
-      .split(" ")
-      .map((word) => word[0])
-      .join("");
-  };
   const selectedCourses: Course[] = JSON.parse(
     sessionStorage.getItem("selectedCourses") || "[]",
   );
   return (
     <section className="flex flex-1 items-start justify-center px-20 py-20">
       <div className="w-full max-w-7xl space-y-6">
-        <div className="space-y-1">
+        <div className="relative space-y-1">
           <h1 className="text-3xl font-bold tracking-tight text-foreground">
             Weekly Timetable
           </h1>
           <p className="max-w-2xl text-md leading-7 text-muted-foreground">
             Final clash-free schedule generated from your selected faculty.{" "}
           </p>
+          <div className="absolute top-0 right-5 flex gap-3">
+            <button
+              onClick={() => setExportOpen(true)}
+              className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-7 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
+            >
+              <Share2 className="h-4 w-4" />
+              <div>Share</div>
+            </button>
+
+            <button
+              onClick={() => setCurrentSection?.("courses")}
+              className="cursor-pointer rounded-md flex gap-2 items-center border border-border px-5 py-2 text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:border-primary/20"
+            >
+              <ArrowLeft className="text-forground w-5 h-5" />
+              <div>Back</div>
+            </button>
+          </div>
         </div>
 
         <FacultySummary
@@ -122,7 +146,7 @@ export default function Timetable() {
                         </div>
                       ) : (
                         <div className="relative h-full w-full rounded-md border border-border/60 ">
-                          <div className="absolute bottom-2 right-2 text-[8px] text-muted-foreground/30">
+                          <div className="absolute bottom-2 right-2 text-[9px] text-muted-foreground/50">
                             {[...cell.theorySlots, ...cell.labSlots].join(
                               " / ",
                             )}
@@ -137,6 +161,15 @@ export default function Timetable() {
           </table>
         </div>
       </div>
+
+      <ExportCenter
+        open={exportOpen}
+        onClose={() => setExportOpen(false)}
+        student={student}
+        selectedCourses={selectedCourses}
+        selectedFaculty={selectedFaculty}
+        onImportSuccess={onImportSuccess || (() => {})}
+      />
     </section>
   );
 }

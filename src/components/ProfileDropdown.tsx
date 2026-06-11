@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { courses } from "../data/courses";
 import type { Student } from "../types/student";
 import type { Course } from "../types/course";
+import RegistrationGuideDialog from "./DemoDialog";
 import {
   formatName,
   formatYearLabel,
@@ -20,6 +21,7 @@ import {
 
 export default function ProfileDropdown() {
   const [open, setOpen] = useState(false);
+  const [registrationGuideOpen, setRegistrationGuideOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const student: Student = JSON.parse(
@@ -57,16 +59,14 @@ export default function ProfileDropdown() {
     <div ref={dropdownRef} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="cursor-pointer group flex h-10 items-center justify-center gap-3 rounded-lg border border-border px-4 transition-all hover:bg-accent"
+        className="cursor-pointer group flex h-10 items-center justify-center gap-3 rounded-md border border-border px-4 transition-all hover:bg-accent"
       >
         <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 group-hover:bg-card/10">
           <User className="h-4 w-4 stroke-[2] text-primary transition-colors group-hover:text-card" />
         </div>
-
         <span className="text-sm font-medium text-foreground transition-colors group-hover:text-card">
           {formatName(student.name)}
         </span>
-
         <ChevronDown
           className={`h-4 w-4 stroke-[2] text-muted-foreground transition-colors group-hover:text-card ${
             open ? "rotate-180" : ""
@@ -84,11 +84,9 @@ export default function ProfileDropdown() {
           <div className="text-md font-bold text-foreground">
             {formatName(student.name)}
           </div>
-
           <div className="mt-1 text-sm text-muted-foreground">
             {student.branch} • {formatYearLabel(student.yearLabel)}{" "}
           </div>
-
           <div className="mt-1 text-sm text-muted-foreground">
             {formatRegNo(student.regNo)}
           </div>
@@ -98,31 +96,29 @@ export default function ProfileDropdown() {
             <div className="flex items-center gap-2">
               <div className="text-sm text-muted-foreground">Courses</div>
             </div>
-
             <div className="mt-1 text-lg font-semibold text-foreground">
               {selectedCourses.length}
             </div>
           </div>
-
           <div className="rounded-lg bg-muted/50 p-3">
             <div className="flex items-center gap-2">
               <div className="text-sm text-muted-foreground">Credits</div>
             </div>
-
             <div className="mt-1 text-lg font-semibold text-foreground">
               {totalCredits}
             </div>
           </div>
         </div>{" "}
         <div className="flex flex-col gap-1 py-2">
-          <button className="cursor-pointer group flex h-9 items-center gap-3 rounded-lg px-2 text-sm text-muted-foreground transition-all hover:bg-muted hover:text-foreground">
-            <Info className="h-4 w-4 stroke-[2]" />
-            <span>Help</span>
-          </button>
-
-          <button className="cursor-pointer group flex h-9 items-center gap-3 rounded-lg px-2 text-sm text-muted-foreground transition-all hover:bg-muted hover:text-foreground">
+          <button
+            onClick={() => {
+              setRegistrationGuideOpen(true);
+              setOpen(false);
+            }}
+            className="cursor-pointer group flex h-9 items-center gap-3 rounded-lg px-2 text-sm text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
+          >
             <PlayCircle className="h-4 w-4 stroke-[2]" />
-            <span>Demo</span>
+            <span>Registration Guide</span>
           </button>
 
           <button
@@ -134,6 +130,10 @@ export default function ProfileDropdown() {
           </button>
         </div>
       </div>{" "}
+      <RegistrationGuideDialog
+        open={registrationGuideOpen}
+        onClose={() => setRegistrationGuideOpen(false)}
+      />
     </div>
   );
 }

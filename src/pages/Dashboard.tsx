@@ -7,9 +7,15 @@ import Timetable from "../components/timetable";
 
 export function Dashboard() {
   const [currentSection, setCurrentSection] = useState("courses");
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleImportSuccess = () => {
+    setRefreshKey((prev) => prev + 1);
+    setCurrentSection("timetable");
+  };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div key={refreshKey} className="min-h-screen flex flex-col">
       <Navbar
         loggedIn={true}
         currentSection={currentSection}
@@ -23,9 +29,20 @@ export function Dashboard() {
           />
         )}
 
-        {currentSection === "faculty" && <Faculty />}
+        {currentSection === "faculty" && (
+          <Faculty
+            currentSection={currentSection}
+            setCurrentSection={setCurrentSection}
+          />
+        )}
 
-        {currentSection === "timetable" && <Timetable />}
+        {currentSection === "timetable" && (
+          <Timetable
+            currentSection={currentSection}
+            setCurrentSection={setCurrentSection}
+            onImportSuccess={handleImportSuccess}
+          />
+        )}
       </div>
       <Footer />
     </div>

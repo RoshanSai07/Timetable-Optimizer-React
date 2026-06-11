@@ -22,7 +22,7 @@ export default function HeroSection() {
     }
   };
   return (
-    <section className="flex flex-1 items-center justify-center px-10">
+    <section className="relative flex flex-1 items-center justify-center px-10">
       <div className="m-auto max-w-xl">
         <h1 className="mb-3 text-[42px] font-bold leading-[1.05] tracking-tight text-foreground">
           Build your timetable with{" "}
@@ -80,9 +80,8 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
-      <div className="mx-auto max-w-xl">
-        <div className="w-xl space-y-10 rounded-xl border border-border bg-card p-8 shadow-sm">
+      <div className="mx-auto max-w-[650px]">
+        <div className="w-[650px] space-y-10 rounded-xl border border-foreground/15 bg-card p-8">
           <div>
             <h1 className="text-2xl font-medium text-foreground">
               Get Started
@@ -114,7 +113,7 @@ export default function HeroSection() {
                     if (
                       email &&
                       !email.includes("@") &&
-                      (e.key === "Tab" || e.key === "ArrowRight")
+                      e.key === "Tab" /*|| e.key === "ArrowRight")*/
                     ) {
                       e.preventDefault();
                       setEmail(email + suggestion);
@@ -146,10 +145,10 @@ export default function HeroSection() {
                   <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">
                     Tab
                   </kbd>{" "}
-                  or{" "}
+                  {/* or{" "}
                   <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">
                     →
-                  </kbd>{" "}
+                  </kbd>{" "} */}
                   to autocomplete
                 </p>
               )}
@@ -157,7 +156,7 @@ export default function HeroSection() {
 
             <button
               type="submit"
-              className="h-[42px] w-full cursor-pointer rounded-lg bg-primary text-lg font-medium text-primary-foreground transition-all hover:bg-primary/90"
+              className="h-[42px] w-full cursor-pointer rounded-md bg-primary text-lg font-medium text-primary-foreground transition-all hover:bg-primary/90"
             >
               Continue
             </button>
@@ -176,20 +175,16 @@ export default function HeroSection() {
               <div className="rounded-md bg-border px-2 py-1 text-xs text-foreground">
                 Name
               </div>
-
               <div className="rounded-md bg-border px-2 py-1 text-xs text-foreground">
                 Branch
               </div>
-
               <div className="rounded-md bg-border px-2 py-1 text-xs text-foreground">
                 Year
               </div>
-
               <div className="rounded-md bg-border px-2 py-1 text-xs text-foreground">
                 Registration Number
               </div>
             </div>
-
             <div className="text-xs text-muted-foreground">
               No... we won't be saving any data, so don't worry ;)
             </div>

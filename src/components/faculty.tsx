@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   AlertCircle,
   ArrowRight,
+  ArrowLeft,
 } from "lucide-react";
 import type { Student } from "../types/student";
 import type { Course } from "../types/course";
@@ -124,7 +125,6 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
             : faculty
           : existingCourse?.lab || null,
     };
-
     if (updatedCourse.theory || updatedCourse.lab) {
       updatedSelections.push(updatedCourse);
     }
@@ -208,17 +208,26 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
     if (!isCurrentSelection) return false;
     return faculty.slots.some((slot) => conflictingSlots.has(slot));
   };
-
+  const activeSelection = selectedFaculty.find(
+    (faculty) => faculty.courseCode === activeCourse?.code,
+  );
   return (
     <section className="flex flex-1 items-start justify-center px-20 py-20">
       <div className="w-full max-w-7xl space-y-5">
-        <div>
+        <div className="relative">
           <h1 className="text-3xl font-bold tracking-tight text-foreground">
             Choose Teachers
           </h1>
           <p className="mt-2 text-base text-muted-foreground">
             Select instructor & slot for each course
           </p>
+          <button
+            onClick={() => setCurrentSection?.("courses")}
+            className=" absolute top-0 right-5 cursor-pointer rounded-md flex gap-2 items-center border border-border px-5 py-2 text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:border-primary/20"
+          >
+            <ArrowLeft className="text-forground w-5 h-5" />
+            <div>Back</div>
+          </button>
         </div>
         {clashes.length > 0 && (
           <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-5">
@@ -293,7 +302,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                   <button
                     key={course.code}
                     onClick={() => setActiveCourse(course)}
-                    className={`flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-all
+                    className={`cursor-pointer flex items-center gap-2 border border-border/70 rounded-md px-4 py-2 text-sm font-medium transition-all
                         ${
                           activeCourse?.code === course.code
                             ? "bg-primary text-primary-foreground"
@@ -318,25 +327,80 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                 setSelectedFaculty([]);
                 sessionStorage.removeItem("selectedFaculty");
               }}
-              className="rounded-xl border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:bg-muted/40 hover:text-foreground"
+              className="cursor-pointer rounded-md border border-border px-6 py-2 text-sm font-medium text-destructive transition-all hover:bg-destructive/4 hover:border-destructive/20 hover:text-destructive"
             >
               Clear All
             </button>
           </div>
           <div className="border-b border-border p-6">
-            <div className="space-y-2">
-              <div className="flex items-center gap-3">
-                <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                  {activeCourse?.code}
-                </h2>
+            <div className="flex items-start justify-between gap-8">
+              <div className="space-y-2">
+                <div className="flex items-center gap-3">
+                  <h2 className="text-2xl font-bold tracking-tight text-foreground">
+                    {activeCourse?.code}
+                  </h2>
 
-                <div className="rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground">
-                  {activeCourse?.credits} Credits
+                  <div className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                    {activeCourse?.credits} Credits
+                  </div>
                 </div>
+
+                <p className="text-base text-muted-foreground">
+                  {activeCourse?.name}
+                </p>
               </div>
-              <p className="text-base text-muted-foreground">
-                {activeCourse?.name}
-              </p>
+
+              {activeSelection && (
+                <div className="min-w-[320px] rounded-lg border border-border bg-muted/30 p-4">
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    Current Selection
+                  </div>
+
+                  <div className="flex space-x-10">
+                    {activeSelection.theory && (
+                      <div>
+                        <div className="mb-1 text-xs font-medium text-primary">
+                          Theory Faculty
+                        </div>
+                        <div className="text-sm font-medium text-foreground">
+                          {activeSelection.theory.name}
+                        </div>
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {activeSelection.theory.slots.map((slot) => (
+                            <span
+                              key={slot}
+                              className="rounded-md border border-primary/20 bg-primary/10 px-2 py-0.5 text-xs text-primary"
+                            >
+                              {slot}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {activeSelection.lab && (
+                      <div>
+                        <div className="mb-1 text-xs font-medium text-secondary">
+                          Lab Faculty
+                        </div>
+                        <div className="text-sm font-medium text-foreground">
+                          {activeSelection.lab.name}
+                        </div>
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {activeSelection.lab.slots.map((slot) => (
+                            <span
+                              key={slot}
+                              className="rounded-md border border-secondary/20 bg-secondary/10 px-2 py-0.5 text-xs text-secondary"
+                            >
+                              {slot}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="space-y-4 p-6">

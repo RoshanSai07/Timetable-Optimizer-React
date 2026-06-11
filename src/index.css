@@ -7,7 +7,6 @@
   --font-heading: "Sora", system-ui, -apple-system, sans-serif;
   --font-size: 16px;
 
-  /* Colors from V1 palette */
   --background: #f5f7fa;
   --foreground: #455a64;
   --card: #ffffff;
@@ -16,7 +15,7 @@
   --popover-foreground: #455a64;
   --primary: #2e8b57;
   --primary-foreground: #ffffff;
-  --secondary: #038979;
+  --secondary: #0891b2;
   --secondary-foreground: #ffffff;
   --muted: #ebf6f5;
   --muted-foreground: #455a64;
@@ -32,7 +31,6 @@
   --font-weight-normal: 400;
   --ring: #2e8b57;
 
-  /* Chart colors using  palette */
   --chart-1: #2e8b57;
   --chart-2: #038979;
   --chart-3: #1b5e20;
@@ -52,39 +50,41 @@
 }
 
 .dark {
-  --background: #1a1f24;
-  --foreground: #e8f5e9;
-  --card: #242a30;
-  --card-foreground: #e8f5e9;
-  --popover: #242a30;
-  --popover-foreground: #e8f5e9;
-  --primary: #2e8b57;
+  --background: #0f1720;
+  --foreground: #f8fafc;
+  --card: #161f29;
+  --card-foreground: #f8fafc;
+  --popover: #161f29;
+  --popover-foreground: #f8fafc;
+  --primary: #2b8a57;
   --primary-foreground: #ffffff;
-  --secondary: #038979;
+  --secondary: #06b6d4;
   --secondary-foreground: #ffffff;
-  --muted: #2d3439;
-  --muted-foreground: #b2dfdb;
-  --accent: #1b5e20;
-  --accent-foreground: #e8f5e9;
-  --destructive: #e53c38;
+  --muted: #1b2632;
+  --muted-foreground: #94a3b8;
+  --accent: #1a4732;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(178, 223, 219, 0.1);
-  --input: rgba(178, 223, 219, 0.1);
-  --ring: #2e8b57;
-  --font-weight-medium: 600;
-  --font-weight-normal: 400;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --input-background: #161f29;
+  --switch-background: #334155;
+  --ring: #2b8a57;
+
   --chart-1: #2e8b57;
-  --chart-2: #038979;
-  --chart-3: #1b5e20;
-  --chart-4: #b2dfdb;
-  --chart-5: #e53c38;
-  --sidebar: #242a30;
-  --sidebar-foreground: #e8f5e9;
+  --chart-2: #06b6d4;
+  --chart-3: #8b5cf6;
+  --chart-4: #f59e0b;
+  --chart-5: #ef4444;
+
+  --sidebar: #111827;
+  --sidebar-foreground: #f8fafc;
   --sidebar-primary: #2e8b57;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2d3439;
-  --sidebar-accent-foreground: #b2dfdb;
-  --sidebar-border: rgba(178, 223, 219, 0.08);
+  --sidebar-accent: #1b5e20;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
   --sidebar-ring: #2e8b57;
 }
 
@@ -197,6 +197,12 @@
 
 body {
   background-color: var(--background);
+}
+
+* {
+  transition:
+    background-color 200ms ease,
+    color 300ms ease;
 }
 
 ::-webkit-scrollbar {

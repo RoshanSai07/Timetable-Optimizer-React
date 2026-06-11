@@ -46,7 +46,7 @@ export default function FacultyCard({
   return (
     <button
       onClick={onSelect}
-      className={`group relative rounded-lg border p-4 text-left transition-all duration-200 ${
+      className={`cursor-pointer group relative rounded-lg border p-4 text-left transition-all duration-200 ${
         conflict
           ? `${conflictColors.border} ${conflictColors.bg} shadow-sm`
           : selected
