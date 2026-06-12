@@ -1,343 +1,220 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import {
-  AlertCircle,
-  BookOpenCheck,
-  CalendarCheck,
-  CheckCircle2,
-  Clock3,
-  ExternalLink,
-  FileCheck2,
-  Layers3,
-  ListChecks,
-  PlayCircle,
-  ShieldCheck,
   X,
+  Play,
+  CheckCircle2,
+  AlertTriangle,
+  Clock,
+  ArrowRight,
+  Lightbulb,
+  BarChart2,
+  CalendarCheck,
 } from "lucide-react";
 
-type RegistrationGuideDialogProps = {
+interface DemoPanelProps {
   open: boolean;
   onClose: () => void;
-};
+}
 
-const officialRegistrationVideoPath = "/demo.mp4";
-
-const registrationSteps = [
+const whyPoints = [
   {
-    title: "Prepare multiple plans",
-    description:
-      "Keep your ideal timetable ready, plus backup faculty-slot combinations in case seats fill up.",
-    icon: Layers3,
+    icon: <AlertTriangle className="h-4 w-4" />,
+    title: "Mock registration is your only trial run",
+    desc: "VIT AP's course registration lasts just a few hours. Going in unprepared means wasted slots, clashes you only discover after confirming, and no time to recover.",
+    tone: "warn",
   },
   {
-    title: "Watch the official flow",
-    description:
-      "Use the video above to understand exactly where to click inside the real registration portal.",
-    icon: PlayCircle,
+    icon: <Clock className="h-4 w-4" />,
+    title: "Slot conflicts cost you credits",
+    desc: "Two courses sharing a slot means you can only register one. Without pre-planning, you might lose a core subject because a lab ate its slot.",
+    tone: "warn",
   },
   {
-    title: "Register by priority",
-    description:
-      "Submit high-demand courses and faculty first, because every faculty member has limited seats.",
-    icon: CalendarCheck,
+    icon: <CheckCircle2 className="h-4 w-4" />,
+    title: "Plan here first, register with confidence",
+    desc: "Build your full semester here, clash detection runs in real time. By the time you open VTOP, you already know exactly which courses and teachers to pick.",
+    tone: "good",
   },
   {
-    title: "Verify before submitting",
-    description:
-      "Compare the portal selections with your optimized timetable, then save or submit only after checking every slot.",
-    icon: FileCheck2,
+    icon: <BarChart2 className="h-4 w-4" />,
+    title: "Compare teachers before committing",
+    desc: "The same course can have many instructors across different slots. Timetable Optimizer lets you see all options side-by-side so you can pick the best fit.",
+    tone: "good",
   },
 ];
 
-const checklist = [
-  "Keep your registration number, password, and backup login credentials ready before the portal opens.",
-  "Prepare Plan A, Plan B, and Plan C timetables to easily swap options if slots fill up.",
-  "Use the Import & Export Center to coordinate selections and match timetables with friends.",
-  "Take a screenshot or save confirmation after the official portal accepts your final choices.",
-];
-
-const platformAdvantages = [
+const steps = [
   {
-    title: "Clash-Free Selections",
-    description:
-      "Automatically checks course theory/lab slots and alerts you to clashes in real-time as you pick.",
-    icon: ShieldCheck,
+    step: "01",
+    title: "Open Timetable Optimizer",
+    desc: "Sign in with your VIT AP email. Your branch, year, and courses are auto-filtered, no manual setup",
   },
   {
-    title: "Instant Setup Sharing",
-    description:
-      "Export your config to JSON and send it to friends. They can import it to match selections instantly.",
-    icon: Layers3,
+    step: "02",
+    title: "Add all the courses you want",
+    desc: "Search by name or code. Add theory and lab courses. Watch the clash indicator, red means conflict, fix it before moving on",
   },
   {
-    title: "Backup Playbook Plans",
-    description:
-      "Define backup faculty combinations ahead of time so you can act fast if a popular seat fills up.",
-    icon: Clock3,
+    step: "03",
+    title: "Pick your teachers",
+    desc: "Each course shows every instructor and the slot they teach. Compare and choose. The timetable updates live",
   },
   {
-    title: "High-Quality Exports",
-    description:
-      "Export your completed clash-free timetable layout to high-res PNG or A3 Landscape PDF formats.",
-    icon: FileCheck2,
+    step: "04",
+    title: "Export your final list",
+    desc: "Take your finalised course + teacher + slot combination into VTOP and register exactly what you planned. You can share it with your friends too",
   },
 ];
 
-export default function RegistrationGuideDialog({
-  open,
-  onClose,
-}: RegistrationGuideDialogProps) {
-  useEffect(() => {
-    if (!open) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [onClose, open]);
-
+const VIDEO_URL = "/demo.mp4";
+export default function DemoDialog({ open, onClose }: DemoPanelProps) {
+  const [playing, setPlaying] = useState(false);
   if (!open) return null;
-
   return (
-    <div
-      onMouseDown={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/45 px-6 py-8 backdrop-blur-sm"
-    >
+    <>
       <div
-        onMouseDown={(event) => event.stopPropagation()}
-        className="flex max-h-[90vh] w-full max-w-7xl flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-2xl shadow-foreground/20"
-      >
-        <header className="flex items-start justify-between gap-6 border-b border-border px-6 py-5">
-          <div>
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-              <BookOpenCheck className="h-3.5 w-3.5" />
-              Official registration walkthrough
+        className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      <div className="fixed right-0 top-0 z-50 flex h-full w-full max-w-lg flex-col border-l border-border bg-card shadow-2xl">
+        <div className="flex items-center justify-between border-b border-border px-6 py-5">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <Play className="h-5 w-5" />
             </div>
-            <h2 className="text-2xl font-bold tracking-tight text-foreground">
-              Optimize selections and plan a clash-free schedule
-            </h2>
-            <p className="mt-1 max-w-3xl text-sm leading-6 text-muted-foreground">
-              Timetable Optimizer helps you select your courses, compare available faculty, check for real-time clashes, and generate/share your weekly schedule before performing actual registration on the portal. Click outside or press Esc to close.
-            </p>
+            <div>
+              <h2 className="text-lg font-semibold leading-none">
+                How it works
+              </h2>
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Watch · Read · Register smarter
+              </p>
+            </div>
           </div>
-
           <button
             onClick={onClose}
-            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-md border border-border text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
-            aria-label="Close registration guide"
+            className="cursor-pointer h-8 w-8 border border-border rounded-md flex items-center justify-center"
           >
             <X className="h-5 w-5" />
           </button>
-        </header>
+        </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6">
-          <div className="grid gap-5 lg:grid-cols-[1.55fr_0.65fr]">
-            <section className="space-y-5">
-              <div className="overflow-hidden rounded-2xl border border-border bg-background shadow-sm">
-                <div className="border-b border-border bg-gradient-to-r from-primary/10 via-muted/40 to-secondary/10 px-5 py-4">
-                  <div className="flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-                        <PlayCircle className="h-6 w-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground">
-                          Official video: course registration flow
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          Keep this as the source of truth for the actual
-                          website steps.
-                        </p>
-                      </div>
-                    </div>
-
-                    <a
-                      href={officialRegistrationVideoPath}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-xs font-semibold text-foreground transition-all hover:bg-muted"
-                    >
-                      Open separately
-                      <ExternalLink className="h-3.5 w-3.5" />
-                    </a>
-                  </div>
+        <div className="flex-1 overflow-y-auto">
+          <div className="border-b border-border">
+            {VIDEO_URL ? (
+              <div className="aspect-video w-full bg-black">
+                <video controls preload="metadata" className="h-full w-full">
+                  <source src={VIDEO_URL} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            ) : (
+              <div
+                className="relative flex aspect-video w-full cursor-pointer flex-col items-center justify-center gap-3 bg-muted/60"
+                onClick={() => setPlaying(!playing)}
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-lg">
+                  <Play className="h-6 w-6 translate-x-0.5 text-white" />
                 </div>
+                <p className="text-xs text-muted-foreground">
+                  Mock registration walkthrough
+                </p>
+                <div className="absolute right-3 top-3 text-[10px]">
+                  Coming soon
+                </div>
+              </div>
+            )}
+            <div className="px-6 py-3 bg-muted/30">
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Watch how a real course registration session unfolds and know
+                how having a pre-built plan makes it effortless
+              </p>
+            </div>
+          </div>
 
-                <div className="bg-black p-2">
-                  <video
-                    className="aspect-video w-full rounded-xl bg-black"
-                    src={officialRegistrationVideoPath}
-                    controls
-                    preload="metadata"
+          <div className="space-y-0 divide-y px-6">
+            <div className="py-6 border-border">
+              <div className="mb-4 flex items-center gap-2">
+                <Lightbulb className="h-5 w-5 text-primary" />
+                <h3 className="text-[15px] font-semibold">
+                  Why plan here before VTOP?
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {whyPoints.map((p, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 rounded-md border border-border p-3.5"
                   >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-
-                <div className="grid gap-3 border-t border-border bg-card p-4 md:grid-cols-3">
-                  <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                      Before portal opens
-                    </div>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-foreground">
-                      Build your ideal timetable and backups here first.
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-secondary">
-                      During registration
-                    </div>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-foreground">
-                      Register high-demand faculty before safer options.
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-muted/40 p-4">
-                    <div className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                      If seats fill
-                    </div>
-                    <p className="mt-2 text-sm font-semibold leading-6 text-foreground">
-                      Switch to a prepared backup instead of guessing.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                {platformAdvantages.map((advantage) => {
-                  const AdvantageIcon = advantage.icon;
-
-                  return (
                     <div
-                      key={advantage.title}
-                      className="rounded-2xl border border-border bg-background p-5"
+                      className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md ${
+                        p.tone === "warn"
+                          ? "bg-destructive/10 text-destructive"
+                          : "bg-primary/10 text-primary"
+                      }`}
                     >
-                      <div className="flex items-start gap-4">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                          <AdvantageIcon className="h-5 w-5 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="text-base font-bold text-foreground">
-                            {advantage.title}
-                          </h3>
-                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                            {advantage.description}
-                          </p>
-                        </div>
+                      {p.icon}
+                    </div>
+                    <div>
+                      <div className="text-[15px] font-medium">{p.title}</div>
+                      <div className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                        {p.desc}
                       </div>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
+            </div>
 
-              <div className="rounded-2xl border border-border bg-card p-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/10">
-                    <AlertCircle className="h-5 w-5 text-secondary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground">
-                      What this app can and cannot control
-                    </h3>
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      This optimizer can help you prepare clash-free choices,
-                      backups, and order of action. It cannot control the
-                      official portal, seat availability, page lag, login
-                      issues, or internet problems during registration.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <aside className="space-y-5">
-              <div className="rounded-2xl border border-primary/20 bg-primary/5 p-5">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-card">
-                    <ListChecks className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground">
-                      Your registration strategy
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                      Do not enter the portal with only one perfect plan. Enter
-                      with Plan A, Plan B, and Plan C.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-muted/40 p-5">
-                <h3 className="text-lg font-bold text-foreground">
-                  Before registration
+            <div className="py-6">
+              <div className="mb-4 flex items-center gap-2">
+                <CalendarCheck className="h-5 w-5 text-primary" />
+                <h3 className="text-[15px] font-semibold">
+                  Your pre-registration workflow
                 </h3>
-                <div className="mt-4 space-y-3">
-                  {checklist.map((item) => (
-                    <div key={item} className="flex gap-3 text-sm">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                      <span className="leading-6 text-muted-foreground">
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
               </div>
-
-              <div className="rounded-2xl border border-border bg-card p-5">
-                <h3 className="text-lg font-bold text-foreground">
-                  Recommended order
-                </h3>
-                <div className="mt-4 space-y-3">
-                  {registrationSteps.map((step, index) => {
-                    const StepIcon = step.icon;
-
-                    return (
-                      <div key={step.title} className="flex gap-3">
-                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                          <StepIcon className="h-4 w-4 text-primary" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                            {index + 1}
-                          </div>
-                          <div className="text-sm font-bold text-foreground">
-                            {step.title}
-                          </div>
-                          <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                            {step.description}
-                          </p>
-                        </div>
+              <div className="space-y-1">
+                {steps.map((s, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="flex flex-col items-center">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-primary/20 bg-primary/5">
+                        <span className="text-[12px] font-bold text-primary">
+                          {s.step}
+                        </span>
                       </div>
-                    );
-                  })}
-                </div>
+                      {i < steps.length - 1 && (
+                        <div className="mt-1 w-px flex-1 bg-border min-h-[24px]" />
+                      )}
+                    </div>
+                    <div className="pb-5">
+                      <div className="text-[15px] font-semibold">{s.title}</div>
+                      <div className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                        {s.desc}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              <div className="rounded-2xl border border-secondary/20 bg-secondary/5 p-5">
-                <h3 className="text-lg font-bold text-foreground">
-                  Best workflow
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  Keep this optimizer and the official portal open side by side.
-                  If a seat disappears, move to your next prepared option
-                  instead of building a new timetable under stress.
+              <div className="mt-2 rounded-md border border-primary/20 bg-primary/5 p-4 px-2">
+                <p className="text-xs text-primary leading-relaxed">
+                  <span className="font-semibold">Pro tip: </span> Do try this
+                  before course registration opens. It takes really few minutes
+                  here rather than many stressful minutes during registration
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
 
-              <a
-                href={officialRegistrationVideoPath}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground transition-all hover:bg-muted"
-              >
-                Open video in new tab
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </aside>
+        <div className="border-t border-border px-6 py-4">
+          <div className="flex items-center justify-center">
+            <p className="text-xs text-muted-foreground">
+              Built for VIT AP students
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,485 +1,326 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import {
-  AlertCircle,
-  BookOpen,
-  CheckCircle2,
-  ChevronRight,
-  HelpCircle,
-  LifeBuoy,
-  Search,
-  Sparkles,
   X,
-  Share2,
+  BookOpen,
+  HelpCircle,
+  Info,
+  ChevronDown,
+  ChevronRight,
+  ArrowRight,
+  Zap,
+  Users,
+  Calendar,
+  Download,
+  Mail,
+  Shield,
 } from "lucide-react";
+import Logo from "../assets/logo.svg";
 
-type HelpDialogProps = {
+interface HelpPanelProps {
   open: boolean;
   onClose: () => void;
-};
-
-type HelpSection = {
-  id: string;
-  title: string;
-  eyebrow: string;
-  description: string;
-  icon: typeof BookOpen;
-  steps: string[];
-};
-
-type HelpAnswer = {
-  id?: string;
-  question: string;
-  answer: string;
-  keywords: string[];
-};
-
-const helpSections: HelpSection[] = [
-  {
-    id: "getting-started",
-    title: "Getting started",
-    eyebrow: "01 · Sign in",
-    description:
-      "Use your VIT-AP student email to personalize the app for your academic year and branch.",
-    icon: Sparkles,
-    steps: [
-      "Enter your college email on the landing page.",
-      "Press Tab to autocomplete the student email domain if needed.",
-      "The app reads your year, branch, name, and registration number locally.",
-      "Continue to the dashboard to start building your semester plan.",
-    ],
-  },
-  {
-    id: "courses",
-    title: "Select courses",
-    eyebrow: "02 · Course cart",
-    description:
-      "Pick the subjects you plan to register for before choosing faculty and slots.",
-    icon: BookOpen,
-    steps: [
-      "Search by course name or course code.",
-      "Click a course card to add it to your selected list.",
-      "Use the selected course chips to remove anything you added by mistake.",
-      "Review the credit total, then click Continue.",
-    ],
-  },
-  {
-    id: "faculty",
-    title: "Choose faculty",
-    eyebrow: "03 · Slot planning",
-    description:
-      "Select theory and lab faculty for every course while the app watches for clashes.",
-    icon: CheckCircle2,
-    steps: [
-      "Open each course tab from the top of the faculty panel.",
-      "Search or sort faculty by name and slot.",
-      "Select one theory option and one lab option when both are available.",
-      "Resolve red conflict warnings before moving to the timetable.",
-    ],
-  },
-  {
-    id: "timetable",
-    title: "Review timetable",
-    eyebrow: "04 · Final schedule",
-    description:
-      "Your weekly timetable is generated after every selected course is complete and clash-free.",
-    icon: HelpCircle,
-    steps: [
-      "Use the timetable view to see day-wise classes and free slots.",
-      "Theory classes use the primary color and labs use the secondary color.",
-      "Each class block shows course code, faculty, and selected slot.",
-      "Go back to Faculty if you want to change an instructor or slot.",
-    ],
-  },
-  {
-    id: "share-export",
-    title: "Share & Export",
-    eyebrow: "05 · Export center",
-    description:
-      "Export your optimized timetable as an image or PDF, or share configuration files directly with friends.",
-    icon: Share2,
-    steps: [
-      "Open the Import & Export Center from the Weekly Timetable dashboard.",
-      "Choose PNG or PDF to download high-fidelity, printable copies of your timetable.",
-      "Use JSON Export to download your configuration file, and send it to your friends.",
-      "Your friends can use JSON Import to load your exact course and faculty selections instantly.",
-    ],
-  },
-];
-
-const helpAnswers: HelpAnswer[] = [
-  {
-    id: "share-import-export",
-    question: "How do I share my selections with friends?",
-    answer:
-      "Go to the JSON Export tab in the Import & Export Center. Copy the text or download the JSON file, then send it to a friend. They can use the JSON Import tab to load your selections instantly.",
-    keywords: [
-      "share",
-      "friend",
-      "classmate",
-      "json",
-      "send",
-      "import",
-      "export",
-    ],
-  },
-  {
-    id: "export-formats",
-    question: "What formats can I export my timetable in?",
-    answer:
-      "The app supports high-resolution PNG images for screens, A3 Landscape PDFs for printing/storage, and JSON configuration files for sharing data.",
-    keywords: ["format", "png", "pdf", "file", "download", "export"],
-  },
-  {
-    id: "zoom-disclaimer",
-    question: "Does the preview zoom affect download quality?",
-    answer:
-      "No. The zoom scale slider is only for fitting the timetable inside your screen preview. PNG and PDF downloads are always rendered at 100% full high-resolution.",
-    keywords: ["zoom", "scale", "quality", "size", "cutoff", "print"],
-  },
-  {
-    question: "How do I use the timetable optimizer?",
-    answer:
-      "Start with your VIT-AP email, select your courses, choose theory and lab faculty for each course, fix any slot conflicts, then review the generated weekly timetable.",
-    keywords: ["use", "start", "guide", "workflow", "how"],
-  },
-  {
-    question: "Why can’t I continue to the timetable?",
-    answer:
-      "The timetable unlocks only when every selected course has the required faculty selections and no clashes remain. Check the faculty page for incomplete courses or red conflict alerts.",
-    keywords: ["continue", "timetable", "locked", "cannot", "can't", "next"],
-  },
-  {
-    question: "How are clashes detected?",
-    answer:
-      "A clash appears when two selected faculty options share the same slot. The app highlights the affected courses and slots so you can swap one option before continuing.",
-    keywords: ["clash", "conflict", "overlap", "slots", "detect"],
-  },
-  {
-    question: "Can I change a selected course?",
-    answer:
-      "Yes. Return to Courses and click a selected course chip to remove it. Removing a course also clears its saved faculty selection so your plan stays consistent.",
-    keywords: ["change", "remove", "course", "delete", "selected"],
-  },
-  {
-    question: "What should I do if a faculty option is missing?",
-    answer:
-      "Try searching by a shorter name or slot first. If it still does not appear, the faculty dataset may not include that option yet and needs to be updated in the project data.",
-    keywords: ["missing", "faculty", "teacher", "not found", "data"],
-  },
-  {
-    question: "Is my data saved permanently?",
-    answer:
-      "No permanent account storage is used here. Your choices are kept in browser session storage, which is useful while planning but can reset when the session ends.",
-    keywords: ["save", "storage", "privacy", "data", "permanent"],
-  },
-  {
-    question: "How do I search faster?",
-    answer:
-      "Use course codes for courses, faculty names for instructors, and slot names when comparing schedules. Short queries usually work better than full sentences.",
-    keywords: ["search", "filter", "find", "quick", "faster"],
-  },
-  {
-    question: "What do the colors mean?",
-    answer:
-      "Green primary states usually mean selected, ready, or theory-related items. Cyan secondary states usually identify lab-related items. Red indicates conflicts or destructive actions.",
-    keywords: ["color", "green", "red", "cyan", "meaning", "status"],
-  },
-];
-
-function getAnswerScore(answer: HelpAnswer, query: string) {
-  const normalizedQuery = query.toLowerCase().trim();
-  if (!normalizedQuery) return 0;
-
-  const terms = normalizedQuery.split(/\s+/);
-  const searchableText = [answer.question, answer.answer, ...answer.keywords]
-    .join(" ")
-    .toLowerCase();
-
-  return terms.reduce((score, term) => {
-    if (answer.question.toLowerCase().includes(term)) return score + 4;
-    if (answer.keywords.some((keyword) => keyword.includes(term))) {
-      return score + 3;
-    }
-    if (searchableText.includes(term)) return score + 1;
-    return score;
-  }, 0);
 }
 
-export default function HelpDialog({ open, onClose }: HelpDialogProps) {
-  const [activeSectionId, setActiveSectionId] = useState(helpSections[0].id);
-  const [question, setQuestion] = useState("");
+type Tab = "navigate" | "faq" | "info";
 
-  useEffect(() => {
-    if (!open) return;
+const faqs = [
+  {
+    q: "What is a slot?",
+    a: "VIT AP uses a slot-based system where each course is assigned one or more slots (e.g. A1, B2, L1). A slot maps to a fixed day and time — theory slots (A–G) in the top row, lab slots (L1–L60) in the bottom row.",
+  },
+  {
+    q: "Why can't I proceed to Teachers?",
+    a: "You need to select at least one course before moving to teacher selection. Once courses are chosen, the Teachers step unlocks automatically.",
+  },
+  {
+    q: "What counts as a clash?",
+    a: "Two courses clash if they share any slot. For example, if Course A occupies slot B1 and Course B also occupies slot B1, they conflict and can't both be registered.",
+  },
+  {
+    q: "Can I change my teacher after selecting?",
+    a: "Yes — go back to the Teachers step at any time. Each course tab shows all available instructors for that slot, and you can switch freely before finalising.",
+  },
+  {
+    q: "What does the email auto-detection do?",
+    a: "Your VIT AP email encodes your name, join year, and branch code. We parse it to pre-filter courses relevant to your branch and show your academic year — no manual entry needed.",
+  },
+  {
+    q: "Can I export my timetable?",
+    a: "Yes. On the Timetable view, use the Download button to get a PNG of your schedule, or Share to copy a link.",
+  },
+];
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
+const steps = [
+  {
+    icon: <Mail className="h-4 w-4" />,
+    title: "Sign in with your email",
+    desc: "Enter your VIT AP email (e.g. roshan.24bce8403@vitapstudent.ac.in). We extract your name, branch, year, and reg. number automatically.",
+  },
+  {
+    icon: <BookOpen className="h-4 w-4" />,
+    title: "Select your courses",
+    desc: "Browse courses filtered for your branch. Use the search bar or filter by type (theory / lab). Add as many as you need — clash indicators appear in real time.",
+  },
+  {
+    icon: <Users className="h-4 w-4" />,
+    title: "Choose your teachers",
+    desc: "For each course, a tab shows all available instructors and their assigned slots. Pick the one that suits your schedule.",
+  },
+  {
+    icon: <Calendar className="h-4 w-4" />,
+    title: "Review your timetable",
+    desc: "Your full week view is generated with theory and lab slots colour-coded. Conflicts are highlighted. When you're happy, export or share.",
+  },
+];
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [onClose, open]);
-
-  const activeSection =
-    helpSections.find((section) => section.id === activeSectionId) ||
-    helpSections[0];
-
-  const suggestedAnswers = useMemo(() => {
-    const rankedAnswers = helpAnswers
-      .map((answer) => ({
-        ...answer,
-        score: getAnswerScore(answer, question),
-      }))
-      .filter((answer) => answer.score > 0)
-      .sort((first, second) => second.score - first.score);
-
-    return question.trim()
-      ? rankedAnswers.slice(0, 3)
-      : helpAnswers.slice(0, 4);
-  }, [question]);
+export default function HelpDialog({ open, onClose }: HelpPanelProps) {
+  const [tab, setTab] = useState<Tab>("navigate");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!open) return null;
 
-  const ActiveIcon = activeSection.icon;
-
   return (
-    <div
-      onMouseDown={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/45 px-6 py-8 backdrop-blur-sm"
-    >
+    <>
       <div
-        onMouseDown={(event) => event.stopPropagation()}
-        className="flex max-h-[88vh] w-full max-w-7xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl shadow-foreground/20"
-      >
-        <aside className="hidden w-[290px] flex-col border-r border-border bg-muted/40 p-5 lg:flex">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-              <LifeBuoy className="h-5 w-5 text-primary" />
+        className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      <div className="fixed right-0 top-0 z-50 flex h-full w-full max-w-lg flex-col border-l border-border bg-card shadow-2xl">
+        <div className="flex items-center justify-between border-b border-border px-6 py-5">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
+              <HelpCircle className="h-5 w-5" />
             </div>
             <div>
-              <div className="text-sm font-semibold text-foreground">
+              <h2 className="text-lg font-semibold leading-none">
                 Help Center
-              </div>
-              <div className="text-xs text-muted-foreground">
-                Timetable Optimizer docs
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            {helpSections.map((section) => {
-              const SectionIcon = section.icon;
-              const active = section.id === activeSectionId;
-
-              return (
-                <button
-                  key={section.id}
-                  onClick={() => setActiveSectionId(section.id)}
-                  className={`flex w-full cursor-pointer items-center gap-3 rounded-xl border px-3 py-3 text-left transition-all ${
-                    active
-                      ? "border-primary/30 bg-primary/10 text-primary"
-                      : "border-transparent text-muted-foreground hover:border-border hover:bg-card"
-                  }`}
-                >
-                  <SectionIcon className="h-4 w-4 shrink-0" />
-                  <div className="min-w-0 flex-1">
-                    <div className="text-sm font-semibold">{section.title}</div>
-                    <div className="truncate text-xs opacity-80">
-                      {section.eyebrow}
-                    </div>
-                  </div>
-                  {active && <ChevronRight className="h-4 w-4" />}
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="mt-auto rounded-xl border border-border bg-card p-4">
-            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <AlertCircle className="h-4 w-4 text-secondary" />
-              Smart tip
-            </div>
-            <p className="mt-2 text-xs leading-5 text-muted-foreground">
-              Resolve clashes while choosing faculty. It is easier than fixing a
-              packed timetable at the end.
-            </p>
-          </div>
-        </aside>
-
-        <div className="flex min-w-0 flex-1 flex-col">
-          <header className="flex items-start justify-between gap-6 border-b border-border px-6 py-5">
-            <div>
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                <Sparkles className="h-3.5 w-3.5" />
-                Product guide
-              </div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                How can we help?
               </h2>
-              <p className="mt-1 max-w-2xl text-sm leading-6 text-muted-foreground">
-                Learn the full workflow, troubleshoot common blockers, or ask a
-                question about courses, faculty, clashes, and timetable output.
-                Click outside or press Esc to close.
+              <p className="mt-0.5 text-xs text-muted-foreground">
+                Timetable Optimizer · VIT AP
               </p>
             </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="cursor-pointer h-8 w-8 border border-border rounded-md flex items-center justify-center"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
+        <div className="flex border-b border-border px-6">
+          {(
+            [
+              {
+                id: "navigate",
+                icon: <ArrowRight className="h-4 w-4" />,
+                label: "How to use",
+              },
+              {
+                id: "faq",
+                icon: <HelpCircle className="h-4 w-4" />,
+                label: "FAQ",
+              },
+              {
+                id: "info",
+                icon: <Info className="h-4 w-4" />,
+                label: "About",
+              },
+            ] as { id: Tab; icon: React.ReactNode; label: string }[]
+          ).map((t) => (
             <button
-              onClick={onClose}
-              className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-md border border-border text-muted-foreground transition-all hover:bg-muted hover:text-foreground"
-              aria-label="Close help dialog"
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={`flex items-center gap-1 border-b-2 px-2 py-3 mr-5 text-sm font-medium transition-colors ${
+                tab === t.id
+                  ? "border-primary text-primary"
+                  : "cursor-pointer border-transparent text-muted-foreground hover:text-foreground"
+              }`}
             >
-              <X className="h-5 w-5" />
+              {t.icon}
+              {t.label}
             </button>
-          </header>
+          ))}
+        </div>
 
-          <div className="overflow-y-auto px-6 py-6">
-            <div className="grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
-              <section className="space-y-5">
-                <div className="rounded-2xl border border-border bg-background p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <ActiveIcon className="h-6 w-6 text-primary" />
+        <div className="flex-1 overflow-y-auto px-6 py-6">
+          {tab === "navigate" && (
+            <div className="space-y-2">
+              <p className="mb-6 text-[15px] text-muted-foreground">
+                Follow these four steps to build your conflict-free timetable
+              </p>
+              {steps.map((s, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      {s.icon}
                     </div>
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                        {activeSection.eyebrow}
-                      </div>
-                      <h3 className="mt-2 text-2xl font-bold text-foreground">
-                        {activeSection.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                        {activeSection.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 grid gap-3">
-                    {activeSection.steps.map((step, index) => (
-                      <div
-                        key={step}
-                        className="flex gap-3 rounded-xl border border-border bg-card p-4"
-                      >
-                        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                          {index + 1}
-                        </div>
-                        <p className="text-sm leading-6 text-foreground">
-                          {step}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-3">
-                  <div className="rounded-xl border border-border bg-card p-4">
-                    <div className="text-2xl font-bold text-primary">5</div>
-                    <div className="mt-1 text-sm font-semibold text-foreground">
-                      App steps
-                    </div>
-                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
-                      Sign in → courses → faculty → timetable → export.
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-card p-4">
-                    <div className="text-2xl font-bold text-secondary">
-                      Live
-                    </div>
-                    <div className="mt-1 text-sm font-semibold text-foreground">
-                      Clash checks
-                    </div>
-                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
-                      Conflicts show while faculty is selected.
-                    </p>
-                  </div>
-                  <div className="rounded-xl border border-border bg-card p-4">
-                    <div className="text-2xl font-bold text-primary">Local</div>
-                    <div className="mt-1 text-sm font-semibold text-foreground">
-                      Session only
-                    </div>
-                    <p className="mt-2 text-xs leading-5 text-muted-foreground">
-                      No account needed. Data lives in this browser tab.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              <section className="space-y-5">
-                <div className="rounded-2xl border border-border bg-card p-5">
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground">
-                      Ask a question
-                    </h3>
-                    <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                      Type naturally, like “why is timetable locked?” or “how do
-                      clashes work?”
-                    </p>
-                  </div>
-
-                  <div className="relative mt-4">
-                    <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                    <input
-                      value={question}
-                      onChange={(event) => setQuestion(event.target.value)}
-                      placeholder="Ask about courses, faculty, clashes..."
-                      className="h-12 w-full rounded-xl border border-input bg-background pl-11 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-2 focus:ring-ring/30"
-                    />
-                  </div>
-
-                  <div className="mt-4 space-y-3">
-                    {suggestedAnswers.length > 0 ? (
-                      suggestedAnswers.map((answer) => (
-                        <div
-                          key={answer.question}
-                          className="rounded-xl border border-border bg-muted/30 p-4"
-                        >
-                          <div className="text-sm font-semibold text-foreground">
-                            {answer.question}
-                          </div>
-                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                            {answer.answer}
-                          </p>
-                        </div>
-                      ))
-                    ) : (
-                      <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-4">
-                        <div className="text-sm font-semibold text-foreground">
-                          I do not have an exact match yet.
-                        </div>
-                        <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                          Try asking with keywords like course, faculty, clash,
-                          slot, timetable, search, or save. If it is a data
-                          issue, check the relevant file in the project data.
-                        </p>
-                      </div>
+                    {i < steps.length - 1 && (
+                      <div className="mt-1 w-px flex-1 bg-border" />
                     )}
                   </div>
-                </div>
-
-                <div className="rounded-2xl border border-border bg-muted/40 p-5">
-                  <h3 className="text-lg font-bold text-foreground">
-                    Common fixes
-                  </h3>
-                  <div className="mt-4 space-y-3">
-                    {[
-                      "If a course disappears, confirm it is not already selected.",
-                      "If faculty looks empty, check the active course tab first.",
-                      "If conflicts remain, swap one course’s theory or lab slot.",
-                      "If data resets, start again in the same browser session.",
-                    ].map((fix) => (
-                      <div key={fix} className="flex gap-3 text-sm">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        <span className="leading-6 text-muted-foreground">
-                          {fix}
-                        </span>
-                      </div>
-                    ))}
+                  <div className="pb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-wider">
+                        Step {i + 1}
+                      </span>
+                    </div>
+                    <div className="mt-0.5 text-[15px] font-semibold">
+                      {s.title}
+                    </div>
+                    <div className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      {s.desc}
+                    </div>
                   </div>
                 </div>
-              </section>
+              ))}
+
+              <div className="mt-5 rounded-md border border-border bg-muted/40 p-4">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  Slot legend
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex items-center bg-primary gap-1.5 rounded-sm px-2.5 py-1 text-xs font-medium text-white">
+                    A1–G2 Theory
+                  </span>
+                  <span className="inline-flex items-center bg-secondary gap-1.5 rounded-sm px-2.5 py-1 text-xs font-medium text-white">
+                    L1–L60 Lab
+                  </span>
+                  <span className="inline-flex items-center bg-destructive gap-1.5 rounded-sm px-2.5 py-1 text-xs font-medium text-white">
+                    Clash
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
+
+          {tab === "faq" && (
+            <div className="space-y-2">
+              <p className="mb-5 text-[15px] text-muted-foreground">
+                Common questions about the app
+              </p>
+              {faqs.map((f, i) => (
+                <div
+                  key={i}
+                  className="rounded-md border border-border overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="cursor-pointer flex w-full items-center justify-between px-4 py-3.5 text-left text-[15px] font-medium transition-colors hover:bg-muted"
+                  >
+                    {f.q}
+                    {openFaq === i ? (
+                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    ) : (
+                      <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    )}
+                  </button>
+                  {openFaq === i && (
+                    <div className="border-t border-border bg-muted/30 px-4 py-3.5 text-sm text-muted-foreground leading-relaxed">
+                      {f.a}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+          {tab === "info" && (
+            <div className="space-y-7">
+              <div className="rounded-md border border-border bg-muted/40 p-5">
+                <div className="mb-5 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center bg-primary rounded-sm text-white">
+                    <img src={Logo} alt="Logo" className="h-7 w-7" />
+                  </div>
+                  <div>
+                    <div className="text-md font-semibold">
+                      Timetable Optimizer
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Based on VIT AP mock course registration data
+                    </div>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  A student-built tool to simplify semester registration at VIT
+                  AP. No accounts, no data stored, everything runs in your
+                  browser.
+                </p>
+              </div>
+
+              <div>
+                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                  What we detect from your email
+                </p>
+                <div className="space-y-2">
+                  {[
+                    { label: "Name", example: "roshan → Roshan" },
+                    { label: "Join year", example: "24 → 2nd Year (2026)" },
+                    { label: "Branch", example: "bce → BCE" },
+                    { label: "Reg. Number", example: "24bce8403" },
+                  ].map((r) => (
+                    <div
+                      key={r.label}
+                      className="flex items-center justify-between rounded-lg border border-border px-4 py-2.5"
+                    >
+                      <span className="text-md font-medium">{r.label}</span>
+                      <span className="font-mono text-sm text-muted-foreground">
+                        {r.example}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  Privacy
+                </p>
+                <div className="flex items-start gap-3 rounded-xl border border-border bg-muted/40 p-4">
+                  <Shield className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Your email is parsed locally in the browser and never sent
+                    to any server. No cookies, no tracking, no accounts.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                  Tips
+                </p>
+                <div className="space-y-2">
+                  {[
+                    "Use the search bar to find courses by code or name quickly",
+                    "Lab courses count as double slots, check both L-slot rows",
+                    "Red highlights during faculty selection means slot conflict, go back and swap a course selection",
+                    "You can revisit any step using the top navigation bar",
+                  ].map((tip, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                    >
+                      <Zap className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                      {tip}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="border-t border-border px-6 py-4">
+          <button
+            className="cursor-pointer w-full gap-2 flex justify-center items-center bg-primary rounded-md py-2 text-card text-sm hover:bg-primary/90"
+            onClick={onClose}
+          >
+            Start building my timetable
+          </button>
+          <p className="mt-2.5 text-center text-xs text-muted-foreground">
+            No account needed · Works entirely in your browser
+          </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }

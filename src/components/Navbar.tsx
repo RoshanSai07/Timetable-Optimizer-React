@@ -4,6 +4,7 @@ import { getTheme, setTheme } from "../utils/theme";
 import { Moon, Sun, BookOpen, Users, Calendar, HelpCircle } from "lucide-react";
 import ProfileDropdown from "./ProfileDropdown";
 import HelpDialog from "./HelpDialog";
+import { motion, AnimatePresence } from "framer-motion";
 
 type NavbarProps = {
   loggedIn: boolean;
@@ -136,11 +137,21 @@ export default function Navbar({
           onClick={toggleTheme}
           className="cursor-pointer group flex h-10 w-10 items-center justify-center rounded-md border border-border transition-all hover:bg-foreground"
         >
-          {theme === "dark" ? (
-            <Sun className="h-5 w-5 stroke-[1.75] text-foreground transition-colors group-hover:text-card" />
-          ) : (
-            <Moon className="h-5 w-5 stroke-[1.75] text-foreground transition-colors group-hover:text-card" />
-          )}
+          <motion.div
+            animate={{
+              rotate: theme === "dark" ? 180 : 0,
+            }}
+            transition={{
+              duration: 0.15,
+              ease: "linear",
+            }}
+          >
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5 stroke-[1.75] text-foreground transition-colors group-hover:text-card" />
+            ) : (
+              <Moon className="h-5 w-5 stroke-[1.75] text-foreground transition-colors group-hover:text-card" />
+            )}
+          </motion.div>
         </button>
       </div>
 

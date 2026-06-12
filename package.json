@@ -16,6 +16,7 @@
     "@mui/material": "^9.0.1",
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/vite": "^4.3.0",
+    "framer-motion": "^12.40.0",
     "html-to-image": "^1.11.13",
     "jspdf": "^4.2.1",
     "lucide-react": "^1.16.0",
