@@ -92,3 +92,11 @@ export const courses: CoursesData = {
     ],
   },
 };
+
+export const availablePrograms = Object.entries(courses).flatMap(
+  ([year, branches]) =>
+    Object.keys(branches).map((branch) => ({
+      year,
+      branch,
+    })),
+);

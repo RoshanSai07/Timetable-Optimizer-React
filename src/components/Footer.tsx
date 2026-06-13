@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="text-sm text-muted-foreground">
         Made for students, refined over semesters
       </div>
-      <div className="text-sm text-muted-foreground">v5.1.3</div>
+      <div className="text-sm text-muted-foreground">v5.1.4</div>
     </footer>
   );
 }

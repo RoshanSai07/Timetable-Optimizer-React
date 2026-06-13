@@ -8,6 +8,7 @@ export const setTheme = (theme: "light" | "dark") => {
   } else {
     document.documentElement.classList.remove("dark");
   }
+  window.dispatchEvent(new Event("themeChange"));
 };
 export const initializeTheme = () => {
   const theme = getTheme();
