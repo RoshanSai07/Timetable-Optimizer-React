@@ -43,10 +43,10 @@ export default function Navbar({
         <div className="hidden items-center gap-8 md:flex">
           <div
             onClick={() => setCurrentSection?.("courses")}
-            className={`group flex h-8 cursor-pointer items-center justify-center gap-2 rounded-md border px-3 transition-all ${
+            className={`group flex h-8 cursor-pointer items-center justify-center gap-2 rounded-md border border-border/50 px-3 transition-all ${
               currentSection === "courses"
-                ? "border-primary bg-accent text-primary-foreground"
-                : "border-border/50 text-muted-foreground hover:bg-muted"
+                ? "bg-accent text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted"
             }`}
           >
             <BookOpen
@@ -69,10 +69,10 @@ export default function Navbar({
           </div>
           <div
             onClick={() => setCurrentSection?.("faculty")}
-            className={`group flex h-8 cursor-pointer items-center justify-center gap-2 rounded-md border px-3 transition-all ${
+            className={`group flex h-8 cursor-pointer items-center justify-center gap-2 rounded-md border border-border/50 px-3 transition-all ${
               currentSection === "faculty"
-                ? "border-primary bg-accent text-primary-foreground"
-                : "border-border/50 text-muted-foreground hover:bg-muted"
+                ? "bg-accent text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted"
             }`}
           >
             <Users
@@ -95,10 +95,10 @@ export default function Navbar({
           </div>
           <div
             onClick={() => setCurrentSection?.("timetable")}
-            className={`group flex h-8 cursor-pointer items-center justify-center gap-2 rounded-md border px-3 transition-all ${
+            className={`group flex h-8 cursor-pointer items-center justify-center gap-2 rounded-md border border-border/50 px-3 transition-all ${
               currentSection === "timetable"
-                ? "border-primary bg-accent text-primary-foreground"
-                : "border-border/50 text-muted-foreground hover:bg-muted"
+                ? "bg-accent text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted"
             }`}
           >
             <Calendar
@@ -125,9 +125,9 @@ export default function Navbar({
       <div className="flex items-center gap-4">
         <button
           onClick={() => setHelpOpen(true)}
-          className="cursor-pointer group flex h-10 items-center justify-center gap-2 rounded-md border border-border px-3 text-sm text-foreground transition-all hover:bg-foreground hover:text-card"
+          className="cursor-pointer group flex h-10 items-center justify-center gap-2 rounded-md border border-border px-3 text-sm text-foreground transition-all hover:bg-accent hover:text-white"
         >
-          <HelpCircle className="h-5 w-5 stroke-[1.75] text-primary transition-colors group-hover:text-card" />
+          <HelpCircle className="h-5 w-5 stroke-[1.75] text-primary transition-colors group-hover:text-white" />
           <span className="hidden md:inline">Help</span>
         </button>
 

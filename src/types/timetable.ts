@@ -8,13 +8,9 @@ export type TimetableCell = {
 
 export type TimetableRow = {
   time: string;
-
   theorySlots: string[];
-
   labSlots: string[];
-
   isLunch?: boolean;
-
   data: TimetableCell | null;
 };
 

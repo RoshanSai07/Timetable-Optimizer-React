@@ -76,69 +76,31 @@ export const timeMap = [
 ];
 
 const generateSlotMap = () => {
-  const map: Record<
-    string,
-    {
-      day: string;
-
-      time: string;
-    }
-  > = {};
+  const map: Record<string, { day: string; time: string }[]> = {};
 
   Object.entries(slotStructure).forEach(([day, structure]) => {
     structure.slots.forEach((slotRow) => {
-      /*
-            THEORY SLOTS
-          */
-
+      // Theory slots
       slotRow.theorySlots.forEach((slot) => {
         if (slot !== "-") {
-          map[slot] = {
-            day,
-
-            time: slotRow.time,
-          };
+          if (!map[slot]) map[slot] = [];
+          map[slot].push({ day, time: slotRow.time });
         }
       });
-
-      /*
-            LAB SLOTS
-          */
-
+      // Lab slots
       slotRow.labSlots.forEach((slot) => {
-        map[slot] = {
-          day,
-
-          time: slotRow.time,
-        };
+        if (slot !== "-") {
+          if (!map[slot]) map[slot] = [];
+          map[slot].push({ day, time: slotRow.time });
+        }
       });
     });
   });
 
   return map;
 };
+
 export const slotStructure: SlotStructure = {
-  MON: {
-    slots: [
-      { time: "8.00 - 8.50", theorySlots: [], labSlots: ["L61"] },
-      { time: "9.00 - 9.50", theorySlots: ["TA1"], labSlots: ["L62"] },
-      { time: "10.00 - 10.50", theorySlots: ["TB1"], labSlots: ["L63"] },
-      { time: "11.00 - 11.50", theorySlots: ["E1"], labSlots: ["L64"] },
-      { time: "12.00 - 12.50", theorySlots: ["E1"], labSlots: ["L65"] },
-      {
-        time: "12.50 - 1.30",
-        theorySlots: [],
-        labSlots: ["L66"],
-        isLunch: true,
-      },
-      { time: "2.00 - 2.50", theorySlots: ["TA2"], labSlots: ["L67"] },
-      { time: "3.00 - 3.50", theorySlots: ["TB2"], labSlots: ["L68"] },
-      { time: "4.00 - 4.50", theorySlots: ["E2"], labSlots: ["L69"] },
-      { time: "5.00 - 5.50", theorySlots: ["E2"], labSlots: ["L70"] },
-      { time: "6.00 - 6.50", theorySlots: [], labSlots: ["L71"] },
-      { time: "6.50 - 7.40", theorySlots: [], labSlots: ["L72"] },
-    ],
-  },
   TUE: {
     slots: [
       { time: "8.00 - 8.50", theorySlots: ["TFF1"], labSlots: ["L1"] },
@@ -162,85 +124,93 @@ export const slotStructure: SlotStructure = {
   },
   WED: {
     slots: [
-      { time: "8.00 - 8.50", theorySlots: ["TG1"], labSlots: ["L7"] },
-      { time: "9.00 - 9.50", theorySlots: ["C1"], labSlots: ["L8"] },
-      { time: "10.00 - 10.50", theorySlots: ["D1"], labSlots: ["L9"] },
-      { time: "11.00 - 11.50", theorySlots: ["A1", "SB1"], labSlots: ["L10"] },
-      { time: "12.00 - 12.50", theorySlots: ["F1"], labSlots: ["L11"] },
+      { time: "8.00 - 8.50", theorySlots: ["TGG1"], labSlots: ["L7"] },
+      { time: "9.00 - 9.50", theorySlots: ["D1"], labSlots: ["L8"] },
+      { time: "10.00 - 10.50", theorySlots: ["F1"], labSlots: ["L9"] },
+      { time: "11.00 - 11.50", theorySlots: ["E1", "SC2"], labSlots: ["L10"] },
+      { time: "12.00 - 12.50", theorySlots: ["B1"], labSlots: ["L11"] },
       {
         time: "12.50 - 1.30",
         theorySlots: [],
         labSlots: ["L12"],
         isLunch: true,
       },
-      { time: "2.00 - 2.50", theorySlots: ["E2"], labSlots: ["L37"] },
-      { time: "3.00 - 3.50", theorySlots: ["C2"], labSlots: ["L38"] },
-      { time: "4.00 - 4.50", theorySlots: ["A2", "SB1"], labSlots: ["L39"] },
-      { time: "5.00 - 5.50", theorySlots: ["D2"], labSlots: ["L40"] },
-      { time: "6.00 - 6.50", theorySlots: ["TFF2"], labSlots: ["L41"] },
+      { time: "2.00 - 2.50", theorySlots: ["D2"], labSlots: ["L37"] },
+      { time: "3.00 - 3.50", theorySlots: ["TF2", "G2"], labSlots: ["L38"] },
+      { time: "4.00 - 4.50", theorySlots: ["E2", "SC1"], labSlots: ["L39"] },
+      { time: "5.00 - 5.50", theorySlots: ["B2"], labSlots: ["L40"] },
+      { time: "6.00 - 6.50", theorySlots: ["TCC2"], labSlots: ["L41"] },
       { time: "6.50 - 7.40", theorySlots: [], labSlots: ["L42"] },
     ],
   },
   THU: {
     slots: [
-      { time: "8.00 - 8.50", theorySlots: ["TG1"], labSlots: ["L13"] },
+      { time: "8.00 - 8.50", theorySlots: ["TEE1"], labSlots: ["L13"] },
       { time: "9.00 - 9.50", theorySlots: ["C1"], labSlots: ["L14"] },
-      { time: "10.00 - 10.50", theorySlots: ["D1"], labSlots: ["L15"] },
-      { time: "11.00 - 11.50", theorySlots: ["A1", "SB2"], labSlots: ["L16"] },
-      { time: "12.00 - 12.50", theorySlots: ["TF1"], labSlots: ["L17"] },
+      { time: "10.00 - 10.50", theorySlots: ["TD1", "TG1"], labSlots: ["L15"] },
+      {
+        time: "11.00 - 11.50",
+        theorySlots: ["TAA1", "ECS"],
+        labSlots: ["L16"],
+      },
+      {
+        time: "12.00 - 12.50",
+        theorySlots: ["TBB1", "CLUB"],
+        labSlots: ["L17"],
+      },
       {
         time: "12.50 - 1.30",
         theorySlots: [],
         labSlots: ["L18"],
         isLunch: true,
       },
-      { time: "2.00 - 2.50", theorySlots: ["E2"], labSlots: ["L43"] },
+      { time: "2.00 - 2.50", theorySlots: ["TE2", "SE1"], labSlots: ["L43"] },
       { time: "3.00 - 3.50", theorySlots: ["C2"], labSlots: ["L44"] },
-      { time: "4.00 - 4.50", theorySlots: ["A2", "SB1"], labSlots: ["L45"] },
-      { time: "5.00 - 5.50", theorySlots: ["D2"], labSlots: ["L46"] },
-      { time: "6.00 - 6.50", theorySlots: ["TFF2"], labSlots: ["L47"] },
+      { time: "4.00 - 4.50", theorySlots: ["A2"], labSlots: ["L45"] },
+      { time: "5.00 - 5.50", theorySlots: ["TD2", "TG2"], labSlots: ["L46"] },
+      { time: "6.00 - 6.50", theorySlots: ["TGG2"], labSlots: ["L47"] },
       { time: "6.50 - 7.40", theorySlots: [], labSlots: ["L48"] },
     ],
   },
   FRI: {
     slots: [
-      { time: "8.00 - 8.50", theorySlots: ["TDD1"], labSlots: ["L19"] },
-      { time: "9.00 - 9.50", theorySlots: ["B1", "SA2"], labSlots: ["L20"] },
-      { time: "10.00 - 10.50", theorySlots: ["A1", "SF2"], labSlots: ["L21"] },
-      { time: "11.00 - 11.50", theorySlots: ["G1", "TF1"], labSlots: ["L22"] },
-      { time: "12.00 - 12.50", theorySlots: ["E1"], labSlots: ["L23"] },
+      { time: "8.00 - 8.50", theorySlots: ["TCC1"], labSlots: ["L19"] },
+      { time: "9.00 - 9.50", theorySlots: ["TB1"], labSlots: ["L20"] },
+      { time: "10.00 - 10.50", theorySlots: ["TA1"], labSlots: ["L21"] },
+      { time: "11.00 - 11.50", theorySlots: ["F1"], labSlots: ["L22"] },
+      { time: "12.00 - 12.50", theorySlots: ["TE1", "SD2"], labSlots: ["L23"] },
       {
         time: "12.50 - 1.30",
         theorySlots: [],
         labSlots: ["L24"],
         isLunch: true,
       },
-      { time: "2.00 - 2.50", theorySlots: ["TC2"], labSlots: ["L49"] },
-      { time: "3.00 - 3.50", theorySlots: ["B2", "SA1"], labSlots: ["L50"] },
-      { time: "4.00 - 4.50", theorySlots: ["A2", "SE1"], labSlots: ["L51"] },
-      { time: "5.00 - 5.50", theorySlots: ["G2", "TF2"], labSlots: ["L52"] },
+      { time: "2.00 - 2.50", theorySlots: ["C2"], labSlots: ["L49"] },
+      { time: "3.00 - 3.50", theorySlots: ["TB2"], labSlots: ["L50"] },
+      { time: "4.00 - 4.50", theorySlots: ["TA2"], labSlots: ["L51"] },
+      { time: "5.00 - 5.50", theorySlots: ["F2"], labSlots: ["L52"] },
       { time: "6.00 - 6.50", theorySlots: ["TEE2"], labSlots: ["L53"] },
       { time: "6.50 - 7.40", theorySlots: [], labSlots: ["L54"] },
     ],
   },
   SAT: {
     slots: [
-      { time: "8.00 - 8.50", theorySlots: [], labSlots: ["L25"] },
-      { time: "9.00 - 9.50", theorySlots: ["TC1"], labSlots: ["L26"] },
+      { time: "8.00 - 8.50", theorySlots: ["TDD1"], labSlots: ["L25"] },
+      { time: "9.00 - 9.50", theorySlots: ["E1", "SE1"], labSlots: ["L26"] },
       { time: "10.00 - 10.50", theorySlots: ["C1"], labSlots: ["L27"] },
-      { time: "11.00 - 11.50", theorySlots: ["F1"], labSlots: ["L28"] },
-      { time: "12.00 - 12.50", theorySlots: ["G1", "TD1"], labSlots: ["L29"] },
+      { time: "11.00 - 11.50", theorySlots: ["TF1", "G1"], labSlots: ["L28"] },
+      { time: "12.00 - 12.50", theorySlots: ["A1"], labSlots: ["L29"] },
       {
         time: "12.50 - 1.30",
         theorySlots: [],
         labSlots: ["L30"],
         isLunch: true,
       },
-      { time: "2.00 - 2.50", theorySlots: ["G2", "TD2"], labSlots: ["L55"] },
-      { time: "3.00 - 3.50", theorySlots: ["D2"], labSlots: ["L56"] },
-      { time: "4.00 - 4.50", theorySlots: ["F2"], labSlots: ["L57"] },
-      { time: "5.00 - 5.50", theorySlots: ["C2"], labSlots: ["L58"] },
-      { time: "6.00 - 6.50", theorySlots: [], labSlots: ["L59"] },
+      { time: "2.00 - 2.50", theorySlots: ["D2"], labSlots: ["L55"] },
+      { time: "3.00 - 3.50", theorySlots: ["E2", "SD1"], labSlots: ["L56"] },
+      { time: "4.00 - 4.50", theorySlots: ["TAA2", "ECS"], labSlots: ["L57"] },
+      { time: "5.00 - 5.50", theorySlots: ["TBB2", "CLUB"], labSlots: ["L58"] },
+      { time: "6.00 - 6.50", theorySlots: ["TFF2"], labSlots: ["L59"] },
       { time: "6.50 - 7.40", theorySlots: [], labSlots: ["L60"] },
     ],
   },

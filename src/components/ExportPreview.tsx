@@ -30,7 +30,6 @@ export const ExportPreview = forwardRef<HTMLDivElement, ExportPreviewProps>(
       <div
         ref={ref}
         className="w-[2100px] bg-card p-8 rounded-2xl border border-border shadow-xl space-y-6 text-foreground font-sans"
-        style={{ contentVisibility: "auto" }}
       >
         <div className="flex justify-between items-start border-b border-border/80 pb-6">
           <div className="space-y-2">

@@ -12,53 +12,52 @@ type Clash = {
 };
 
 export const detectClashes = (selectedFaculty: SelectedFaculty[]): Clash[] => {
-  const timeMap = new Map<
-    string,
-    {
-      entries: {
-        courseCode: string;
-        slot: string;
-      }[];
-    }
-  >();
+  const cleaned = selectedFaculty.map((f) => ({
+    ...f,
+    slots: [...new Set(f.slots)],
+  }));
 
-  selectedFaculty.forEach((faculty) => {
+  const timeMap = new Map<string, { courseCode: string; slot: string }[]>();
+
+  cleaned.forEach((faculty) => {
     faculty.slots.forEach((slot) => {
-      const slotInfo = slotMap[slot];
-
-      if (!slotInfo) return;
-
-      const timeKey = `${slotInfo.day}-${slotInfo.time}`;
-
-      if (!timeMap.has(timeKey)) {
-        timeMap.set(timeKey, {
-          entries: [],
-        });
+      const possibleTimings = slotMap[slot];
+      if (!possibleTimings || possibleTimings.length === 0) {
+        console.warn(`Unknown slot: ${slot} for ${faculty.courseCode}`);
+        return;
       }
-
-      timeMap.get(timeKey)!.entries.push({
-        courseCode: faculty.courseCode,
-        slot,
+      possibleTimings.forEach((timing) => {
+        const timeKey = `${timing.day}-${timing.time}`;
+        if (!timeMap.has(timeKey)) timeMap.set(timeKey, []);
+        timeMap.get(timeKey)!.push({
+          courseCode: faculty.courseCode,
+          slot,
+        });
       });
     });
   });
 
-  const clashes: Clash[] = [];
-
-  timeMap.forEach((entry) => {
-    if (entry.entries.length > 1) {
-      const courses = [
-        ...new Set(entry.entries.map((item) => item.courseCode)),
-      ];
-
-      const slots = [...new Set(entry.entries.map((item) => item.slot))];
-
-      clashes.push({
-        courses,
-        slots,
-      });
+  const rawClashes: Clash[] = [];
+  timeMap.forEach((entries) => {
+    if (entries.length > 1) {
+      const courses = [...new Set(entries.map((e) => e.courseCode))];
+      const slots = [...new Set(entries.map((e) => e.slot))];
+      rawClashes.push({ courses, slots });
     }
   });
 
-  return clashes;
+  const merged = new Map<string, { courses: string[]; slots: Set<string> }>();
+  for (const clash of rawClashes) {
+    const key = clash.courses.slice().sort().join("|");
+    if (!merged.has(key)) {
+      merged.set(key, { courses: clash.courses, slots: new Set(clash.slots) });
+    } else {
+      clash.slots.forEach((s) => merged.get(key)!.slots.add(s));
+    }
+  }
+
+  return Array.from(merged.values()).map(({ courses, slots }) => ({
+    courses,
+    slots: Array.from(slots).sort(),
+  }));
 };

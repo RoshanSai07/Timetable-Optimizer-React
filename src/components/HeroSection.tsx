@@ -37,7 +37,7 @@ export default function HeroSection() {
           confidence.
         </div>
 
-        <motion.div className="absolute left-[7%] bottom-[15%] w-64 rounded-lg border border-border bg-card/90 p-4 shadow-md">
+        <motion.div className="hidden lg:block absolute left-[7%] bottom-[15%] w-64 rounded-lg border border-border bg-card/90 p-4 shadow-md">
           <div className="flex items-center gap-2">
             <div className="rounded-sm bg-primary/10 p-2">
               <Check className="h-4 w-4 text-primary" />
@@ -58,7 +58,7 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.div className="absolute right-[10%] top-[10%] w-60 rounded-lg border border-border bg-card/90 p-4 shadow-md">
+        <motion.div className="hidden lg:block absolute right-[10%] top-[10%] w-60 rounded-lg border border-border bg-card/90 p-4 shadow-md">
           <div className="flex items-center gap-2">
             <div className="rounded-sm bg-primary/10 p-2">
               <Download className="h-4 w-4 text-primary" />

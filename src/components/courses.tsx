@@ -4,6 +4,7 @@ import { courses } from "../data/courses";
 import type { Student } from "../types/student";
 import CourseCard from "../components/CourseCard";
 import type { Course } from "../types/course";
+import ConfirmDialog from "./ConfirmDialog";
 
 type CourseProps = {
   currentSection?: string;
@@ -22,6 +23,7 @@ export default function Courses({
   const [selectedCourses, setSelectedCourses] = useState<Course[]>(() => {
     return JSON.parse(sessionStorage.getItem("selectedCourses") || "[]");
   });
+  const [showClearCourses, setShowClearCourses] = useState(false);
   const toggleCourse = (course: Course) => {
     const alreadySelected = selectedCourses.some(
       (selected) => selected.code === course.code,
@@ -56,6 +58,9 @@ export default function Courses({
   const totalCredits = selectedCourses.reduce((sum, course) => {
     return sum + course.credits;
   }, 0);
+  const clearAllCourses = () => {
+    setSelectedCourses([]);
+  };
   return (
     <section className="flex flex-1 items-start justify-center px-20 py-20">
       <div className="w-full max-w-7xl space-y-8">
@@ -79,13 +84,33 @@ export default function Courses({
                   {totalCredits} credits
                 </p>
               </div>
-              <button
-                onClick={() => setCurrentSection?.("faculty")}
-                className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
-              >
-                <div>Continue</div>
-                <ArrowRight className="text-primary-foreground w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setShowClearCourses(true)}
+                  className="cursor-pointer rounded-md border border-border px-6 py-2 text-sm font-medium text-destructive transition-all hover:bg-destructive/4 hover:border-destructive/20 hover:text-destructive"
+                >
+                  Clear All
+                </button>
+                <ConfirmDialog
+                  open={showClearCourses}
+                  title="Clear Selected Courses?"
+                  description="This will remove all selected courses and any related faculty selections"
+                  confirmText="Clear Courses"
+                  onCancel={() => setShowClearCourses(false)}
+                  onConfirm={() => {
+                    clearAllCourses();
+                    setShowClearCourses(false);
+                  }}
+                />
+
+                <button
+                  onClick={() => setCurrentSection?.("faculty")}
+                  className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
+                >
+                  <div>Continue</div>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
             </div>
             <div className="mt-5 flex flex-wrap gap-2">
               {selectedCourses.map((course) => {

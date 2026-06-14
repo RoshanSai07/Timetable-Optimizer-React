@@ -50,7 +50,7 @@ export default function Timetable({
             </button>
 
             <button
-              onClick={() => setCurrentSection?.("courses")}
+              onClick={() => setCurrentSection?.("faculty")}
               className="cursor-pointer rounded-md flex gap-2 items-center border border-border px-5 py-2 text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:border-primary/20"
             >
               <ArrowLeft className="text-forground w-5 h-5" />

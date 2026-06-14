@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Swords,
   Search,
   ChevronDown,
   FlaskConical,
@@ -14,6 +15,7 @@ import type { Course } from "../types/course";
 import { faculty } from "../data/faculty";
 import { detectClashes } from "../utils/clashDetection";
 import FacultyCard from "../components/FacultyCard";
+import ConfirmDialog from "./ConfirmDialog";
 type FacultyProps = {
   currentSection?: string;
   setCurrentSection?: React.Dispatch<React.SetStateAction<string>>;
@@ -34,6 +36,8 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
   const [theorySortOrder, setTheorySortOrder] = useState("asc");
   const [labSortField, setLabSortField] = useState("name");
   const [labSortOrder, setLabSortOrder] = useState("asc");
+  const [showClearCourses, setShowClearCourses] = useState(false);
+
   const [selectedCourses] = useState<Course[]>(() => {
     return JSON.parse(sessionStorage.getItem("selectedCourses") || "[]");
   });
@@ -211,6 +215,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
   const activeSelection = selectedFaculty.find(
     (faculty) => faculty.courseCode === activeCourse?.code,
   );
+  const isSlotConflicting = (slot: string) => conflictingSlots.has(slot);
   return (
     <section className="flex flex-1 items-start justify-center px-20 py-20">
       <div className="w-full max-w-7xl space-y-5">
@@ -232,7 +237,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
         {clashes.length > 0 && (
           <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-5">
             <div className="flex items-center gap-3">
-              <AlertCircle className="h-5 w-5 text-destructive" />
+              <Swords className="h-5 w-5 text-destructive" />
               <h2 className="text-xl font-bold text-destructive">
                 {clashes.length} conflict detected
               </h2>
@@ -270,7 +275,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                 className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
               >
                 <div>Continue</div>
-                <ArrowRight className="text-card w-5 h-5" />
+                <ArrowRight className="text-white w-5 h-5" />
               </button>
             </div>
           </div>
@@ -323,14 +328,23 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
               })}
             </div>
             <button
-              onClick={() => {
-                setSelectedFaculty([]);
-                sessionStorage.removeItem("selectedFaculty");
-              }}
+              onClick={() => setShowClearCourses(true)}
               className="cursor-pointer rounded-md border border-border px-6 py-2 text-sm font-medium text-destructive transition-all hover:bg-destructive/4 hover:border-destructive/20 hover:text-destructive"
             >
               Clear All
             </button>
+            <ConfirmDialog
+              open={showClearCourses}
+              title="Clear Selected Courses?"
+              description="This will remove all selected faculty preferences for your courses. Your course selections will remain unchanged"
+              confirmText="Clear Courses"
+              onCancel={() => setShowClearCourses(false)}
+              onConfirm={() => {
+                setSelectedFaculty([]);
+                sessionStorage.removeItem("selectedFaculty");
+                setShowClearCourses(false);
+              }}
+            />
           </div>
           <div className="border-b border-border p-6">
             <div className="flex items-start justify-between gap-8">
@@ -350,57 +364,57 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                 </p>
               </div>
 
-              {activeSelection && (
-                <div className="min-w-[320px] rounded-lg border border-border bg-muted/30 p-4">
-                  <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    Current Selection
+              <div className="flex gap-4">
+                {activeSelection?.theory && (
+                  <div className="w-[200px] rounded-md border border-border bg-muted/30 p-3">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                      Theory Faculty
+                    </div>
+                    <div className="text-sm font-medium text-foreground">
+                      {activeSelection.theory.name}
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {activeSelection.theory.slots.map((slot) => (
+                        <span
+                          key={slot}
+                          className={`rounded-md border px-2 py-0.5 text-xs ${
+                            isSlotConflicting(slot)
+                              ? "border-destructive/30 bg-destructive/10 text-destructive"
+                              : "border-primary/20 bg-primary/10 text-primary"
+                          }`}
+                        >
+                          {slot}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+                )}
 
-                  <div className="flex space-x-10">
-                    {activeSelection.theory && (
-                      <div>
-                        <div className="mb-1 text-xs font-medium text-primary">
-                          Theory Faculty
-                        </div>
-                        <div className="text-sm font-medium text-foreground">
-                          {activeSelection.theory.name}
-                        </div>
-                        <div className="mt-2 flex flex-wrap gap-1">
-                          {activeSelection.theory.slots.map((slot) => (
-                            <span
-                              key={slot}
-                              className="rounded-md border border-primary/20 bg-primary/10 px-2 py-0.5 text-xs text-primary"
-                            >
-                              {slot}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {activeSelection.lab && (
-                      <div>
-                        <div className="mb-1 text-xs font-medium text-secondary">
-                          Lab Faculty
-                        </div>
-                        <div className="text-sm font-medium text-foreground">
-                          {activeSelection.lab.name}
-                        </div>
-                        <div className="mt-2 flex flex-wrap gap-1">
-                          {activeSelection.lab.slots.map((slot) => (
-                            <span
-                              key={slot}
-                              className="rounded-md border border-secondary/20 bg-secondary/10 px-2 py-0.5 text-xs text-secondary"
-                            >
-                              {slot}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                {activeSelection?.lab && (
+                  <div className="w-[200px] rounded-lg border border-border bg-muted/30 p-3">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-secondary">
+                      Lab Faculty
+                    </div>
+                    <div className="text-sm font-medium text-foreground">
+                      {activeSelection.lab.name}
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {activeSelection.lab.slots.map((slot) => (
+                        <span
+                          key={slot}
+                          className={`rounded-md border px-2 py-0.5 text-xs ${
+                            isSlotConflicting(slot)
+                              ? "border-destructive/30 bg-destructive/10 text-destructive"
+                              : "border-secondary/20 bg-secondary/10 text-secondary"
+                          }`}
+                        >
+                          {slot}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
           <div className="space-y-4 p-6">

@@ -61,14 +61,14 @@ export default function ProfileDropdown() {
         onClick={() => setOpen(!open)}
         className="cursor-pointer group flex h-10 items-center justify-center gap-3 rounded-md border border-border px-4 transition-all hover:bg-accent"
       >
-        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 group-hover:bg-card/10">
-          <User className="h-4 w-4 stroke-[2] text-primary transition-colors group-hover:text-card" />
+        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 group-hover:bg-white/10">
+          <User className="h-4 w-4 stroke-[2] text-primary transition-colors group-hover:text-white" />
         </div>
-        <span className="text-sm font-medium text-foreground transition-colors group-hover:text-card">
+        <span className="text-sm font-medium text-primary transition-colors group-hover:text-white">
           {formatName(student.name)}
         </span>
         <ChevronDown
-          className={`h-4 w-4 stroke-[2] text-muted-foreground transition-colors group-hover:text-card ${
+          className={`h-4 w-4 stroke-[2] text-muted-foreground transition-colors group-hover:text-white ${
             open ? "rotate-180" : ""
           }`}
         />
