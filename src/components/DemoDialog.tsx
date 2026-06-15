@@ -19,26 +19,26 @@ interface DemoPanelProps {
 const whyPoints = [
   {
     icon: <AlertTriangle className="h-4 w-4" />,
-    title: "Mock registration is your only trial run",
-    desc: "VIT AP's course registration lasts just a few hours. Going in unprepared means wasted slots, clashes you only discover after confirming, and no time to recover.",
+    title: "Registration day is not the time to experiment",
+    desc: "When FFCS opens, thousands of students are competing for limited seats. Testing faculty combinations during registration can cost valuable time while seats continue filling up.",
     tone: "warn",
   },
   {
     icon: <Clock className="h-4 w-4" />,
-    title: "Slot conflicts cost you credits",
-    desc: "Two courses sharing a slot means you can only register one. Without pre-planning, you might lose a core subject because a lab ate its slot.",
+    title: "Clashes are discovered too late",
+    desc: "Timetable clashes are reported after completing a course selection. Fixing them means going back, changing faculty, and hoping the remaining seats haven't disappeared.",
     tone: "warn",
   },
   {
     icon: <CheckCircle2 className="h-4 w-4" />,
-    title: "Plan here first, register with confidence",
-    desc: "Build your full semester here, clash detection runs in real time. By the time you open VTOP, you already know exactly which courses and teachers to pick.",
+    title: "Build your plan before registration begins",
+    desc: "Create your timetable in advance using mock registration data. Check slots, test faculty combinations, and walk into FFCS with a plan already prepared.",
     tone: "good",
   },
   {
     icon: <BarChart2 className="h-4 w-4" />,
-    title: "Compare teachers before committing",
-    desc: "The same course can have many instructors across different slots. Timetable Optimizer lets you see all options side-by-side so you can pick the best fit.",
+    title: "See the complete timetable instantly",
+    desc: "Every faculty selection updates your timetable in real time, making it easy to identify clashes, explore alternatives, and finalize a schedule before registration day.",
     tone: "good",
   },
 ];
@@ -46,23 +46,28 @@ const whyPoints = [
 const steps = [
   {
     step: "01",
-    title: "Open Timetable Optimizer",
-    desc: "Sign in with your VIT AP email. Your branch, year, and courses are auto-filtered, no manual setup",
+    title: "Choose your courses",
+    desc: "Add the theory and lab courses you plan to register for this semester.",
   },
   {
     step: "02",
-    title: "Add all the courses you want",
-    desc: "Search by name or code. Add theory and lab courses. Watch the clash indicator, red means conflict, fix it before moving on",
+    title: "Try different faculty combinations",
+    desc: "Explore available faculty and see how their slots affect your timetable.",
   },
   {
     step: "03",
-    title: "Pick your teachers",
-    desc: "Each course shows every instructor and the slot they teach. Compare and choose. The timetable updates live",
+    title: "Fix clashes early",
+    desc: "Identify overlapping slots while planning instead of during registration.",
   },
   {
     step: "04",
-    title: "Export your final list",
-    desc: "Take your finalised course + teacher + slot combination into VTOP and register exactly what you planned. You can share it with your friends too",
+    title: "Share and compare plans",
+    desc: "Export your timetable or share configurations with friends to discuss options together.",
+  },
+  {
+    step: "05",
+    title: "Register with confidence",
+    desc: "Keep your final timetable ready and know exactly what you're aiming for when registration opens.",
   },
 ];
 
@@ -167,7 +172,7 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
             </div>
 
             <div className="py-6">
-              <div className="mb-4 flex items-center gap-2">
+              <div className="mb-6 flex items-center gap-2">
                 <CalendarCheck className="h-5 w-5 text-primary" />
                 <h3 className="text-[15px] font-semibold">
                   Your pre-registration workflow
@@ -183,7 +188,7 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
                         </span>
                       </div>
                       {i < steps.length - 1 && (
-                        <div className="mt-1 w-px flex-1 bg-border min-h-[24px]" />
+                        <div className="mt-1 w-px flex-1 bg-border min-h-[34px]" />
                       )}
                     </div>
                     <div className="pb-5">
@@ -196,8 +201,8 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
                 ))}
               </div>
 
-              <div className="mt-2 rounded-md border border-primary/20 bg-primary/5 p-4 px-2">
-                <p className="text-xs text-primary leading-relaxed">
+              <div className="mt-2 rounded-md border border-primary/20 bg-primary/5 p-4">
+                <p className="text-sm text-primary leading-relaxed">
                   <span className="font-semibold">Pro tip: </span> Do try this
                   before course registration opens. It takes really few minutes
                   here rather than many stressful minutes during registration

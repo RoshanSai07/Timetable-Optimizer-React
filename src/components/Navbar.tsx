@@ -1,10 +1,19 @@
 import { useState, useEffect } from "react";
 import Logo from "../assets/logo1.svg";
 import { getTheme, setTheme } from "../utils/theme";
-import { Moon, Sun, BookOpen, Users, Calendar, HelpCircle } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  BookOpen,
+  Users,
+  Calendar,
+  HelpCircle,
+  Menu,
+} from "lucide-react";
 import ProfileDropdown from "./ProfileDropdown";
 import HelpDialog from "./HelpDialog";
 import { motion, AnimatePresence } from "framer-motion";
+import MobileSidebar from "./MobileSidebar";
 
 type NavbarProps = {
   loggedIn: boolean;
@@ -17,6 +26,7 @@ export default function Navbar({
   currentSection,
   setCurrentSection,
 }: NavbarProps) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [theme, setCurrentTheme] = useState<"light" | "dark">("light");
   const [helpOpen, setHelpOpen] = useState(false);
   useEffect(() => {
@@ -28,13 +38,17 @@ export default function Navbar({
     setTheme(newTheme);
   };
   return (
-    <div className="flex h-[64px] items-center justify-between border-b border-border bg-background px-12">
-      <div className="flex items-center justify-center gap-3">
+    <div className="flex h-[64px] items-center justify-between border-b border-border bg-background px-6 md:px-12">
+      <div className="flex items-center justify-center gap-2 lg:gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-sm">
-          <img src={Logo} alt="Logo" className="h-9 w-9" />
+          <img
+            src={Logo}
+            alt="Logo"
+            className="h-7 w-7 md:h-8 md:w-8 xl:h-9 xl:w-9"
+          />
         </div>
 
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+        <h1 className="text-lg mt-1 lg:text-xl font-semibold tracking-tight text-foreground">
           Timetable Optimizer
         </h1>
       </div>
@@ -122,7 +136,7 @@ export default function Navbar({
         </div>
       )}
 
-      <div className="flex items-center gap-4">
+      <div className="hidden md:flex items-center gap-4">
         <button
           onClick={() => setHelpOpen(true)}
           className="cursor-pointer group flex h-10 items-center justify-center gap-2 rounded-md border border-border px-3 text-sm text-foreground transition-all hover:bg-accent hover:text-white"
@@ -154,7 +168,21 @@ export default function Navbar({
           </motion.div>
         </button>
       </div>
-
+      <button
+        onClick={() => setSidebarOpen(true)}
+        className="md:hidden cursor-pointer flex h-10 w-10 items-center justify-center rounded-md border border-border hover:bg-muted"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+      <MobileSidebar
+        open={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        loggedIn={loggedIn}
+        currentSection={currentSection || "courses"}
+        setCurrentSection={setCurrentSection!}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
       <HelpDialog open={helpOpen} onClose={() => setHelpOpen(false)} />
     </div>
   );

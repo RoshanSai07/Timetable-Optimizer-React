@@ -21,110 +21,84 @@ export default function HeroSection() {
       }
     }
   };
+  function FeatureCard({
+    icon,
+    title,
+    subtitle,
+    description,
+    className = "",
+  }: {
+    icon: React.ReactNode;
+    title: string;
+    subtitle: string;
+    description: string;
+    className?: string;
+  }) {
+    return (
+      <div
+        className={`rounded-lg border border-border bg-card/90 p-4 shadow-md ${className}`}
+      >
+        <div className="flex items-center gap-2">
+          {icon}
+          <div>
+            <h3 className="text-sm font-semibold">{title}</h3>
+            <p className="text-xs text-muted-foreground">{subtitle}</p>
+          </div>
+        </div>
+        <div className="mt-4 rounded-md bg-primary/5 p-3">
+          <div className="text-sm font-medium text-primary">{description}</div>
+        </div>
+      </div>
+    );
+  }
   return (
-    <section className="relative flex min-h-[80vh] flex-col items-center justify-center px-10">
-      <div className="max-w-2xl text-center mb-10">
-        <h1 className="mb-3 text-[52px] font-bold leading-[1.1] tracking-tight text-foreground">
+    <section className="flex min-h-[80vh] flex-col items-center justify-center px-4 sm:px-6 md:px-10">
+      <div className="max-w-2xl relative text-center mb-10 md:mt-0 mt-15">
+        <h1 className="mb-3 text-[36px] md:text-[46px] lg:text-[56px] font-bold leading-[1.1] tracking-tight text-foreground">
           Courses. Faculty. Slots. <br />
           <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            {" "}
             All in one place
           </span>
         </h1>
 
-        <div className="text-md leading-7 text-muted-foreground">
+        <div className="text-sm md:text-md lg:text-md leading-5 text-muted-foreground">
           Plan your semester, compare teachers, and build your timetable with
           confidence.
         </div>
 
-        <motion.div className="hidden lg:block absolute left-[7%] bottom-[15%] w-64 rounded-lg border border-border bg-card/90 p-4 shadow-md">
-          <div className="flex items-center gap-2">
-            <div className="rounded-sm bg-primary/10 p-2">
-              <Check className="h-4 w-4 text-primary" />
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold">Clash Detection</h3>
-              <p className="text-xs text-muted-foreground">
-                Real-time validation
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-4 rounded-md bg-primary/5 p-3">
-            <div className="mt-1 text-sm font-medium text-primary">
-              See conflicts in real-time as you build your schedule
-            </div>
-          </div>
+        <motion.div className="hidden xl:block absolute -left-[55%] -bottom-[155%]">
+          <FeatureCard
+            className="w-64"
+            icon={
+              <div className="rounded-sm bg-primary/10 p-2">
+                <Check className="h-4 w-4 text-primary" />
+              </div>
+            }
+            title="Clash Detection"
+            subtitle="Real-time validation"
+            description="See conflicts in real-time as you build your schedule"
+          />
         </motion.div>
 
-        <motion.div className="hidden lg:block absolute right-[10%] top-[10%] w-60 rounded-lg border border-border bg-card/90 p-4 shadow-md">
-          <div className="flex items-center gap-2">
-            <div className="rounded-sm bg-primary/10 p-2">
-              <Download className="h-4 w-4 text-primary" />
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold">Export Schedule</h3>
-              <p className="text-xs text-muted-foreground">
-                PDF • Image • Share
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-4 rounded-md bg-primary/5 p-3">
-            <div className="mt-1 text-sm font-medium text-primary">
-              Download or share your final timetable
-            </div>
-          </div>
+        <motion.div className="hidden xl:block absolute -right-[50%] -top-[45%]">
+          <FeatureCard
+            className="w-60"
+            icon={
+              <div className="rounded-sm bg-primary/10 p-2">
+                <Download className="h-4 w-4 text-primary" />
+              </div>
+            }
+            title="Export Schedule"
+            subtitle="PDF • Image • Share"
+            description="Download or share your final timetable"
+          />
         </motion.div>
-
-        {/* <div className="mt-8 flex max-w-xl flex-col gap-7 rounded-xl border border-border bg-muted p-7">
-          <div className="flex gap-3">
-            <Check className="mt-0.5 h-5 w-5 stroke-[2] text-primary" />
-
-            <div className="flex flex-col">
-              <h1 className="text-md font-medium text-foreground">
-                Automatic clash detection
-              </h1>
-
-              <p className="text-sm text-muted-foreground">
-                See conflicts in real-time as you build your schedule
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-3">
-            <Check className="mt-0.5 h-5 w-5 stroke-[2] text-primary" />
-
-            <div className="flex flex-col">
-              <h1 className="text-md font-medium text-foreground">
-                Compare teachers by slot
-              </h1>
-
-              <p className="text-sm text-muted-foreground">
-                Choose the best instructor for your preferred time
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-3">
-            <Check className="mt-0.5 h-5 w-5 stroke-[2] text-primary" />
-
-            <div className="flex flex-col">
-              <h1 className="text-md font-medium text-foreground">
-                Export your schedule
-              </h1>
-
-              <p className="text-sm text-muted-foreground">
-                Download or share your final timetable
-              </p>
-            </div>
-          </div>
-        </div> */}
       </div>
-      <div className="mx-auto min-w-2xl space-y-5">
-        <form onSubmit={handleSubmit} className="flex w-full items-start gap-3">
+      <div className="mx-auto w-full max-w-2xl space-y-5 px-5 md:px-0">
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full flex-col gap-3 sm:flex-row sm:items-start"
+        >
           <div className="flex-1">
             <div className="relative">
               <input
@@ -147,9 +121,8 @@ export default function HeroSection() {
               />
 
               {email && !email.includes("@") && (
-                <div className="pointer-events-none absolute left-3 top-1/2 flex -translate-y-1/2 text-sm">
+                <div className="pointer-events-none absolute left-3 top-1/2 flex -translate-y-1/2 text-sm sm:flex">
                   <span className="invisible">{email}</span>
-
                   <span className="text-muted-foreground/40">
                     @vitapstudent.ac.in
                   </span>
@@ -171,7 +144,6 @@ export default function HeroSection() {
               </p>
             )}
           </div>
-
           <button
             type="submit"
             className="h-[42px] shrink-0 cursor-pointer rounded-md bg-primary px-15 text-md font-medium text-primary-foreground transition-all hover:bg-primary/90 shadow-sm"
@@ -181,7 +153,7 @@ export default function HeroSection() {
         </form>
 
         <div className="space-y-3 rounded-lg border border-border bg-muted/50 p-4">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <p className="text-sm text-muted-foreground">Auto-detected: </p>
 
             <div className="flex flex-wrap gap-2">
@@ -204,6 +176,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <div className="mt-8 grid gap-4 xl:hidden"></div>
     </section>
   );
 }

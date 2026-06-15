@@ -41,6 +41,46 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
   const [selectedCourses] = useState<Course[]>(() => {
     return JSON.parse(sessionStorage.getItem("selectedCourses") || "[]");
   });
+  if (selectedCourses.length === 0) {
+    return (
+      <section className="flex flex-1 items-start justify-center px-8 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
+        <div className="w-full max-w-7xl space-y-8">
+          <div>
+            <h1 className="text-2xl lg:text-3xl font-bold tracking-tight text-foreground">
+              Choose Teachers
+            </h1>
+            <p className="text-sm text-muted-foreground md:text-base">
+              Select instructor & slot for each course
+            </p>
+          </div>
+          <div className="rounded-lg border border-border bg-card p-6 md:p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-2xl">
+                <h2 className="text-lg md:text-xl font-semibold text-foreground">
+                  No courses selected
+                </h2>
+
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Start by selecting the courses you plan to register for. Once
+                  courses are added, you can choose faculty and generate your
+                  timetable.
+                </p>
+              </div>
+              <div className="flex w-full flex-col gap-2 sm:flex-row md:w-auto">
+                <button
+                  onClick={() => setCurrentSection?.("courses")}
+                  className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs md:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  <span>Go to Courses</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
   const [activeCourse, setActiveCourse] = useState<Course | null>(
     selectedCourses[0] || null,
   );
@@ -217,28 +257,28 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
   );
   const isSlotConflicting = (slot: string) => conflictingSlots.has(slot);
   return (
-    <section className="flex flex-1 items-start justify-center px-20 py-20">
+    <section className="flex flex-1 items-start justify-center px-8 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
       <div className="w-full max-w-7xl space-y-5">
         <div className="relative">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
             Choose Teachers
           </h1>
-          <p className="mt-2 text-base text-muted-foreground">
+          <p className="md:mt-2 text-sm md:text-md text-base text-muted-foreground">
             Select instructor & slot for each course
           </p>
           <button
             onClick={() => setCurrentSection?.("courses")}
-            className=" absolute top-0 right-5 cursor-pointer rounded-md flex gap-2 items-center border border-border px-5 py-2 text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:border-primary/20"
+            className="absolute top-0 right-0 cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md border border-border text-xs md:text-sm font-medium text-foreground transition-all hover:bg-muted"
           >
-            <ArrowLeft className="text-forground w-5 h-5" />
+            <ArrowLeft className="text-forground w-3 h-3 md:w-4 md:h-4" />
             <div>Back</div>
           </button>
         </div>
         {clashes.length > 0 && (
-          <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-5">
+          <div className="rounded-md md:rounded-lg border border-destructive/30 bg-destructive/5 p-5">
             <div className="flex items-center gap-3">
               <Swords className="h-5 w-5 text-destructive" />
-              <h2 className="text-xl font-bold text-destructive">
+              <h2 className="text-lg md:text-xl font-bold text-destructive">
                 {clashes.length} conflict detected
               </h2>
             </div>
@@ -260,36 +300,36 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
           </div>
         )}
         {readyForTimetable ? (
-          <div className="rounded-lg border border-primary/20 bg-primary/5 p-6">
+          <div className="rounded-md md:rounded-lg border border-primary/20 bg-primary/5 p-6">
             <div className="flex items-start justify-between gap-10">
               <div>
-                <h2 className="text-2xl font-bold text-primary">
+                <h2 className="text-xl md:text-2xl font-bold text-primary">
                   Schedule ready
                 </h2>
-                <p className="mt-1 text-muted-foreground">
+                <p className="md:mt-1 text-sm md:text-md text-muted-foreground">
                   All faculty selections are complete and clash-free.
                 </p>
               </div>
               <button
                 onClick={() => setCurrentSection?.("timetable")}
-                className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
+                className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs md:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
               >
                 <div>Continue</div>
-                <ArrowRight className="text-white w-5 h-5" />
+                <ArrowRight className="text-white w-3 h-3 md:w-4 md:h-4" />
               </button>
             </div>
           </div>
         ) : (
-          <div className="rounded-lg border border-border bg-card p-5">
+          <div className="rounded-md md:rounded-lg border border-border bg-card p-5">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
-                <AlertCircle className="h-5 w-5 text-muted-foreground" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
+                <AlertCircle className="h-4.5 w-4.5 md:h-5 md:w-5 text-muted-foreground" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-md md:text-lg font-semibold text-foreground">
                   Complete all faculty selections
                 </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="md:mt-1 text-xs md:text-sm text-muted-foreground">
                   Select both theory and lab faculty for every course to
                   continue.
                 </p>
@@ -297,9 +337,9 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
             </div>
           </div>
         )}
-        <div className="overflow-hidden rounded-2xl border border-border bg-card">
-          <div className="flex items-center justify-between border-b border-border px-4 py-5">
-            <div className="flex gap-2 overflow-x-auto">
+        <div className="overflow-hidden rounded-lg border border-border bg-card">
+          <div className="flex items-start justify-between gap-4 border-b border-border px-4 py-5">
+            <div className="flex flex-1 flex-wrap gap-2">
               {selectedCourses.map((course) => {
                 const completed = isCourseCompleted(course.code);
                 const conflict = hasConflict(course.code);
@@ -307,7 +347,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                   <button
                     key={course.code}
                     onClick={() => setActiveCourse(course)}
-                    className={`cursor-pointer flex items-center gap-2 border border-border/70 rounded-md px-4 py-2 text-sm font-medium transition-all
+                    className={`cursor-pointer flex items-center gap-2 border border-border/70 rounded-sm md:rounded-md px-4 py-2 text-xs md:text-sm font-medium transition-all
                         ${
                           activeCourse?.code === course.code
                             ? "bg-primary text-primary-foreground"
@@ -329,7 +369,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
             </div>
             <button
               onClick={() => setShowClearCourses(true)}
-              className="cursor-pointer rounded-md border border-border px-6 py-2 text-sm font-medium text-destructive transition-all hover:bg-destructive/4 hover:border-destructive/20 hover:text-destructive"
+              className="shrink-0 cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md border border-border text-xs md:text-sm font-medium text-destructive transition-all hover:border-destructive/20 hover:bg-destructive/5"
             >
               Clear All
             </button>
@@ -347,37 +387,37 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
             />
           </div>
           <div className="border-b border-border p-6">
-            <div className="flex items-start justify-between gap-8">
-              <div className="space-y-2">
-                <div className="flex items-center gap-3">
-                  <h2 className="text-2xl font-bold tracking-tight text-foreground">
+            <div className="md:flex items-start justify-between gap-8">
+              <div className="space-y-1 md:space-y-2">
+                <div className="flex items-center gap-5">
+                  <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground">
                     {activeCourse?.code}
                   </h2>
 
-                  <div className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                  <div className="rounded-full border border-border bg-muted px-3 py-1 text-[10px] md:text-xs font-medium text-muted-foreground">
                     {activeCourse?.credits} Credits
                   </div>
                 </div>
 
-                <p className="text-base text-muted-foreground">
+                <p className="text-sm md:text-base text-muted-foreground">
                   {activeCourse?.name}
                 </p>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 md:mt-0 mt-4">
                 {activeSelection?.theory && (
                   <div className="w-[200px] rounded-md border border-border bg-muted/30 p-3">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">
+                    <div className="mb-1 md:mb-2 text-[10px] md:text-xs font-semibold uppercase tracking-wide text-primary">
                       Theory Faculty
                     </div>
-                    <div className="text-sm font-medium text-foreground">
+                    <div className="text-xs md:text-sm font-medium text-foreground">
                       {activeSelection.theory.name}
                     </div>
                     <div className="mt-2 flex flex-wrap gap-1">
                       {activeSelection.theory.slots.map((slot) => (
                         <span
                           key={slot}
-                          className={`rounded-md border px-2 py-0.5 text-xs ${
+                          className={`rounded-sm border px-2 py-0.5 text-[10px] font-bold md:text-xs ${
                             isSlotConflicting(slot)
                               ? "border-destructive/30 bg-destructive/10 text-destructive"
                               : "border-primary/20 bg-primary/10 text-primary"
@@ -391,18 +431,18 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                 )}
 
                 {activeSelection?.lab && (
-                  <div className="w-[200px] rounded-lg border border-border bg-muted/30 p-3">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-secondary">
+                  <div className="w-[200px] rounded-md border border-border bg-muted/30 p-3">
+                    <div className="mb-1 md:mb-2 text-[10px] md:text-xs font-semibold uppercase tracking-wide text-secondary">
                       Lab Faculty
                     </div>
-                    <div className="text-sm font-medium text-foreground">
+                    <div className="text-xs md:text-sm font-medium text-foreground">
                       {activeSelection.lab.name}
                     </div>
                     <div className="mt-2 flex flex-wrap gap-1">
                       {activeSelection.lab.slots.map((slot) => (
                         <span
                           key={slot}
-                          className={`rounded-md border px-2 py-0.5 text-xs ${
+                          className={`rounded-sm  border px-2 py-0.5 font-bold text-[10px] md:text-xs ${
                             isSlotConflicting(slot)
                               ? "border-destructive/30 bg-destructive/10 text-destructive"
                               : "border-secondary/20 bg-secondary/10 text-secondary"
@@ -419,66 +459,75 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
           </div>
           <div className="space-y-4 p-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
                 <BookOpen className="h-4 w-4 text-primary" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-md md:text-lg font-semibold text-foreground">
                   Theory Faculty
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs md:text-sm text-muted-foreground">
                   Select theory instructors
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-3 rounded-lg border border-border bg-muted/20 p-4 lg:flex-row lg:items-center">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+
                 <input
                   value={theorySearch}
                   onChange={(e) => setTheorySearch(e.target.value)}
                   placeholder="Search theory teachers..."
-                  className="h-11 w-full rounded-md border border-input bg-background pl-11 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-2 focus:ring-ring/30"
+                  className="h-11 w-full rounded-md border border-input bg-card pl-11 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-2 focus:ring-ring/30"
                 />
               </div>
-              <div className="relative">
-                <select
-                  value={theorySortField}
-                  onChange={(e) => setTheorySortField(e.target.value)}
-                  className="h-11 appearance-none rounded-md border border-input bg-background px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
-                >
-                  <option value="name">Name</option>
-                  <option value="slots">Slots</option>
-                </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              </div>
-              <div className="relative">
-                <select
-                  value={theorySortOrder}
-                  onChange={(e) => setTheorySortOrder(e.target.value)}
-                  className="h-11 appearance-none rounded-md border border-input bg-background px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
-                >
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
-                </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+
+              <div className="flex gap-2">
+                <div className="relative">
+                  <select
+                    value={theorySortField}
+                    onChange={(e) => setTheorySortField(e.target.value)}
+                    className="h-11 w-28 appearance-none rounded-md border border-input bg-card px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
+                  >
+                    <option value="name">Name</option>
+                    <option value="slots">Slots</option>
+                  </select>
+
+                  <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                </div>
+
+                <div className="relative">
+                  <select
+                    value={theorySortOrder}
+                    onChange={(e) => setTheorySortOrder(e.target.value)}
+                    className="h-11 w-36 appearance-none rounded-md border border-input bg-card px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
+                  >
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </select>
+
+                  <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              {theoryFaculty.map((faculty) => (
-                <FacultyCard
-                  key={`${faculty.name}-${faculty.slots.join("-")}`}
-                  faculty={faculty}
-                  type="theory"
-                  selected={isSelectedFaculty(
-                    faculty.name,
-                    faculty.slots,
-                    "theory",
-                  )}
-                  conflict={isFacultyInConflict(faculty, "theory")}
-                  onSelect={() => selectFaculty(faculty, "theory")}
-                />
-              ))}
+            <div className="max-h-[500px] overflow-y-auto pr-2">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4">
+                {theoryFaculty.map((faculty) => (
+                  <FacultyCard
+                    key={`${faculty.name}-${faculty.slots.join("-")}`}
+                    faculty={faculty}
+                    type="theory"
+                    selected={isSelectedFaculty(
+                      faculty.name,
+                      faculty.slots,
+                      "theory",
+                    )}
+                    conflict={isFacultyInConflict(faculty, "theory")}
+                    onSelect={() => selectFaculty(faculty, "theory")}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -488,62 +537,66 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                 <FlaskConical className="h-4 w-4 text-secondary" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-foreground">
+                <h3 className="text-md md:text-lg font-semibold text-foreground">
                   Lab Faculty
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs md:text-sm text-muted-foreground">
                   Select lab instructors
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-3 rounded-lg border border-border bg-muted/20 p-4 lg:flex-row lg:items-center">
               <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <input
                   value={labSearch}
                   onChange={(e) => setLabSearch(e.target.value)}
-                  placeholder="Search lab teachers..."
-                  className="h-11 w-full rounded-md border border-input bg-background pl-11 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-2 focus:ring-ring/30"
+                  placeholder="Search theory teachers..."
+                  className="h-11 w-full rounded-md border border-input bg-card pl-11 pr-4 text-sm outline-none transition-all placeholder:text-muted-foreground focus:ring-2 focus:ring-ring/30"
                 />
               </div>
-              <div className="relative">
-                <select
-                  value={labSortField}
-                  onChange={(e) => setLabSortField(e.target.value)}
-                  className="h-11 appearance-none rounded-md border border-input bg-background px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
-                >
-                  <option value="name">Name</option>
-                  <option value="slots">Slots</option>
-                </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              </div>
-              <div className="relative">
-                <select
-                  value={labSortOrder}
-                  onChange={(e) => setLabSortOrder(e.target.value)}
-                  className="h-11 appearance-none rounded-md border border-input bg-background px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
-                >
-                  <option value="asc">Ascending</option>
-                  <option value="desc">Descending</option>
-                </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <div className="flex gap-2">
+                <div className="relative">
+                  <select
+                    value={labSortField}
+                    onChange={(e) => setLabSortField(e.target.value)}
+                    className="h-11 w-28 appearance-none rounded-md border border-input bg-card px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
+                  >
+                    <option value="name">Name</option>
+                    <option value="slots">Slots</option>
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                </div>
+                <div className="relative">
+                  <select
+                    value={labSortOrder}
+                    onChange={(e) => setLabSortOrder(e.target.value)}
+                    className="h-11 w-36 appearance-none rounded-md border border-input bg-card px-4 pr-10 text-sm outline-none transition-all focus:ring-2 focus:ring-ring/30"
+                  >
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </select>
+                  <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              {labFaculty.map((faculty) => (
-                <FacultyCard
-                  key={`${faculty.name}-${faculty.slots.join("-")}`}
-                  faculty={faculty}
-                  type="lab"
-                  selected={isSelectedFaculty(
-                    faculty.name,
-                    faculty.slots,
-                    "lab",
-                  )}
-                  conflict={isFacultyInConflict(faculty, "lab")}
-                  onSelect={() => selectFaculty(faculty, "lab")}
-                />
-              ))}
+            <div className="max-h-[650px] overflow-y-auto pr-2">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4">
+                {labFaculty.map((faculty) => (
+                  <FacultyCard
+                    key={`${faculty.name}-${faculty.slots.join("-")}`}
+                    faculty={faculty}
+                    type="lab"
+                    selected={isSelectedFaculty(
+                      faculty.name,
+                      faculty.slots,
+                      "lab",
+                    )}
+                    conflict={isFacultyInConflict(faculty, "lab")}
+                    onSelect={() => selectFaculty(faculty, "lab")}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>

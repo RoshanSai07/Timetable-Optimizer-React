@@ -14,6 +14,7 @@ type TimetableProps = {
 };
 
 export default function Timetable({
+  currentSection,
   setCurrentSection,
   onImportSuccess,
 }: TimetableProps) {
@@ -30,39 +31,88 @@ export default function Timetable({
   const selectedCourses: Course[] = JSON.parse(
     sessionStorage.getItem("selectedCourses") || "[]",
   );
+  const hasCourses = selectedCourses.length > 0;
+  const [exportTab, setExportTab] = useState<
+    "png" | "pdf" | "json-export" | "json-import"
+  >("png");
+
   return (
-    <section className="flex flex-1 items-start justify-center px-20 py-20">
-      <div className="w-full max-w-7xl space-y-6">
-        <div className="relative space-y-1">
-          <h1 className="text-3xl font-bold tracking-tight text-foreground">
-            Weekly Timetable
-          </h1>
-          <p className="max-w-2xl text-md leading-7 text-muted-foreground">
-            Final clash-free schedule generated from your selected faculty.{" "}
-          </p>
-          <div className="absolute top-0 right-5 flex gap-3">
+    <section className="flex flex-1 items-start justify-center px-8 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
+      <div className="w-full max-w-7xl space-y-6 md:space-y-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+              Weekly Timetable
+            </h1>
+
+            <p className="max-w-2xl text-sm leading-5 text-muted-foreground md:text-base">
+              Final clash-free schedule generated from your selected faculty.
+            </p>
+          </div>
+
+          <div className="flex w-full gap-3 md:w-auto">
             <button
               onClick={() => setExportOpen(true)}
-              className="cursor-pointer rounded-md flex gap-2 items-center bg-primary px-7 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
+              className=" flex-1 cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs md:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
             >
-              <Share2 className="h-4 w-4" />
-              <div>Share</div>
+              <Share2 className="h-3.5 w-3.5 lg:h-4 lg:w-4" />
+              <span>Share</span>
             </button>
 
             <button
               onClick={() => setCurrentSection?.("faculty")}
-              className="cursor-pointer rounded-md flex gap-2 items-center border border-border px-5 py-2 text-sm font-medium text-foreground/70 transition-all hover:text-foreground hover:border-primary/20"
+              className="flex-1 cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md border border-border text-xs md:text-sm font-medium text-foreground transition-all hover:bg-muted"
             >
-              <ArrowLeft className="text-forground w-5 h-5" />
-              <div>Back</div>
+              <ArrowLeft className="h-3.5 w-3.5 lg:h-4 lg:w-4" />
+              <span>Back</span>
             </button>
           </div>
         </div>
 
-        <FacultySummary
-          selectedCourses={selectedCourses}
-          selectedFaculty={selectedFaculty}
-        />
+        {!hasCourses ? (
+          <div className="rounded-lg border border-border bg-card p-6 md:p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+              <div className="max-w-2xl">
+                <h2 className="text-lg md:text-xl font-semibold text-foreground">
+                  No courses selected
+                </h2>
+
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Start by selecting the courses you plan to register for. Once
+                  courses are added, you can choose faculty and generate your
+                  timetable.
+                </p>
+              </div>
+
+              <div className="flex w-full flex-col gap-2 sm:flex-row md:w-auto">
+                <button
+                  onClick={() => {
+                    setExportTab("json-import");
+                    setExportOpen(true);
+                  }}
+                  className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md border border-border text-xs md:text-sm font-medium text-foreground transition-all hover:bg-muted"
+                >
+                  Import Timetable
+                </button>
+
+                <button
+                  onClick={() => setCurrentSection?.("courses")}
+                  className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs md:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  <span>Go to Courses</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <FacultySummary
+            selectedCourses={selectedCourses}
+            selectedFaculty={selectedFaculty}
+            currentSection={currentSection}
+            setCurrentSection={setCurrentSection}
+          />
+        )}
 
         <div className="overflow-x-auto rounded-xl border border-border bg-card p-5">
           <table className="w-full border-separate border-spacing-3">
@@ -169,6 +219,7 @@ export default function Timetable({
         selectedCourses={selectedCourses}
         selectedFaculty={selectedFaculty}
         onImportSuccess={onImportSuccess || (() => {})}
+        initialTab={exportTab}
       />
     </section>
   );

@@ -13,6 +13,7 @@ import {
   Download,
   Mail,
   Shield,
+  Share2,
 } from "lucide-react";
 import Logo from "../assets/logo.svg";
 
@@ -25,51 +26,92 @@ type Tab = "navigate" | "faq" | "info";
 
 const faqs = [
   {
-    q: "What is a slot?",
-    a: "VIT AP uses a slot-based system where each course is assigned one or more slots (e.g. A1, B2, L1). A slot maps to a fixed day and time — theory slots (A–G) in the top row, lab slots (L1–L60) in the bottom row.",
+    q: "Why do I need to sign in with my VIT-AP email?",
+    a: "Your VIT-AP email contains information such as your branch, academic year, and registration number. Timetable Optimizer uses this to automatically load relevant registration data.",
   },
   {
-    q: "Why can't I proceed to Teachers?",
-    a: "You need to select at least one course before moving to teacher selection. Once courses are chosen, the Teachers step unlocks automatically.",
+    q: "What information is extracted from my email?",
+    a: "Your registration number, branch, and academic year are automatically identified to reduce manual setup and ensure accurate course filtering.",
+  },
+  {
+    q: "Do I need to manually enter my branch and year?",
+    a: "No. These details are automatically determined from your VIT-AP email.",
+  },
+  {
+    q: "Why can't I continue to Faculty Selection?",
+    a: "At least one course must be selected before faculty options become available.",
+  },
+  {
+    q: "What is a slot?",
+    a: "A slot represents a fixed class timing. Every faculty member is assigned one or more slots, and your timetable is built using those slot assignments.",
   },
   {
     q: "What counts as a clash?",
-    a: "Two courses clash if they share any slot. For example, if Course A occupies slot B1 and Course B also occupies slot B1, they conflict and can't both be registered.",
+    a: "A clash occurs when two selected faculty combinations occupy the same slot and therefore cannot be attended together.",
   },
   {
-    q: "Can I change my teacher after selecting?",
-    a: "Yes — go back to the Teachers step at any time. Each course tab shows all available instructors for that slot, and you can switch freely before finalising.",
+    q: "How does clash detection work?",
+    a: "Whenever a faculty selection is made, its assigned slots are checked against your existing timetable and potential conflicts are highlighted automatically.",
   },
   {
-    q: "What does the email auto-detection do?",
-    a: "Your VIT AP email encodes your name, join year, and branch code. We parse it to pre-filter courses relevant to your branch and show your academic year — no manual entry needed.",
+    q: "Can I change a faculty selection later?",
+    a: "Yes. Faculty selections can be changed at any time before exporting or sharing your timetable.",
+  },
+  {
+    q: "Why are some courses missing?",
+    a: "Only courses available for your branch and academic year are displayed. Data availability also depends on the latest mock registration dataset.",
+  },
+  {
+    q: "Can I remove all selected courses or faculty at once?",
+    a: "Yes. Use the Clear All option available in the Courses and Faculty sections.",
   },
   {
     q: "Can I export my timetable?",
-    a: "Yes. On the Timetable view, use the Download button to get a PNG of your schedule, or Share to copy a link.",
+    a: "Yes. Timetables can be exported as PNG, PDF, or JSON files.",
+  },
+  {
+    q: "What's the difference between PNG, PDF, and JSON?",
+    a: "PNG and PDF are meant for viewing and sharing. JSON exports preserve your course and faculty selections and can be imported later.",
+  },
+  {
+    q: "Can I import a timetable shared by a friend?",
+    a: "Yes. JSON exports can be imported directly if they belong to the same branch and academic year.",
+  },
+  {
+    q: "Why can't I import this JSON file?",
+    a: "Imports are restricted to students from the same branch and academic year to prevent incompatible course and faculty configurations.",
+  },
+  {
+    q: "Will my timetable be saved automatically?",
+    a: "Your selections remain available during the current browser session. Export your timetable if you want to keep a permanent copy.",
   },
 ];
 
 const steps = [
   {
     icon: <Mail className="h-4 w-4" />,
-    title: "Sign in with your email",
-    desc: "Enter your VIT AP email (e.g. roshan.24bce8403@vitapstudent.ac.in). We extract your name, branch, year, and reg. number automatically.",
+    title: "Sign in with your VIT-AP email",
+    desc: "Your email is used to identify your branch, academic year, and registration number so that only relevant courses are shown.",
   },
   {
     icon: <BookOpen className="h-4 w-4" />,
-    title: "Select your courses",
-    desc: "Browse courses filtered for your branch. Use the search bar or filter by type (theory / lab). Add as many as you need — clash indicators appear in real time.",
+    title: "Build your course basket",
+    desc: "Add the theory and lab courses you plan to register for. Search by course name or code and review your total credits as you build.",
   },
   {
     icon: <Users className="h-4 w-4" />,
-    title: "Choose your teachers",
-    desc: "For each course, a tab shows all available instructors and their assigned slots. Pick the one that suits your schedule.",
+    title: "Select faculty and slots",
+    desc: "Each faculty member teaches specific slots. Choose your preferred faculty and watch your timetable update instantly.",
   },
   {
     icon: <Calendar className="h-4 w-4" />,
-    title: "Review your timetable",
-    desc: "Your full week view is generated with theory and lab slots colour-coded. Conflicts are highlighted. When you're happy, export or share.",
+    title: "Review clashes and alternatives",
+    desc: "Timetable clashes are detected automatically. Try different faculty combinations until you find a schedule that works.",
+  },
+  {
+    icon: <Share2 className="h-4 w-4" />,
+    title: "Export or share your plan",
+    desc: "Download your timetable as PNG, PDF, or JSON. Share configurations with friends or keep them ready for registration day.",
   },
 ];
 
@@ -96,7 +138,7 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
                 Help Center
               </h2>
               <p className="mt-0.5 text-xs text-muted-foreground">
-                Timetable Optimizer · VIT AP
+                For FFCS · VIT AP
               </p>
             </div>
           </div>

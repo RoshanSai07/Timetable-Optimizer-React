@@ -46,7 +46,7 @@ export default function FacultyCard({
   return (
     <button
       onClick={onSelect}
-      className={`cursor-pointer group relative rounded-lg border p-4 text-left transition-all duration-200 ${
+      className={`cursor-pointer group relative md:rounded-lg rounded-md border p-4 text-left transition-all duration-200 ${
         conflict
           ? `${conflictColors.border} ${conflictColors.bg} shadow-sm`
           : selected
@@ -54,7 +54,7 @@ export default function FacultyCard({
             : "border-border hover:border-primary/20 hover:bg-muted/50"
       }`}
     >
-      <div className="absolute right-4 top-4 flex items-center gap-2">
+      <div className="absolute right-4 top-5 flex items-center gap-2">
         {conflict ? (
           <AlertCircle className="h-4 w-4 text-destructive" />
         ) : selected ? (
@@ -62,7 +62,7 @@ export default function FacultyCard({
         ) : null}
       </div>
       <div
-        className={`text-base font-semibold transition-colors${
+        className={`text-[15px] md:text-base font-semibold transition-colors${
           conflict
             ? conflictColors.text
             : selected
@@ -77,7 +77,7 @@ export default function FacultyCard({
         {faculty.slots.map((slot) => (
           <div
             key={slot}
-            className={`rounded-full border px-3 py-1 text-xs font-medium transition-all ${
+            className={`rounded-sm border px-3 py-0.5 font-bold md:py-1 text-[10px] md:text-xs md:font-medium transition-all ${
               conflict
                 ? conflictColors.chip
                 : selected

@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import Footer from "../components/Footer";
 import SupportedPrograms from "../components/SupportedPrograms";
+import FeaturesSection from "../components/FeaturesSection";
 
 export function Landing() {
   return (
@@ -9,6 +10,7 @@ export function Landing() {
       <Navbar loggedIn={false} />
       <HeroSection />
       <SupportedPrograms />
+      <FeaturesSection />
       <Footer />
     </div>
   );

@@ -37,6 +37,7 @@ type ExportCenterProps = {
   student: Student;
   selectedCourses: Course[];
   selectedFaculty: SelectedFaculty[];
+  initialTab?: TabId;
   onImportSuccess: () => void;
 };
 
@@ -49,6 +50,7 @@ export default function ExportCenter({
   selectedCourses,
   selectedFaculty,
   onImportSuccess,
+  initialTab = "png",
 }: ExportCenterProps) {
   const [activeTab, setActiveTab] = useState<TabId>("png");
   const [loading, setLoading] = useState(false);
@@ -69,6 +71,12 @@ export default function ExportCenter({
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [zoom, setZoom] = useState(0.35);
   const [previewHeight, setPreviewHeight] = useState(900);
+
+  useEffect(() => {
+    if (open) {
+      setActiveTab(initialTab);
+    }
+  }, [open, initialTab]);
 
   useLayoutEffect(() => {
     if (!open) return;
