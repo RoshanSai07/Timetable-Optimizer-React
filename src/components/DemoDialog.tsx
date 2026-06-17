@@ -84,23 +84,23 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
       <div className="fixed right-0 top-0 z-50 flex h-full w-full max-w-lg flex-col border-l border-border bg-card shadow-2xl">
         <div className="flex items-center justify-between border-b border-border px-6 py-5">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <Play className="h-5 w-5" />
+            <div className="flex p-2 md:p-3 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <Play className="h-4 w-4 md:h-5 md:w-5" />
             </div>
             <div>
-              <h2 className="text-lg font-semibold leading-none">
+              <h2 className="text-md md:text-lg font-semibold leading-none">
                 How it works
               </h2>
-              <p className="mt-0.5 text-xs text-muted-foreground">
+              <p className="mt-0.5 text-[10px] md:text-xs text-muted-foreground">
                 Watch · Read · Register smarter
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="cursor-pointer h-8 w-8 border border-border rounded-md flex items-center justify-center"
+            className="cursor-pointer p-2 md:p-3 border border-border rounded-md flex items-center justify-center"
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4 md:h-5 md:w-5" />
           </button>
         </div>
 
@@ -130,7 +130,7 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
               </div>
             )}
             <div className="px-6 py-3 bg-muted/30">
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-[11px] md:text-xs text-muted-foreground leading-relaxed">
                 Watch how a real course registration session unfolds and know
                 how having a pre-built plan makes it effortless
               </p>
@@ -140,8 +140,8 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
           <div className="space-y-0 divide-y px-6">
             <div className="py-6 border-border">
               <div className="mb-4 flex items-center gap-2">
-                <Lightbulb className="h-5 w-5 text-primary" />
-                <h3 className="text-[15px] font-semibold">
+                <Lightbulb className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                <h3 className="text-sm md:text-[15px] font-semibold">
                   Why plan here before VTOP?
                 </h3>
               </div>
@@ -152,7 +152,7 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
                     className="flex items-start gap-3 rounded-md border border-border p-3.5"
                   >
                     <div
-                      className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md ${
+                      className={`mt-0.5 flex p-2 md:p-3 shrink-0 items-center justify-center rounded-md ${
                         p.tone === "warn"
                           ? "bg-destructive/10 text-destructive"
                           : "bg-primary/10 text-primary"
@@ -161,8 +161,10 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
                       {p.icon}
                     </div>
                     <div>
-                      <div className="text-[15px] font-medium">{p.title}</div>
-                      <div className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                      <div className="text-sm md:text-[15px] font-medium">
+                        {p.title}
+                      </div>
+                      <div className="mt-0.5 text-[11px] md:text-xs text-muted-foreground leading-relaxed">
                         {p.desc}
                       </div>
                     </div>
@@ -173,8 +175,8 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
 
             <div className="py-6">
               <div className="mb-6 flex items-center gap-2">
-                <CalendarCheck className="h-5 w-5 text-primary" />
-                <h3 className="text-[15px] font-semibold">
+                <CalendarCheck className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+                <h3 className="text-sm md:text-[15px] font-semibold">
                   Your pre-registration workflow
                 </h3>
               </div>
@@ -182,8 +184,8 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
                 {steps.map((s, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="flex flex-col items-center">
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-primary/20 bg-primary/5">
-                        <span className="text-[12px] font-bold text-primary">
+                      <div className="flex h-8 w-8 md:h-9 md:w-9 shrink-0 items-center justify-center rounded-full border-2 border-primary/20 bg-primary/5">
+                        <span className="text-[10px] md:text-[12px] font-bold text-primary">
                           {s.step}
                         </span>
                       </div>
@@ -192,8 +194,10 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
                       )}
                     </div>
                     <div className="pb-5">
-                      <div className="text-[15px] font-semibold">{s.title}</div>
-                      <div className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                      <div className="text-sm md:text-[15px] font-semibold">
+                        {s.title}
+                      </div>
+                      <div className="md:mt-0.5 text-[11px] md:text-xs text-muted-foreground leading-relaxed">
                         {s.desc}
                       </div>
                     </div>
@@ -202,7 +206,7 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
               </div>
 
               <div className="mt-2 rounded-md border border-primary/20 bg-primary/5 p-4">
-                <p className="text-sm text-primary leading-relaxed">
+                <p className="text-xs md:text-sm text-primary leading-relaxed">
                   <span className="font-semibold">Pro tip: </span> Do try this
                   before course registration opens. It takes really few minutes
                   here rather than many stressful minutes during registration
@@ -212,9 +216,9 @@ export default function DemoDialog({ open, onClose }: DemoPanelProps) {
           </div>
         </div>
 
-        <div className="border-t border-border px-6 py-4">
+        <div className="border-t border-border px-6 py-3 md:py-4">
           <div className="flex items-center justify-center">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-[11px] md:text-xs text-muted-foreground">
               Built for VIT AP students
             </p>
           </div>

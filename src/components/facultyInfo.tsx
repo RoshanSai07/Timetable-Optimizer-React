@@ -24,17 +24,17 @@ export default function FacultyInfo({
       <div className="overflow-hidden rounded-xl border border-border bg-muted/10">
         <div className="flex items-center justify-between border-b border-border bg-muted/30 px-5 py-4">
           <div>
-            <h2 className="text-lg font-semibold text-foreground">
+            <h2 className="text-md font-semibold text-foreground">
               Faculty Overview
             </h2>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <p className="md:mt-1 text-xs text-muted-foreground">
               {selectedCourses.length} Courses Selected
             </p>
           </div>
 
           <div className="rounded-lg bg-card px-4 py-2">
             <div className="text-xs text-muted-foreground">Total Credits</div>
-            <div className="text-lg font-semibold text-primary">
+            <div className="text-md md:text-lg font-semibold text-primary">
               {totalCredits}
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function FacultyInfo({
                 No faculty selected yet
               </h2>
 
-              <p className="mt-1 text-xs md:text-sm leading-relaxed text-muted-foreground">
+              <p className="md:mt-1 text-xs md:text-sm leading-relaxed text-muted-foreground">
                 Choose instructors for your selected courses to generate a
                 timetable and check for slot clashes.
               </p>
@@ -58,7 +58,7 @@ export default function FacultyInfo({
                 onClick={() => setCurrentSection?.("faculty")}
                 className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs md:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowLeft className="h-3.5 w-3.5 md:h-4 md:w-4" />
                 <span>Go to Faculty</span>
               </button>
             </div>
@@ -92,13 +92,13 @@ export default function FacultyInfo({
         <table className="w-full">
           <thead>
             <tr className="border-b border-border bg-muted/20">
-              <th className="px-5 py-3 text-left text-[10px] md:text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <th className="px-5 py-3 text-left text-[9px] md:text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 Course
               </th>
-              <th className="px-5 py-3 text-left text-[10px] md:text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <th className="px-5 py-3 text-left text-[9px] md:text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 Faculty Selection
               </th>
-              <th className="px-5 py-3 text-center text-[10px] md:text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              <th className="px-5 py-3 text-center text-[9px] md:text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 Credits
               </th>
             </tr>
@@ -115,10 +115,10 @@ export default function FacultyInfo({
                   className="border-b border-border/60 bg-card transition-colors hover:bg-muted/20 last:border-none"
                 >
                   <td className="pl-5 py-4 align-top">
-                    <div className="font-semibold text-[16px] md:text-md text-foreground">
+                    <div className="font-semibold text-[14px] md:text-md text-foreground">
                       {selection.courseCode}
                     </div>
-                    <div className="md: mt-1 text-[11px] md:text-xs text-muted-foreground">
+                    <div className="md: mt-1 text-[10px] md:text-xs text-muted-foreground">
                       {course?.name}
                     </div>
                   </td>
@@ -127,17 +127,17 @@ export default function FacultyInfo({
                     <div className="space-y-2">
                       {selection.theory && (
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-xs font-medium text-primary">
+                          <span className="text-[10px] font-medium text-primary">
                             Theory
                           </span>
-                          <span className="text-[13px] md:text-sm text-foreground">
+                          <span className="text-[11px] md:text-sm text-foreground">
                             {selection.theory.name}
                           </span>
                           <div className="flex flex-wrap gap-1">
                             {selection.theory.slots.map((slot) => (
                               <span
                                 key={slot}
-                                className="rounded-sm bg-muted px-2 py-0.5 text-[10px] md:text-xs text-foreground"
+                                className="rounded-xs md:rounded-sm bg-muted font-bold md:font-normal px-2 py-0.5 text-[8px] md:text-xs text-foreground"
                               >
                                 {slot}
                               </span>
@@ -148,17 +148,17 @@ export default function FacultyInfo({
 
                       {selection.lab && (
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-xs font-medium text-secondary">
+                          <span className="text-[10px] font-medium text-secondary">
                             Lab
                           </span>
-                          <span className="text-[13px] md:text-sm text-foreground">
+                          <span className="text-[11px] md:text-sm text-foreground">
                             {selection.lab.name}
                           </span>
                           <div className="flex flex-wrap gap-1">
                             {selection.lab.slots.map((slot) => (
                               <span
                                 key={slot}
-                                className="rounded-md bg-muted px-2 py-0.5 text-[10px] md:text-xs text-foreground"
+                                className="rounded-xs md:rounded-md bg-muted font-bold md:font-normal px-2 py-0.5 text-[8px] md:text-xs text-foreground"
                               >
                                 {slot}
                               </span>
@@ -170,7 +170,7 @@ export default function FacultyInfo({
                   </td>
 
                   <td className="px-5 py-4 text-center align-top">
-                    <span className="rounded-md bg-muted px-2.5 py-1 text-[10px] md:text-xs font-medium text-foreground">
+                    <span className="rounded-xs md:rounded-md bg-muted px-2.5 py-1 text-[10px] md:text-xs font-medium text-foreground">
                       {course?.credits} Cr
                     </span>
                   </td>

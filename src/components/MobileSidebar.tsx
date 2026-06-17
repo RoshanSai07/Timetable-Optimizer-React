@@ -66,23 +66,23 @@ export default function MobileSidebar({
     navigate("/");
   };
 
-  const navItems = [
-    {
-      id: "courses",
-      label: "Courses",
-      icon: BookOpen,
-    },
-    {
-      id: "faculty",
-      label: "Faculty",
-      icon: Users,
-    },
-    {
-      id: "timetable",
-      label: "Timetable",
-      icon: Calendar,
-    },
-  ];
+  // const navItems = [
+  //   {
+  //     id: "courses",
+  //     label: "Courses",
+  //     icon: BookOpen,
+  //   },
+  //   {
+  //     id: "faculty",
+  //     label: "Faculty",
+  //     icon: Users,
+  //   },
+  //   {
+  //     id: "timetable",
+  //     label: "Timetable",
+  //     icon: Calendar,
+  //   },
+  // ];
   return (
     <>
       <AnimatePresence>
@@ -116,9 +116,9 @@ export default function MobileSidebar({
 
                 <button
                   onClick={onClose}
-                  className="cursor-pointer flex h-9 w-9 items-center justify-center rounded-md border border-border hover:bg-muted"
+                  className="cursor-pointer flex h-8 w-8 items-center justify-center rounded-md border border-border hover:bg-muted"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4.5 w-4.5" />
                 </button>
               </div>
 
@@ -158,7 +158,7 @@ export default function MobileSidebar({
                     </div>
                   </div>
                 )}
-                {loggedIn && (
+                {/* {loggedIn && (
                   <div className="border-b border-border p-4">
                     <div className="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
                       Navigation
@@ -188,7 +188,7 @@ export default function MobileSidebar({
                       })}
                     </div>
                   </div>
-                )}
+                )} */}
                 <div className="border-b border-border p-4">
                   <div className="mb-3 text-xs font-medium uppercase tracking-wide text-muted-foreground">
                     Tools
@@ -233,19 +233,19 @@ export default function MobileSidebar({
                       </span>
                     </button>
                   </div>
+                  {loggedIn && (
+                    <div className="border-t border-border px-4 py-2">
+                      <button
+                        onClick={handleLogout}
+                        className="cursor-pointer flex h-10 w-full items-center gap-3 rounded-md text-destructive transition-all hover:bg-destructive/10"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        <span className="text-sm font-medium">Logout</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
-              {loggedIn && (
-                <div className="border-t border-border p-4">
-                  <button
-                    onClick={handleLogout}
-                    className="cursor-pointer flex h-10 w-full items-center gap-3 rounded-md px-3 text-destructive transition-all hover:bg-destructive/10"
-                  >
-                    <LogOut className="h-4 w-4" />
-                    <span className="text-sm font-medium">Logout</span>
-                  </button>
-                </div>
-              )}
             </motion.div>
           </>
         )}

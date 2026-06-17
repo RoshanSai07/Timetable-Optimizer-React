@@ -3,9 +3,14 @@ import type { SelectedFaculty } from "../types/selectedFaculty";
 import { generateTimetable } from "../utils/generateTimetable";
 import type { Course } from "../types/course";
 import FacultySummary from "./facultyInfo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
 import ExportCenter from "./ExportCenter";
+import WeeklyTimetable from "./timetableLayout/WeeklyTimetable";
+import DailyTimetable from "./timetableLayout/DailyTimetable";
+import CompactTimetable from "./timetableLayout/CompactTimetable";
+import TimetableViewSwitcher from "./timetableLayout/TimetableViewSwitcher";
+import { LayoutGrid, CalendarDays, Rows3 } from "lucide-react";
 
 type TimetableProps = {
   currentSection?: string;
@@ -35,17 +40,33 @@ export default function Timetable({
   const [exportTab, setExportTab] = useState<
     "png" | "pdf" | "json-export" | "json-import"
   >("png");
+  const [viewMode, setViewMode] = useState<"weekly" | "daily" | "compact">(
+    () => {
+      if (window.innerWidth < 768) {
+        return "daily";
+      }
+      return "weekly";
+    },
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setViewMode(window.innerWidth < 768 ? "daily" : "weekly");
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <section className="flex flex-1 items-start justify-center px-8 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
+    <section className="flex flex-1 items-start justify-center px-5 pt-15 pb-5 sm:px-8 md:px-10 lg:px-10 lg:py-20">
       <div className="w-full max-w-7xl space-y-6 md:space-y-8">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+            <h1 className="text-xl md:text-3xl font-bold tracking-tight text-foreground">
               Weekly Timetable
             </h1>
 
-            <p className="max-w-2xl text-sm leading-5 text-muted-foreground md:text-base">
+            <p className="max-w-2xl text-xs leading-5 text-muted-foreground md:text-base">
               Final clash-free schedule generated from your selected faculty.
             </p>
           </div>
@@ -72,34 +93,34 @@ export default function Timetable({
         {!hasCourses ? (
           <div className="rounded-lg border border-border bg-card p-6 md:p-10">
             <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-              <div className="max-w-2xl">
-                <h2 className="text-lg md:text-xl font-semibold text-foreground">
+              <div className="xl:max-w-3xl max-w-md">
+                <h2 className="text-md md:text-xl font-semibold text-foreground">
                   No courses selected
                 </h2>
 
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="md:mt-2 text-xs leading-relaxed text-muted-foreground">
                   Start by selecting the courses you plan to register for. Once
                   courses are added, you can choose faculty and generate your
                   timetable.
                 </p>
               </div>
 
-              <div className="flex w-full flex-col gap-2 sm:flex-row md:w-auto">
+              <div className="flex w-full flex-col gap-2 sm:flex-row lg:w-auto">
                 <button
                   onClick={() => {
                     setExportTab("json-import");
                     setExportOpen(true);
                   }}
-                  className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md border border-border text-xs md:text-sm font-medium text-foreground transition-all hover:bg-muted"
+                  className="cursor-pointer h-9 md:h-10 px-4 lg:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md border border-border text-xs lg:text-sm font-medium text-foreground transition-all hover:bg-muted"
                 >
                   Import Timetable
                 </button>
 
                 <button
                   onClick={() => setCurrentSection?.("courses")}
-                  className="cursor-pointer h-9 md:h-10 px-4 md:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs md:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
+                  className="cursor-pointer h-9 md:h-10 px-4 lg:px-6 flex items-center justify-center gap-2 rounded-sm md:rounded-md bg-primary text-xs lg:text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
                 >
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeft className="h-3.5 w-3.5 lg:h-4 lg:w-4" />
                   <span>Go to Courses</span>
                 </button>
               </div>
@@ -114,7 +135,7 @@ export default function Timetable({
           />
         )}
 
-        <div className="overflow-x-auto rounded-xl border border-border bg-card p-5">
+        {/* <div className="overflow-x-auto rounded-xl border border-border bg-card p-5">
           <table className="w-full border-separate border-spacing-3">
             <thead>
               <tr>
@@ -209,6 +230,20 @@ export default function Timetable({
               ))}
             </tbody>
           </table>
+        </div> */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <TimetableViewSwitcher view={viewMode} setView={setViewMode} />
+          </div>
+          {viewMode === "weekly" && (
+            <WeeklyTimetable timetable={timetable} rows={rows} days={days} />
+          )}
+          {viewMode === "daily" && (
+            <DailyTimetable timetable={timetable} days={days} />
+          )}
+          {viewMode === "compact" && (
+            <CompactTimetable timetable={timetable} days={days} />
+          )}{" "}
         </div>
       </div>
 

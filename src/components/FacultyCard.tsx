@@ -54,30 +54,49 @@ export default function FacultyCard({
             : "border-border hover:border-primary/20 hover:bg-muted/50"
       }`}
     >
-      <div className="absolute right-4 top-5 flex items-center gap-2">
+      <div className="absolute right-4 top-5 hidden md:flex items-center gap-2">
         {conflict ? (
           <AlertCircle className="h-4 w-4 text-destructive" />
         ) : selected ? (
           <CheckCircle2 className={`h-4 w-4 ${colors.text}`} />
         ) : null}
       </div>
-      <div
-        className={`text-[15px] md:text-base font-semibold transition-colors${
-          conflict
-            ? conflictColors.text
-            : selected
-              ? colors.text
-              : "text-foreground"
-        }`}
-      >
-        {faculty.name}
+      <div className="flex items-center justify-between gap-3 md:block">
+        <div
+          className={`font-semibold text-[14px] md:text-base ${
+            conflict
+              ? conflictColors.text
+              : selected
+                ? colors.text
+                : "text-foreground"
+          }`}
+        >
+          {faculty.name}
+        </div>
+
+        <div className="flex gap-1 md:hidden text-xs font-medium text-muted-foreground shrink-0">
+          {faculty.slots.map((slot) => (
+            <div
+              key={slot}
+              className={`rounded-sm border px-3 py-1 text-[10px] transition-all ${
+                conflict
+                  ? conflictColors.chip
+                  : selected
+                    ? colors.chip
+                    : "border-border bg-muted/30 text-muted-foreground"
+              }`}
+            >
+              {slot}
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="hidden md:flex mt-3 flex-wrap gap-2">
         {faculty.slots.map((slot) => (
           <div
             key={slot}
-            className={`rounded-sm border px-3 py-0.5 font-bold md:py-1 text-[10px] md:text-xs md:font-medium transition-all ${
+            className={`rounded-sm border px-3 py-1 text-xs transition-all ${
               conflict
                 ? conflictColors.chip
                 : selected

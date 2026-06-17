@@ -10,18 +10,20 @@ import {
   Zap,
   Users,
   Calendar,
-  Download,
   Mail,
-  Shield,
   Share2,
 } from "lucide-react";
 import Logo from "../assets/logo.svg";
+import {
+  formatName,
+  formatYearLabel,
+  formatRegNo,
+} from "../utils/formatStudent";
 
 interface HelpPanelProps {
   open: boolean;
   onClose: () => void;
 }
-
 type Tab = "navigate" | "faq" | "info";
 
 const faqs = [
@@ -86,30 +88,29 @@ const faqs = [
     a: "Your selections remain available during the current browser session. Export your timetable if you want to keep a permanent copy.",
   },
 ];
-
 const steps = [
   {
-    icon: <Mail className="h-4 w-4" />,
+    icon: <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />,
     title: "Sign in with your VIT-AP email",
     desc: "Your email is used to identify your branch, academic year, and registration number so that only relevant courses are shown.",
   },
   {
-    icon: <BookOpen className="h-4 w-4" />,
+    icon: <BookOpen className="h-3.5 w-3.5 md:h-4 md:w-4" />,
     title: "Build your course basket",
     desc: "Add the theory and lab courses you plan to register for. Search by course name or code and review your total credits as you build.",
   },
   {
-    icon: <Users className="h-4 w-4" />,
+    icon: <Users className="h-3.5 w-3.5 md:h-4 md:w-4" />,
     title: "Select faculty and slots",
     desc: "Each faculty member teaches specific slots. Choose your preferred faculty and watch your timetable update instantly.",
   },
   {
-    icon: <Calendar className="h-4 w-4" />,
+    icon: <Calendar className="h-3.5 w-3.5 md:h-4 md:w-4" />,
     title: "Review clashes and alternatives",
     desc: "Timetable clashes are detected automatically. Try different faculty combinations until you find a schedule that works.",
   },
   {
-    icon: <Share2 className="h-4 w-4" />,
+    icon: <Share2 className="h-3.5 w-3.5 md:h-4 md:w-4" />,
     title: "Export or share your plan",
     desc: "Download your timetable as PNG, PDF, or JSON. Share configurations with friends or keep them ready for registration day.",
   },
@@ -120,6 +121,30 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!open) return null;
+  const student = JSON.parse(sessionStorage.getItem("student") || "{}");
+
+  const currentYear = new Date().getFullYear();
+
+  const detectedFields = [
+    {
+      label: "Name",
+      example: `${student.name} → ${formatName(student.name)}`,
+    },
+    {
+      label: "Join Year",
+      example: `${student.joinYear} → ${formatYearLabel(
+        student.yearLabel,
+      )} (${currentYear})`,
+    },
+    {
+      label: "Branch",
+      example: `${student.branch.toLowerCase()} → ${student.branch}`,
+    },
+    {
+      label: "Reg. Number",
+      example: formatRegNo(student.regNo),
+    },
+  ];
 
   return (
     <>
@@ -130,23 +155,23 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
       <div className="fixed right-0 top-0 z-50 flex h-full w-full max-w-lg flex-col border-l border-border bg-card shadow-2xl">
         <div className="flex items-center justify-between border-b border-border px-6 py-5">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20 text-primary">
-              <HelpCircle className="h-5 w-5" />
+            <div className="flex p-2 md:p-3 items-center justify-center rounded-md bg-primary/20 text-primary">
+              <HelpCircle className="h-4 w-4 md:h-5 md:w-5" />
             </div>
             <div>
-              <h2 className="text-lg font-semibold leading-none">
+              <h2 className="text-md md:text-lg font-semibold leading-none">
                 Help Center
               </h2>
-              <p className="mt-0.5 text-xs text-muted-foreground">
+              <p className="mt-0.5 text-[10px] md:text-xs text-muted-foreground">
                 For FFCS · VIT AP
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="cursor-pointer h-8 w-8 border border-border rounded-md flex items-center justify-center"
+            className="cursor-pointer p-2 md:p-3 border border-border rounded-md flex items-center justify-center"
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4 md:h-5 md:w-5" />
           </button>
         </div>
 
@@ -155,17 +180,17 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
             [
               {
                 id: "navigate",
-                icon: <ArrowRight className="h-4 w-4" />,
+                icon: <ArrowRight className="h-3.5 w-3.5 md:h-4 md:w-4" />,
                 label: "How to use",
               },
               {
                 id: "faq",
-                icon: <HelpCircle className="h-4 w-4" />,
+                icon: <HelpCircle className="h-3.5 w-3.5 md:h-4 md:w-4" />,
                 label: "FAQ",
               },
               {
                 id: "info",
-                icon: <Info className="h-4 w-4" />,
+                icon: <Info className="h-3.5 w-3.5 md:h-4 md:w-4" />,
                 label: "About",
               },
             ] as { id: Tab; icon: React.ReactNode; label: string }[]
@@ -173,7 +198,7 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className={`flex items-center gap-1 border-b-2 px-2 py-3 mr-5 text-sm font-medium transition-colors ${
+              className={`flex items-center md:gap-1 gap-2 border-b-2 px-2 py-3 mr-5 text-xs md:text-sm font-medium transition-colors ${
                 tab === t.id
                   ? "border-primary text-primary"
                   : "cursor-pointer border-transparent text-muted-foreground hover:text-foreground"
@@ -188,13 +213,13 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
         <div className="flex-1 overflow-y-auto px-6 py-6">
           {tab === "navigate" && (
             <div className="space-y-2">
-              <p className="mb-6 text-[15px] text-muted-foreground">
+              <p className="mb-6 text-xs md:text-[15px] text-muted-foreground">
                 Follow these four steps to build your conflict-free timetable
               </p>
               {steps.map((s, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <div className="flex p-2 md:p-3 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                       {s.icon}
                     </div>
                     {i < steps.length - 1 && (
@@ -203,32 +228,32 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
                   </div>
                   <div className="pb-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-wider">
+                      <span className="text-[10px] md:text-xs font-semibold text-muted-foreground/60 uppercase tracking-wider">
                         Step {i + 1}
                       </span>
                     </div>
-                    <div className="mt-0.5 text-[15px] font-semibold">
+                    <div className="mt-0.5 text-sm md:text-[15px] font-semibold">
                       {s.title}
                     </div>
-                    <div className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                    <div className="md:mt-1 text-[10px] md:text-xs text-muted-foreground leading-relaxed">
                       {s.desc}
                     </div>
                   </div>
                 </div>
               ))}
 
-              <div className="mt-5 rounded-md border border-border bg-muted/40 p-4">
-                <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+              <div className="mt-5 rounded-md border border-border bg-muted/40 p-3 lg:p-4">
+                <p className="mb-3 text-xs lg:text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   Slot legend
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center bg-primary gap-1.5 rounded-sm px-2.5 py-1 text-xs font-medium text-white">
+                  <span className="inline-flex items-center bg-primary gap-1.5 rounded-sm px-2.5 py-1 text-[10px] lg:text-xs font-medium text-white">
                     A1–G2 Theory
                   </span>
-                  <span className="inline-flex items-center bg-secondary gap-1.5 rounded-sm px-2.5 py-1 text-xs font-medium text-white">
+                  <span className="inline-flex items-center bg-secondary gap-1.5 rounded-sm px-2.5 py-1 text-[10px] lg:text-xs font-medium text-white">
                     L1–L60 Lab
                   </span>
-                  <span className="inline-flex items-center bg-destructive gap-1.5 rounded-sm px-2.5 py-1 text-xs font-medium text-white">
+                  <span className="inline-flex items-center bg-destructive gap-1.5 rounded-sm px-2.5 py-1 text-[10px] lg:text-xs font-medium text-white">
                     Clash
                   </span>
                 </div>
@@ -238,7 +263,7 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
 
           {tab === "faq" && (
             <div className="space-y-2">
-              <p className="mb-5 text-[15px] text-muted-foreground">
+              <p className="mb-5 text-xs md:text-[15px] text-muted-foreground">
                 Common questions about the app
               </p>
               {faqs.map((f, i) => (
@@ -248,17 +273,17 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="cursor-pointer flex w-full items-center justify-between px-4 py-3.5 text-left text-[15px] font-medium transition-colors hover:bg-muted"
+                    className="cursor-pointer flex w-full items-center justify-between px-4 py-3.5 text-left text-xs md:text-[15px] font-medium transition-colors hover:bg-muted"
                   >
                     {f.q}
                     {openFaq === i ? (
-                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground" />
+                      <ChevronDown className="h-3 w-3 md:h-4 md:w-4 shrink-0 ml-4 text-muted-foreground" />
                     ) : (
-                      <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                      <ChevronRight className="h-3 w-3 md:h-4 md:w-4 shrink-0 ml-4 text-muted-foreground" />
                     )}
                   </button>
                   {openFaq === i && (
-                    <div className="border-t border-border bg-muted/30 px-4 py-3.5 text-sm text-muted-foreground leading-relaxed">
+                    <div className="border-t border-border bg-muted/30 px-4 py-3.5 text-[10px] md:text-sm text-muted-foreground leading-relaxed">
                       {f.a}
                     </div>
                   )}
@@ -267,45 +292,46 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
             </div>
           )}
           {tab === "info" && (
-            <div className="space-y-7">
+            <div className="space-y-5 md:space-y-7">
               <div className="rounded-md border border-border bg-muted/40 p-5">
                 <div className="mb-5 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center bg-primary rounded-sm text-white">
-                    <img src={Logo} alt="Logo" className="h-7 w-7" />
+                  <div className="flex p-2 md:p-3 items-center justify-center bg-primary rounded-sm text-white">
+                    <img
+                      src={Logo}
+                      alt="Logo"
+                      className="h-6 w-6 md:h-7 md:w-7"
+                    />
                   </div>
                   <div>
-                    <div className="text-md font-semibold">
+                    <div className="text-[15px] md:text-md font-semibold">
                       Timetable Optimizer
                     </div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-[10px] md:text-xs text-muted-foreground">
                       Based on VIT AP mock course registration data
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-[11px] md:text-sm text-muted-foreground leading-relaxed">
                   A student-built tool to simplify semester registration at VIT
                   AP. No accounts, no data stored, everything runs in your
-                  browser.
+                  browser
                 </p>
               </div>
 
               <div>
-                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-muted-foreground">
+                <p className="mb-3 text-[12px] md:text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   What we detect from your email
                 </p>
                 <div className="space-y-2">
-                  {[
-                    { label: "Name", example: "roshan → Roshan" },
-                    { label: "Join year", example: "24 → 2nd Year (2026)" },
-                    { label: "Branch", example: "bce → BCE" },
-                    { label: "Reg. Number", example: "24bce8403" },
-                  ].map((r) => (
+                  {detectedFields.map((r) => (
                     <div
                       key={r.label}
-                      className="flex items-center justify-between rounded-lg border border-border px-4 py-2.5"
+                      className="flex items-center justify-between rounded-md border border-border px-4 py-2.5"
                     >
-                      <span className="text-md font-medium">{r.label}</span>
-                      <span className="font-mono text-sm text-muted-foreground">
+                      <span className="text-sm md:text-md font-medium">
+                        {r.label}
+                      </span>
+                      <span className="font-mono text-xs md:text-sm text-muted-foreground">
                         {r.example}
                       </span>
                     </div>
@@ -314,14 +340,13 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
               </div>
 
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                <p className="mb-3 text-[12px] md:text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   Privacy
                 </p>
-                <div className="flex items-start gap-3 rounded-xl border border-border bg-muted/40 p-4">
-                  <Shield className="mt-1 h-4 w-4 shrink-0 text-primary" />
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                <div className="flex items-start gap-3 rounded-md border border-border bg-muted/40 p-4">
+                  <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed">
                     Your email is parsed locally in the browser and never sent
-                    to any server. No cookies, no tracking, no accounts.
+                    to any server. No cookies, no tracking, no accounts
                   </p>
                 </div>
               </div>
@@ -330,7 +355,7 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
                 <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   Tips
                 </p>
-                <div className="space-y-2">
+                <div className="space-y-2 md:space-y-3">
                   {[
                     "Use the search bar to find courses by code or name quickly",
                     "Lab courses count as double slots, check both L-slot rows",
@@ -339,9 +364,9 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
                   ].map((tip, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                      className="flex items-start gap-3 text-xs md:text-sm text-muted-foreground"
                     >
-                      <Zap className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                      <Zap className="mt-1 h-3 w-3 shrink-0 text-primary" />
                       {tip}
                     </div>
                   ))}
