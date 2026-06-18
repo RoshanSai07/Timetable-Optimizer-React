@@ -43,6 +43,7 @@ export const parseEmail = (email: string): Student => {
       throw new Error("Invalid academic year");
   }
   return {
+    email,
     name,
     joinYear,
     branch,

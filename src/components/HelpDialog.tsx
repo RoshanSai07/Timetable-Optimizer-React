@@ -121,11 +121,28 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   if (!open) return null;
-  const student = JSON.parse(sessionStorage.getItem("student") || "{}");
+  const rawStudent = sessionStorage.getItem("student");
+
+  const isDemo = !rawStudent;
+
+  const student = rawStudent
+    ? JSON.parse(rawStudent)
+    : {
+        email: "name.24bce001@vitapstudent.ac.in",
+        name: "name",
+        regNo: "24BCE001",
+        branch: "BCE",
+        yearLabel: "secondYear",
+        joinYear: 24,
+      };
 
   const currentYear = new Date().getFullYear();
 
   const detectedFields = [
+    {
+      label: "Email",
+      example: student.email,
+    },
     {
       label: "Name",
       example: `${student.name} → ${formatName(student.name)}`,
@@ -322,6 +339,14 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
                 <p className="mb-3 text-[12px] md:text-sm font-medium uppercase tracking-wider text-muted-foreground">
                   What we detect from your email
                 </p>
+                {isDemo && (
+                  <div className="mb-4 rounded-md border border-primary/20 bg-primary/5 p-3">
+                    <p className="text-xs text-muted-foreground">
+                      Showing a demo example because you're viewing the help
+                      center before signing in.
+                    </p>
+                  </div>
+                )}
                 <div className="space-y-2">
                   {detectedFields.map((r) => (
                     <div
@@ -378,7 +403,7 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
 
         <div className="border-t border-border px-6 py-4">
           <button
-            className="cursor-pointer w-full gap-2 flex justify-center items-center bg-primary rounded-md py-2 text-card text-sm hover:bg-primary/90"
+            className="cursor-pointer w-full gap-2 flex justify-center items-center bg-primary rounded-md py-2 text-white text-sm hover:bg-primary/90"
             onClick={onClose}
           >
             Start building my timetable

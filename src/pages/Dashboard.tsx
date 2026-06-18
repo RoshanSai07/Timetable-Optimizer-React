@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Courses from "../components/courses";
@@ -6,6 +7,11 @@ import Faculty from "../components/faculty";
 import Timetable from "../components/timetable";
 
 export function Dashboard() {
+  const student = JSON.parse(sessionStorage.getItem("student") || "{}");
+
+  if (!student.email) {
+    return <Navigate to="/" replace />;
+  }
   const [currentSection, setCurrentSection] = useState("courses");
   const [refreshKey, setRefreshKey] = useState(0);
 
