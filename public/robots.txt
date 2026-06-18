@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://timetable-optimizer-react.vercel.app/sitemap.xml
