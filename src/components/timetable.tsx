@@ -1,11 +1,11 @@
+import { useState, useEffect, lazy, Suspense } from "react";
 import type { Student } from "../types/student";
 import type { SelectedFaculty } from "../types/selectedFaculty";
 import { generateTimetable } from "../utils/generateTimetable";
 import type { Course } from "../types/course";
 import FacultySummary from "./facultyInfo";
-import { useState, useEffect } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
-import ExportCenter from "./ExportCenter";
+const ExportCenter = lazy(() => import("./ExportCenter"));
 import WeeklyTimetable from "./timetableLayout/WeeklyTimetable";
 import DailyTimetable from "./timetableLayout/DailyTimetable";
 import CompactTimetable from "./timetableLayout/CompactTimetable";
@@ -42,20 +42,17 @@ export default function Timetable({
   >("png");
   const [viewMode, setViewMode] = useState<"weekly" | "daily" | "compact">(
     () => {
-      if (window.innerWidth < 768) {
-        return "daily";
-      }
-      return "weekly";
+      return window.innerWidth < 768 ? "daily" : "weekly";
     },
   );
 
-  useEffect(() => {
-    const handleResize = () => {
-      setViewMode(window.innerWidth < 768 ? "daily" : "weekly");
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setViewMode(window.innerWidth < 768 ? "daily" : "weekly");
+  //   };
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, []);
 
   return (
     <section className="flex flex-1 items-start justify-center px-5 pt-15 pb-5 sm:px-8 md:px-10 lg:px-10 lg:py-20">
@@ -247,15 +244,25 @@ export default function Timetable({
         </div>
       </div>
 
-      <ExportCenter
-        open={exportOpen}
-        onClose={() => setExportOpen(false)}
-        student={student}
-        selectedCourses={selectedCourses}
-        selectedFaculty={selectedFaculty}
-        onImportSuccess={onImportSuccess || (() => {})}
-        initialTab={exportTab}
-      />
+      {exportOpen && (
+        <Suspense
+          fallback={
+            <div className="fixed inset-0 flex items-center justify-center">
+              Loading export tools...
+            </div>
+          }
+        >
+          <ExportCenter
+            open={exportOpen}
+            onClose={() => setExportOpen(false)}
+            student={student}
+            selectedCourses={selectedCourses}
+            selectedFaculty={selectedFaculty}
+            onImportSuccess={onImportSuccess || (() => {})}
+            initialTab={exportTab}
+          />
+        </Suspense>
+      )}
     </section>
   );
 }

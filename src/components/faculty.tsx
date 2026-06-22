@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Swords,
   Search,
@@ -9,7 +9,10 @@ import {
   AlertCircle,
   ArrowRight,
   ArrowLeft,
+  ArrowUp,
+  ArrowUpToLine,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { Student } from "../types/student";
 import type { Course } from "../types/course";
 import { faculty } from "../data/faculty";
@@ -37,10 +40,25 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
   const [labSortField, setLabSortField] = useState("name");
   const [labSortOrder, setLabSortOrder] = useState("asc");
   const [showClearCourses, setShowClearCourses] = useState(false);
+  const [showStickyNav, setShowStickyNav] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const isMobile = window.innerWidth < 768;
+      const threshold = isMobile ? 900 : 700;
 
+      setShowStickyNav((prev) => {
+        if (!prev && window.scrollY > threshold) return true;
+        if (prev && window.scrollY < threshold - 150) return false;
+        return prev;
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const [selectedCourses] = useState<Course[]>(() => {
     return JSON.parse(sessionStorage.getItem("selectedCourses") || "[]");
   });
+
   if (selectedCourses.length === 0) {
     return (
       <section className="flex flex-1 items-start justify-center px-8 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
@@ -255,6 +273,15 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
   const activeSelection = selectedFaculty.find(
     (faculty) => faculty.courseCode === activeCourse?.code,
   );
+  const currentIndex = selectedCourses.findIndex(
+    (course) => course.code === activeCourse?.code,
+  );
+  const previousCourse =
+    currentIndex > 0 ? selectedCourses[currentIndex - 1] : null;
+  const nextCourse =
+    currentIndex < selectedCourses.length - 1
+      ? selectedCourses[currentIndex + 1]
+      : null;
   const isSlotConflicting = (slot: string) => conflictingSlots.has(slot);
   return (
     <section className="flex flex-1 items-start justify-center px-5 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
@@ -279,7 +306,10 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
           </button>
         </div>
         {clashes.length > 0 && (
-          <div className="rounded-md md:rounded-lg border border-destructive/30 bg-destructive/5 p-5">
+          <div
+            id="clashes-section"
+            className="rounded-md md:rounded-lg border border-destructive/30 bg-destructive/5 p-5"
+          >
             <div className="flex items-center gap-3">
               <Swords className="h-5 w-5 text-destructive" />
               <h2 className="text-md md:text-xl font-bold text-destructive">
@@ -400,7 +430,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                     {activeCourse?.code}
                   </h2>
 
-                  <div className="rounded-full border border-border bg-muted px-3 py-1 text-[10px] md:text-xs font-medium text-muted-foreground">
+                  <div className="rounded-full border border-border bg-muted px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs font-medium text-muted-foreground">
                     {activeCourse?.credits} Credits
                   </div>
                 </div>
@@ -611,6 +641,160 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
             </div>
           </div>
         </div>
+
+        <AnimatePresence>
+          {showStickyNav && (
+            <>
+              <div className="sticky bottom-2 z-50 flex justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 100, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 100, scale: 0.95 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 24,
+                  }}
+                  className="hidden md:flex z-50 w-[700px] max-w-[90vw] items-center gap-2 rounded-md border border-border bg-background/85 backdrop-blur-xl p-1"
+                >
+                  <button
+                    onClick={() =>
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      })
+                    }
+                    className="flex h-9 w-10 shrink-0 items-center justify-center rounded-sm border border-border bg-card transition-all hover:bg-muted"
+                  >
+                    <ArrowUpToLine className="h-4 w-4" />
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      previousCourse && setActiveCourse(previousCourse)
+                    }
+                    disabled={!previousCourse}
+                    className="flex-1 flex h-9 items-center justify-center gap-2 rounded-md border border-border bg-card px-3 text-xs font-medium transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <ArrowLeft className="h-3.5 w-3.5" />
+                    {previousCourse?.code ?? "First"}
+                  </button>
+
+                  {clashes.length > 0 ? (
+                    <button
+                      onClick={() =>
+                        document
+                          .getElementById("clashes-section")
+                          ?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          })
+                      }
+                      className="flex-1 flex h-9 items-center justify-center gap-2 rounded-md bg-destructive px-4 text-xs font-medium text-white"
+                    >
+                      <ArrowUp className="h-3.5 w-3.5" />
+                      Resolve {clashes.length} Conflict
+                      {clashes.length > 1 ? "s" : ""}
+                    </button>
+                  ) : (
+                    <button
+                      disabled={!readyForTimetable}
+                      onClick={() => setCurrentSection?.("timetable")}
+                      className="flex-1 h-9 rounded-md bg-primary px-4 text-xs font-medium text-primary-foreground"
+                    >
+                      {readyForTimetable
+                        ? "Generate Timetable"
+                        : `${completedCourses}/${selectedCourses.length} Complete`}
+                    </button>
+                  )}
+
+                  <button
+                    onClick={() => nextCourse && setActiveCourse(nextCourse)}
+                    disabled={!nextCourse}
+                    className="flex-1 flex h-9 items-center justify-center gap-2 rounded-md border border-border bg-card px-3 text-xs font-medium transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    {nextCourse?.code ?? "Last"}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 100, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 100, scale: 0.9 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 24,
+                }}
+                className="md:hidden sticky bottom-2 left-4 right-4 z-50 space-y-2 rounded-md border border-border bg-background/85 backdrop-blur-xl p-1"
+              >
+                <div className="grid grid-cols-[auto_1fr_1fr] gap-2">
+                  <button
+                    onClick={() =>
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      })
+                    }
+                    className="cursor-pointer flex h-9 w-15 items-center justify-center rounded-sm border border-border bg-card p-2 transition-all hover:bg-muted"
+                  >
+                    <ArrowUpToLine className="h-3.5 w-3.5" />
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      previousCourse && setActiveCourse(previousCourse)
+                    }
+                    disabled={!previousCourse}
+                    className="cursor-pointer flex h-9 items-center justify-center gap-1 rounded-sm border border-border bg-card px-2 text-xs font-medium transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    <ArrowLeft className="h-3.5 w-3.5" />
+                    {previousCourse?.code ?? "Start"}
+                  </button>
+
+                  <button
+                    onClick={() => nextCourse && setActiveCourse(nextCourse)}
+                    disabled={!nextCourse}
+                    className="cursor-pointer flex h-9 items-center justify-center gap-1 rounded-sm border border-border bg-card px-2 text-xs font-medium transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
+                  >
+                    {nextCourse?.code ?? "End"}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+
+                {clashes.length > 0 ? (
+                  <button
+                    onClick={() =>
+                      document
+                        .getElementById("clashes-section")
+                        ?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        })
+                    }
+                    className="cursor-pointer flex h-9 w-full items-center justify-center gap-2 rounded-sm bg-destructive text-xs font-medium text-white transition-all hover:bg-destructive/90"
+                  >
+                    <ArrowUp className="h-3.5 w-3.5" />
+                    Resolve {clashes.length} Conflict
+                    {clashes.length > 1 ? "s" : ""}
+                  </button>
+                ) : (
+                  <button
+                    disabled={!readyForTimetable}
+                    onClick={() => setCurrentSection?.("timetable")}
+                    className="cursor-pointer h-9 w-full rounded-sm bg-primary text-xs font-medium text-primary-foreground transition-all hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {readyForTimetable
+                      ? "Generate Timetable"
+                      : `Faculty ${completedCourses}/${selectedCourses.length}`}
+                  </button>
+                )}
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

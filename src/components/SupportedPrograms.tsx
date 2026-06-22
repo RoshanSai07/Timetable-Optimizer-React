@@ -17,30 +17,49 @@ const formatYear = (year: string) => {
 
 const yearStyles = {
   firstYear: {
-    card: "border-orange-200/70 bg-orange-500/5 dark:border-orange-800/40 dark:bg-orange-500/10 hover:border-orange-400/50",
-    badge:
-      "bg-orange-200/50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300",
+    card: `
+      border-[#FAEDCB]/70 bg-[#FAEDCB]/20 hover:bg-[#FAEDCB]/30
+      dark:border-[#D6C07A]/30 dark:bg-[#D6C07A]/10 dark:hover:bg-[#D6C07A]/15
+    `,
+    badge: `
+      bg-[#FAEDCB] text-neutral-700
+      dark:bg-[#D6C07A]/20 dark:text-[#F6E7B3]
+    `,
   },
 
   secondYear: {
-    card: "border-indigo-200/70 bg-indigo-500/5 dark:border-indigo-800/40 dark:bg-indigo-500/10 hover:border-indigo-400/50",
-    badge:
-      "bg-indigo-200/50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300",
+    card: `
+      border-[#C6DEF1]/70 bg-[#C6DEF1]/20 hover:bg-[#C6DEF1]/30
+      dark:border-[#7DA9C8]/30 dark:bg-[#7DA9C8]/10 dark:hover:bg-[#7DA9C8]/15
+    `,
+    badge: `
+      bg-[#C6DEF1] text-neutral-700
+      dark:bg-[#7DA9C8]/20 dark:text-[#D7E8F6]
+    `,
   },
 
   thirdYear: {
-    card: "border-fuchsia-200/70 bg-fuchsia-500/5 dark:border-fuchsia-800/40 dark:bg-fuchsia-500/10 hover:border-fuchsia-400/50",
-    badge:
-      "bg-fuchsia-200/50 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-300",
+    card: `
+      border-[#DBCDF0]/70 bg-[#DBCDF0]/20 hover:bg-[#DBCDF0]/30
+      dark:border-[#9D8CC5]/30 dark:bg-[#9D8CC5]/10 dark:hover:bg-[#9D8CC5]/15
+    `,
+    badge: `
+      bg-[#DBCDF0] text-neutral-700
+      dark:bg-[#9D8CC5]/20 dark:text-[#E7DFF7]
+    `,
   },
 
   fourthYear: {
-    card: "border-amber-200/70 bg-amber-500/5 dark:border-amber-800/40 dark:bg-amber-500/10 hover:border-amber-400/50",
-    badge:
-      "bg-amber-200/50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300",
+    card: `
+      border-[#F7D9C4]/70 bg-[#F7D9C4]/20 hover:bg-[#F7D9C4]/30
+      dark:border-[#C79A7C]/30 dark:bg-[#C79A7C]/10 dark:hover:bg-[#C79A7C]/15
+    `,
+    badge: `
+      bg-[#F7D9C4] text-neutral-700
+      dark:bg-[#C79A7C]/20 dark:text-[#F8E0D1]
+    `,
   },
 };
-
 export default function SupportedPrograms() {
   return (
     <section className="border-t border-foreground/15 py-10">
