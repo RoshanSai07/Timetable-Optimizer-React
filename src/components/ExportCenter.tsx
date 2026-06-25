@@ -995,7 +995,7 @@ export default function ExportCenter({
               </div>
               <button
                 onClick={onClose}
-                className="rounded-lg border border-border p-2 hover:bg-muted transition-colors"
+                className="cursor-pointer rounded-lg border border-border p-2 hover:bg-muted transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>

@@ -79,7 +79,7 @@ export default function NotSupported() {
           >
             Instagram
           </a>{" "}
-          if you can share registration resources.
+          if you can share mock registration resources
         </p>{" "}
       </div>
     </div>

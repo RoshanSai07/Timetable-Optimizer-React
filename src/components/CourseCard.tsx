@@ -26,14 +26,14 @@ export default function CourseCard({
     >
       <div className="flex items-start justify-between">
         <div>
-          <div className="text-[11px] md:text-sm text-muted-foreground">
+          <div className="text-[12px] md:text-[16px] text-muted-foreground">
             {code}
           </div>
           <div className="text-sm md:text-md font-medium text-foreground">
             {name}
           </div>
         </div>
-        <div className="text-[12px] md:text-sm font-medium text-primary">
+        <div className="text-[12px] md:text-md font-medium text-primary">
           {credits} Credits
         </div>
       </div>

@@ -71,7 +71,7 @@ export default function Courses({
           <h1 className="text-xl md:text-3xl font-bold tracking-tight text-foreground">
             Let’s organize your semester
           </h1>
-          <p className="max-w-2xl text-xs md:text-md md:leading-5 text-muted-foreground">
+          <p className="max-w-2xl text-xs md:text-base md:leading-5 text-muted-foreground">
             Start by selecting the courses you want to enroll in
           </p>
         </div>

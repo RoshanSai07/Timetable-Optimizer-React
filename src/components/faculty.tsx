@@ -340,8 +340,8 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                 <h2 className="text-lg md:text-2xl font-bold text-primary">
                   Schedule ready
                 </h2>
-                <p className="md:mt-1 text-xs md:text-md text-muted-foreground">
-                  All faculty selections are complete and clash-free.
+                <p className="md:mt-1 text-xs md:text-[14px] text-muted-foreground">
+                  All faculty selections are complete and clash-free
                 </p>
               </div>
               <button
@@ -664,7 +664,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                         behavior: "smooth",
                       })
                     }
-                    className="flex h-9 w-10 shrink-0 items-center justify-center rounded-sm border border-border bg-card transition-all hover:bg-muted"
+                    className="cursor-pointer flex h-9 w-10 shrink-0 items-center justify-center rounded-sm border border-border bg-card transition-all hover:bg-muted"
                   >
                     <ArrowUpToLine className="h-4 w-4" />
                   </button>
@@ -674,7 +674,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                       previousCourse && setActiveCourse(previousCourse)
                     }
                     disabled={!previousCourse}
-                    className="flex-1 flex h-9 items-center justify-center gap-2 rounded-md border border-border bg-card px-3 text-xs font-medium transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
+                    className="cursor-pointer flex-1 flex h-10 items-center justify-center gap-2 rounded-md border border-border bg-card px-3 text-sm transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     <ArrowLeft className="h-3.5 w-3.5" />
                     {previousCourse?.code ?? "First"}
@@ -690,7 +690,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                             block: "start",
                           })
                       }
-                      className="flex-1 flex h-9 items-center justify-center gap-2 rounded-md bg-destructive px-4 text-xs font-medium text-white"
+                      className="cursor-pointer flex-1 flex h-10 items-center justify-center gap-2 rounded-md bg-destructive px-4 text-sm text-white"
                     >
                       <ArrowUp className="h-3.5 w-3.5" />
                       Resolve {clashes.length} Conflict
@@ -699,8 +699,14 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                   ) : (
                     <button
                       disabled={!readyForTimetable}
-                      onClick={() => setCurrentSection?.("timetable")}
-                      className="flex-1 h-9 rounded-md bg-primary px-4 text-xs font-medium text-primary-foreground"
+                      onClick={() => {
+                        setCurrentSection?.("timetable");
+                        window.scrollTo({
+                          top: 0,
+                          behavior: "smooth",
+                        });
+                      }}
+                      className="cursor-pointer flex-1 h-10 rounded-md bg-primary px-4 text-sm text-primary-foreground hover:bg-primary/90"
                     >
                       {readyForTimetable
                         ? "Generate Timetable"
@@ -711,7 +717,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
                   <button
                     onClick={() => nextCourse && setActiveCourse(nextCourse)}
                     disabled={!nextCourse}
-                    className="flex-1 flex h-9 items-center justify-center gap-2 rounded-md border border-border bg-card px-3 text-xs font-medium transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
+                    className="cursor-pointer flex-1 flex h-10 items-center justify-center gap-2 rounded-md border border-border bg-card px-3 text-sm transition-all hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     {nextCourse?.code ?? "Last"}
                     <ArrowRight className="h-3.5 w-3.5" />

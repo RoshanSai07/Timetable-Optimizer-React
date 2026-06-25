@@ -4,13 +4,12 @@ import type { SelectedFaculty } from "../types/selectedFaculty";
 import { generateTimetable } from "../utils/generateTimetable";
 import type { Course } from "../types/course";
 import FacultySummary from "./facultyInfo";
-import { ArrowLeft, Share2 } from "lucide-react";
+import { ArrowLeft, Share2, PartyPopper } from "lucide-react";
 const ExportCenter = lazy(() => import("./ExportCenter"));
 import WeeklyTimetable from "./timetableLayout/WeeklyTimetable";
 import DailyTimetable from "./timetableLayout/DailyTimetable";
 import CompactTimetable from "./timetableLayout/CompactTimetable";
 import TimetableViewSwitcher from "./timetableLayout/TimetableViewSwitcher";
-import { LayoutGrid, CalendarDays, Rows3 } from "lucide-react";
 
 type TimetableProps = {
   currentSection?: string;
@@ -86,7 +85,6 @@ export default function Timetable({
             </button>
           </div>
         </div>
-
         {!hasCourses ? (
           <div className="rounded-lg border border-border bg-card p-6 md:p-10">
             <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
@@ -131,7 +129,6 @@ export default function Timetable({
             setCurrentSection={setCurrentSection}
           />
         )}
-
         {/* <div className="overflow-x-auto rounded-xl border border-border bg-card p-5">
           <table className="w-full border-separate border-spacing-3">
             <thead>
@@ -242,13 +239,151 @@ export default function Timetable({
             <CompactTimetable timetable={timetable} days={days} />
           )}{" "}
         </div>
+        <div>
+          {selectedCourses.length > 0 && selectedFaculty.length > 0 && (
+            <div className="rounded-lg border border-border bg-card p-4 md:p-5">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h3 className="text-sm md:text-lg font-semibold">
+                    🎉 Hurray! Timetable ready
+                  </h3>
+
+                  <p className="mt-1 text-xs md:text-sm text-muted-foreground">
+                    Save a copy before registration day or share it with
+                    friends.
+                  </p>
+                </div>
+
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  <button
+                    onClick={() => {
+                      setExportTab("pdf");
+                      setExportOpen(true);
+                    }}
+                    className="cursor-pointer h-9 md:h-10 rounded-md border font-medium md:font-normal border-border px-6 text-[12px] md:text-sm hover:bg-muted sm:w-auto"
+                  >
+                    Download PDF
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setExportTab("png");
+                      setExportOpen(true);
+                    }}
+                    className="cursor-pointer h-9 md:h-10 rounded-md border font-medium md:font-normal border-border px-6 text-[12px] md:text-sm hover:bg-muted sm:w-auto"
+                  >
+                    Download PNG
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setExportTab("json-export");
+                      setExportOpen(true);
+                    }}
+                    className="cursor-pointer h-9 md:h-10 rounded-md border font-medium md:font-normal border-border px-6 text-[12px] md:text-sm hover:bg-muted sm:w-auto"
+                  >
+                    Export JSON
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setExportTab("json-import");
+                      setExportOpen(true);
+                    }}
+                    className="cursor-pointer h-9 md:h-10 rounded-md bg-primary font-medium md:font-normal px-6 text-[12px] md:text-sm text-primary-foreground hover:bg-primary/90 sm:w-auto"
+                  >
+                    Import JSON
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+          <div className="mt-3 rounded-lg border border-border/60 bg-muted/20 px-4 py-3">
+            <div className="flex flex-col gap-2 text-sm md:flex-row md:items-center md:justify-between">
+              <span className="text-muted-foreground">
+                Built by{" "}
+                <span className="font-medium text-foreground">
+                  Roshan Kandregula.
+                </span>
+                <span className="hidden sm:inline px-1">
+                  {" "}
+                  Feedback, bugs, and suggestions are always welcome
+                </span>
+              </span>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="https://www.linkedin.com/in/roshan-kandregula"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary hover:underline"
+                >
+                  LinkedIn
+                </a>
+
+                <a
+                  href="https://github.com/RoshanSai07"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary hover:underline"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  href="https://www.instagram.com/roshan_sai07/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary hover:underline"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+
+            <p className="mt-1 text-xs text-muted-foreground sm:hidden">
+              Feedback, bugs, and suggestions are always welcome.
+            </p>
+          </div>
+        </div>
       </div>
 
       {exportOpen && (
         <Suspense
           fallback={
-            <div className="fixed inset-0 flex items-center justify-center">
-              Loading export tools...
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/45 px-6 py-8 backdrop-blur-sm">
+              <div
+                className="overflow-hidden border border-border bg-card shadow-xl transition-all duration-300
+                      h-[92vh] w-full max-w-7xl rounded-lg"
+              >
+                <div className="flex h-full">
+                  <aside className="hidden md:block w-[320px] shrink-0 border-r border-border bg-muted/10 p-6">
+                    <div className="space-y-4 animate-pulse">
+                      <div className="h-5 w-32 rounded bg-muted" />
+                      <div className="h-10 rounded bg-muted" />
+                      <div className="h-10 rounded bg-muted" />
+                      <div className="h-10 rounded bg-muted" />
+                      <div className="h-10 rounded bg-muted" />
+                    </div>
+                  </aside>
+
+                  <section className="flex-1 p-8">
+                    <div className="animate-pulse space-y-4">
+                      <div className="h-7 w-56 rounded bg-muted" />
+                      <div className="h-4 w-96 rounded bg-muted" />
+
+                      <div className="mt-8 h-[500px] rounded-xl border border-border bg-muted/30 flex items-center justify-center">
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="h-8 w-8 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
+                          <span className="text-sm text-muted-foreground">
+                            Loading Export Center...
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
             </div>
           }
         >
