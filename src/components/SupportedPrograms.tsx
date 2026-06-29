@@ -17,47 +17,27 @@ const formatYear = (year: string) => {
 
 const yearStyles = {
   firstYear: {
-    card: `
-      border-[#FAEDCB]/70 bg-[#FAEDCB]/20 hover:bg-[#FAEDCB]/30
-      dark:border-[#D6C07A]/30 dark:bg-[#D6C07A]/10 dark:hover:bg-[#D6C07A]/15
-    `,
-    badge: `
-      bg-[#FAEDCB] text-neutral-700
-      dark:bg-[#D6C07A]/20 dark:text-[#F6E7B3]
-    `,
+    card: "border-[#FAEDCB]/60 bg-card hover:border-[#FAEDCB]/90 hover:bg-[#FAEDCB]/5 dark:border-[#D6C07A]/30 dark:bg-[#D6C07A]/5 dark:hover:border-[#D6C07A]/50 dark:hover:bg-[#D6C07A]/10",
+    badge:
+      "border border-[#FAEDCB]/60 bg-[#FAEDCB]/80 text-neutral-700 dark:border-[#D6C07A]/30 dark:bg-[#D6C07A]/20 dark:text-[#F6E7B3]",
   },
 
   secondYear: {
-    card: `
-      border-[#C6DEF1]/70 bg-[#C6DEF1]/20 hover:bg-[#C6DEF1]/30
-      dark:border-[#7DA9C8]/30 dark:bg-[#7DA9C8]/10 dark:hover:bg-[#7DA9C8]/15
-    `,
-    badge: `
-      bg-[#C6DEF1] text-neutral-700
-      dark:bg-[#7DA9C8]/20 dark:text-[#D7E8F6]
-    `,
+    card: "border-[#C6DEF1]/60 bg-card hover:border-[#C6DEF1]/90 hover:bg-[#C6DEF1]/5 dark:border-[#7DA9C8]/30 dark:bg-[#7DA9C8]/5 dark:hover:border-[#7DA9C8]/50 dark:hover:bg-[#7DA9C8]/10",
+    badge:
+      "border border-[#C6DEF1]/60 bg-[#C6DEF1]/80 text-neutral-700 dark:border-[#7DA9C8]/30 dark:bg-[#7DA9C8]/20 dark:text-[#D7E8F6]",
   },
 
   thirdYear: {
-    card: `
-      border-[#DBCDF0]/70 bg-[#DBCDF0]/20 hover:bg-[#DBCDF0]/30
-      dark:border-[#9D8CC5]/30 dark:bg-[#9D8CC5]/10 dark:hover:bg-[#9D8CC5]/15
-    `,
-    badge: `
-      bg-[#DBCDF0] text-neutral-700
-      dark:bg-[#9D8CC5]/20 dark:text-[#E7DFF7]
-    `,
+    card: "border-[#DBCDF0]/60 bg-card hover:border-[#DBCDF0]/90 hover:bg-[#DBCDF0]/5 dark:border-[#9D8CC5]/30 dark:bg-[#9D8CC5]/5 dark:hover:border-[#9D8CC5]/50 dark:hover:bg-[#9D8CC5]/10",
+    badge:
+      "border border-[#DBCDF0]/60 bg-[#DBCDF0]/80 text-neutral-700 dark:border-[#9D8CC5]/30 dark:bg-[#9D8CC5]/20 dark:text-[#E7DFF7]",
   },
 
   fourthYear: {
-    card: `
-      border-[#F7D9C4]/70 bg-[#F7D9C4]/20 hover:bg-[#F7D9C4]/30
-      dark:border-[#C79A7C]/30 dark:bg-[#C79A7C]/10 dark:hover:bg-[#C79A7C]/15
-    `,
-    badge: `
-      bg-[#F7D9C4] text-neutral-700
-      dark:bg-[#C79A7C]/20 dark:text-[#F8E0D1]
-    `,
+    card: "border-[#F7D9C4]/60 bg-card hover:border-[#F7D9C4]/90 hover:bg-[#F7D9C4]/5 dark:border-[#C79A7C]/30 dark:bg-[#C79A7C]/5 dark:hover:border-[#C79A7C]/50 dark:hover:bg-[#C79A7C]/10",
+    badge:
+      "border border-[#F7D9C4]/60 bg-[#F7D9C4]/80 text-neutral-700 dark:border-[#C79A7C]/30 dark:bg-[#C79A7C]/20 dark:text-[#F8E0D1]",
   },
 };
 export default function SupportedPrograms() {
