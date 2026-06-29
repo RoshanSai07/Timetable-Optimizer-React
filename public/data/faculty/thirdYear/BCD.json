@@ -1,0 +1,106 @@
+{
+  "DSA3011": {
+    "theory": [
+      { "name": "Prof. OK. Xaheer", "slots": ["A1", "TA1"] },
+      { "name": "Dr. OL. Yuvika", "slots": ["B1", "TB1"] },
+      { "name": "Prof. OM. Zara", "slots": ["C1", "TC1"] },
+      { "name": "Dr. ON. Aahil", "slots": ["D1", "TD1"] },
+      { "name": "Prof. OO. Bani", "slots": ["E1", "TE1"] },
+      { "name": "Dr. OP. Chirag", "slots": ["F1", "TF1"] },
+      { "name": "Prof. OQ. Ditya", "slots": ["G1", "TG1"] },
+      { "name": "Dr. OR. Ekaansh", "slots": ["A2", "TA2"] },
+      { "name": "Prof. OS. Fidha", "slots": ["B2", "TB2"] },
+      { "name": "Dr. OT. Grisha", "slots": ["C2", "TC2"] },
+      { "name": "Prof. OU. Harsh", "slots": ["D2", "TD2"] },
+      { "name": "Dr. OV. Inayat", "slots": ["E2", "TE2"] },
+      { "name": "Prof. OW. Jahnvi", "slots": ["F2", "TF2"] },
+      { "name": "Dr. OX. Kavish", "slots": ["G2", "TG2"] },
+      { "name": "Prof. OY. Lavish", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. OZ. Mitali", "slots": ["L1", "L2"] },
+      { "name": "Prof. PA. Niraj", "slots": ["L7", "L8"] },
+      { "name": "Dr. PB. Oviya", "slots": ["L13", "L14"] },
+      { "name": "Prof. PC. Piyush", "slots": ["L19", "L20"] },
+      { "name": "Dr. PD. Radhika", "slots": ["L25", "L26"] }
+    ]
+  },
+  "DSA3012": {
+    "theory": [
+      { "name": "Prof. PE. Sahil", "slots": ["A1", "TA1"] },
+      { "name": "Dr. PF. Trisha", "slots": ["B1", "TB1"] },
+      { "name": "Prof. PG. Ujjwal", "slots": ["C1", "TC1"] },
+      { "name": "Dr. PH. Vani", "slots": ["D1", "TD1"] },
+      { "name": "Prof. PI. Warsha", "slots": ["E1", "TE1"] },
+      { "name": "Dr. PJ. Akshay", "slots": ["F1", "TF1"] },
+      { "name": "Prof. PK. Bhumika", "slots": ["G1", "TG1"] },
+      { "name": "Dr. PL. Chetan", "slots": ["A2", "TA2"] },
+      { "name": "Prof. PM. Diksha", "slots": ["B2", "TB2"] },
+      { "name": "Dr. PN. Eklavya", "slots": ["C2", "TC2"] },
+      { "name": "Prof. PO. Fiza", "slots": ["D2", "TD2"] },
+      { "name": "Dr. PP. Girik", "slots": ["E2", "TE2"] },
+      { "name": "Prof. PQ. Henna", "slots": ["F2", "TF2"] },
+      { "name": "Dr. PR. Ishaan", "slots": ["G2", "TG2"] },
+      { "name": "Prof. PS. Jiya", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. PT. Kavin", "slots": ["L3", "L4"] },
+      { "name": "Prof. PU. Lekha", "slots": ["L9", "L10"] },
+      { "name": "Dr. PV. Mihir", "slots": ["L15", "L16"] },
+      { "name": "Prof. PW. Neel", "slots": ["L21", "L22"] },
+      { "name": "Dr. PX. Oshi", "slots": ["L27", "L28"] }
+    ]
+  },
+  "DSA3013": {
+    "theory": [
+      { "name": "Prof. PY. Paarth", "slots": ["A1", "TA1"] },
+      { "name": "Dr. PZ. Rashi", "slots": ["B1", "TB1"] },
+      { "name": "Prof. QA. Shivansh", "slots": ["C1", "TC1"] },
+      { "name": "Dr. QB. Tanya", "slots": ["D1", "TD1"] },
+      { "name": "Prof. QC. Uday", "slots": ["E1", "TE1"] },
+      { "name": "Dr. QD. Vrinda", "slots": ["F1", "TF1"] },
+      { "name": "Prof. QE. Wriddhi", "slots": ["G1", "TG1"] },
+      { "name": "Dr. QF. Yuvraj", "slots": ["A2", "TA2"] },
+      { "name": "Prof. QG. Zayn", "slots": ["B2", "TB2"] },
+      { "name": "Dr. QH. Aadhya", "slots": ["C2", "TC2"] },
+      { "name": "Prof. QI. Brijesh", "slots": ["D2", "TD2"] },
+      { "name": "Dr. QJ. Chhavi", "slots": ["E2", "TE2"] },
+      { "name": "Prof. QK. Dhruv", "slots": ["F2", "TF2"] },
+      { "name": "Dr. QL. Eshita", "slots": ["G2", "TG2"] },
+      { "name": "Prof. QM. Faiyaz", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. QN. Grisha", "slots": ["L5", "L6"] },
+      { "name": "Prof. QO. Harsh", "slots": ["L11", "L12"] },
+      { "name": "Dr. QP. Inayat", "slots": ["L17", "L18"] },
+      { "name": "Prof. QQ. Jahnvi", "slots": ["L23", "L24"] },
+      { "name": "Dr. QR. Kabir", "slots": ["L29", "L30"] }
+    ]
+  },
+  "DSA3014": {
+    "theory": [
+      { "name": "Prof. QS. Lavith", "slots": ["A1", "TA1"] },
+      { "name": "Dr. QT. Myra", "slots": ["B1", "TB1"] },
+      { "name": "Prof. QU. Nakul", "slots": ["C1", "TC1"] },
+      { "name": "Dr. QV. Ojasvi", "slots": ["D1", "TD1"] },
+      { "name": "Prof. QW. Pranay", "slots": ["E1", "TE1"] },
+      { "name": "Dr. QX. Qayam", "slots": ["F1", "TF1"] },
+      { "name": "Prof. QY. Riddhi", "slots": ["G1", "TG1"] },
+      { "name": "Dr. QZ. Shiv", "slots": ["A2", "TA2"] },
+      { "name": "Prof. RA. Tanisha", "slots": ["B2", "TB2"] },
+      { "name": "Dr. RB. Uzair", "slots": ["C2", "TC2"] },
+      { "name": "Prof. RC. Vihaan", "slots": ["D2", "TD2"] },
+      { "name": "Dr. RD. Wania", "slots": ["E2", "TE2"] },
+      { "name": "Prof. RE. Akshara", "slots": ["F2", "TF2"] },
+      { "name": "Dr. RF. Bhavik", "slots": ["G2", "TG2"] },
+      { "name": "Prof. RG. Chahat", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. RH. Darsh", "slots": ["L31", "L32"] },
+      { "name": "Prof. RI. Evaan", "slots": ["L37", "L38"] },
+      { "name": "Dr. RJ. Faraaz", "slots": ["L43", "L44"] },
+      { "name": "Prof. RK. Gia", "slots": ["L49", "L50"] },
+      { "name": "Dr. RL. Hiya", "slots": ["L55", "L56"] }
+    ]
+  }
+}
