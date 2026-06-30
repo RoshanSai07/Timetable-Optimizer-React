@@ -17,6 +17,8 @@ import { useState, useEffect } from "react";
 import { courses } from "@/data/courses";
 import type { Student } from "@/types/student";
 import type { Course } from "@/types/course";
+import { clearStudentSession } from "@/features/session/clearStudentSession";
+import { useAcademic } from "@/context/AcademicContext";
 
 import {
   formatName,
@@ -46,6 +48,8 @@ export default function MobileSidebar({
   const navigate = useNavigate();
   const [registrationGuideOpen, setRegistrationGuideOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const { setStudent, setFaculty } = useAcademic();
+
   const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
   const student: Student = JSON.parse(
     sessionStorage.getItem("student") || "{}",
@@ -62,7 +66,14 @@ export default function MobileSidebar({
     0,
   );
   const handleLogout = () => {
-    sessionStorage.clear();
+    clearStudentSession({
+      setStudent,
+      setFaculty,
+    });
+
+    sessionStorage.removeItem("selectedCourses");
+    sessionStorage.removeItem("selectedFaculty");
+
     navigate("/");
   };
 

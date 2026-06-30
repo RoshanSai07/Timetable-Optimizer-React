@@ -18,12 +18,16 @@ import {
   formatYearLabel,
   formatRegNo,
 } from "@/utils/formatStudent";
+import { clearStudentSession } from "@/features/session/clearStudentSession";
+import { useAcademic } from "@/context/AcademicContext";
 
 export default function ProfileDropdown() {
   const [open, setOpen] = useState(false);
   const [registrationGuideOpen, setRegistrationGuideOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const { setStudent, setFaculty } = useAcademic();
+
   const student: Student = JSON.parse(
     sessionStorage.getItem("student") || "{}",
   );
@@ -36,7 +40,14 @@ export default function ProfileDropdown() {
   }, 0);
 
   const handleLogout = () => {
-    sessionStorage.clear();
+    clearStudentSession({
+      setStudent,
+      setFaculty,
+    });
+
+    sessionStorage.removeItem("selectedCourses");
+    sessionStorage.removeItem("selectedFaculty");
+
     navigate("/");
   };
 

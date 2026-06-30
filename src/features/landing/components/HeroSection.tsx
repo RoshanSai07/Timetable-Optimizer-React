@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { EmailParseAnimation } from "./EmailParseAnimation";
 import { availablePrograms } from "@/data/courses";
 import { useAcademic } from "@/context/AcademicContext";
-import { initializeStudentSession } from "../engine/initializeStudentSession";
+import { initializeStudentSession } from "@/features/session/initializeStudentSession";
 
 export default function HeroSection() {
   const [email, setEmail] = useState("");
@@ -139,9 +139,9 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          <div className="text-[12px] md:text-md lg:text-md leading-5 text-muted-foreground">
+          <div className="text-[12px] md:text-base lg:text-md leading-5 text-muted-foreground">
             Plan your semester, compare teachers, and build your timetable with
-            confidence.
+            confidence
           </div>
 
           <motion.div className="hidden xl:block absolute -left-[55%] -bottom-[155%]">
@@ -283,7 +283,7 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-            <div className="text-[10px] md:text-xs pl-2 text-muted-foreground">
+            <div className="text-[10px] md:text-xs pl-2 md:pl-0 text-muted-foreground">
               No... we won't be saving any data, so don't worry ;)
             </div>
           </div>
