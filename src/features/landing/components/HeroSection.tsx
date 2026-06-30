@@ -5,6 +5,8 @@ import { parseEmail } from "../engine/parseEmail";
 import { motion } from "framer-motion";
 import { EmailParseAnimation } from "./EmailParseAnimation";
 import { availablePrograms } from "@/data/courses";
+import { useAcademic } from "@/context/AcademicContext";
+import { initializeStudentSession } from "../engine/initializeStudentSession";
 
 export default function HeroSection() {
   const [email, setEmail] = useState("");
@@ -14,6 +16,7 @@ export default function HeroSection() {
   const [submittedEmail, setSubmittedEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const { setStudent, setFaculty } = useAcademic();
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener("resize", handleResize);
@@ -66,10 +69,19 @@ export default function HeroSection() {
       }
     }
   };
-  const completeLogin = () => {
-    sessionStorage.setItem("student", JSON.stringify(parsedStudent));
 
-    navigate("/dashboard");
+  const completeLogin = async () => {
+    try {
+      await initializeStudentSession(parsedStudent, {
+        setStudent,
+        setFaculty,
+      });
+
+      navigate("/dashboard");
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+    }
   };
   function FeatureCard({
     icon,

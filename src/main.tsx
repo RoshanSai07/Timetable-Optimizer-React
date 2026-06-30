@@ -3,11 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { initializeTheme } from "./utils/theme";
 import App from "./App.tsx";
+import { AcademicProvider } from "./context/AcademicContext.tsx";
 
 initializeTheme();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <AcademicProvider>
+      <App />
+    </AcademicProvider>
   </StrictMode>,
 );

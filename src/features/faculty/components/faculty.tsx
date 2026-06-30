@@ -15,10 +15,11 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import type { Student } from "@/types/student";
 import type { Course } from "@/types/course";
-import { faculty } from "@/data/faculty";
 import { detectClashes } from "../engine/clashDetection";
 import FacultyCard from "./FacultyCard";
 import ConfirmDialog from "@/shared/components/ConfirmDialog";
+import { useAcademic } from "@/context/AcademicContext";
+
 type FacultyProps = {
   currentSection?: string;
   setCurrentSection?: React.Dispatch<React.SetStateAction<string>>;
@@ -33,6 +34,7 @@ type SelectedFaculty = {
   lab: FacultyMember | null;
 };
 export default function Faculty({ setCurrentSection }: FacultyProps) {
+  const { faculty, student } = useAcademic();
   const [theorySearch, setTheorySearch] = useState("");
   const [labSearch, setLabSearch] = useState("");
   const [theorySortField, setTheorySortField] = useState("name");
@@ -107,12 +109,10 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
       return JSON.parse(sessionStorage.getItem("selectedFaculty") || "[]");
     },
   );
-  const student: Student = JSON.parse(
-    sessionStorage.getItem("student") || "{}",
-  );
-  const facultyData = activeCourse
-    ? faculty[student.yearLabel][student.branch]?.[activeCourse.code]
-    : null;
+  // const student: Student = JSON.parse(
+  //   sessionStorage.getItem("student") || "{}",
+  // );
+  const facultyData = activeCourse ? faculty?.[activeCourse.code] : null;
   const processFaculty = (
     facultyList: FacultyMember[],
     query: string,
@@ -236,8 +236,7 @@ export default function Faculty({ setCurrentSection }: FacultyProps) {
     );
   };
   const isCourseCompleted = (courseCode: string) => {
-    const facultyData =
-      faculty[student.yearLabel][student.branch]?.[courseCode];
+    const facultyData = faculty?.[courseCode];
     const selected = selectedFaculty.find(
       (faculty) => faculty.courseCode === courseCode,
     );
