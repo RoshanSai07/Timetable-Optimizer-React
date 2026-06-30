@@ -1,4 +1,4 @@
-import type { SlotStructure } from "../types/slots";
+import type { SlotStructure } from "@/types/slots";
 
 export const timeMap = [
   {

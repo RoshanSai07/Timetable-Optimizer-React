@@ -1,4 +1,4 @@
-import type { CoursesData } from "../types/course";
+import type { CoursesData } from "@/types/course";
 
 export const courses: CoursesData = {
   firstYear: {},

@@ -1,4 +1,4 @@
-import type { FacultyData } from "../types/faculty";
+import type { FacultyData } from "@/types/faculty";
 
 export const faculty: FacultyData = {
   firstYear: {},

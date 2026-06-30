@@ -17,3 +17,7 @@ export type FacultyData = {
     };
   };
 };
+
+export type FacultyBranchData = {
+  [courseCode: string]: FacultyCourse;
+};
