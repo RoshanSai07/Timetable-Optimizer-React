@@ -433,7 +433,7 @@ export default function ExportCenter({
   return (
     <div
       onMouseDown={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/45 px-6 py-8 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-6 py-8"
     >
       <div
         onMouseDown={(e) => e.stopPropagation()}

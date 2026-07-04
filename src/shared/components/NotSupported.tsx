@@ -1,13 +1,17 @@
-import { ArrowLeft, Copy } from "lucide-react";
+import { ArrowLeft, Copy, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function NotSupported() {
   const navigate = useNavigate();
-
+  const [copied, setCopied] = useState(false);
   const demoEmail = "demo.24bce1234@vitapstudent.ac.in";
 
   const copyDemoEmail = async () => {
     await navigator.clipboard.writeText(demoEmail);
+    setCopied(true);
+
+    setTimeout(() => setCopied(false), 1500);
   };
 
   return (
@@ -43,11 +47,23 @@ export default function NotSupported() {
               </code>
 
               <button
+                type="button"
                 onClick={copyDemoEmail}
-                className="cursor-pointer flex shrink-0 items-center gap-1 text-xs text-primary hover:underline"
+                aria-label="Copy demo email"
+                disabled={copied}
+                className="cursor-pointer flex shrink-0 items-center gap-1 text-xs text-primary transition-colors hover:underline disabled:cursor-default disabled:opacity-70"
               >
-                <Copy className="h-3.5 w-3.5" />
-                Copy
+                {copied ? (
+                  <>
+                    <Check className="h-3.5 w-3.5" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="h-3.5 w-3.5" />
+                    Copy
+                  </>
+                )}
               </button>
             </div>
           </div>
