@@ -28,6 +28,10 @@ type Tab = "navigate" | "faq" | "info";
 
 const faqs = [
   {
+    q: "Why should I keep backup timetables?",
+    a: "Because this is generated using mock registration data, not finalized enrollments. Teachers or slots may be added, removed, or changed after the final registration closes. We recommend generating a few alternative schedules just in case.",
+  },
+  {
     q: "Why do I need to sign in with my VIT-AP email?",
     a: "Your VIT-AP email contains information such as your branch, academic year, and registration number. Timetable Optimizer uses this to automatically load relevant registration data.",
   },
@@ -311,12 +315,12 @@ export default function HelpDialog({ open, onClose }: HelpPanelProps) {
           {tab === "info" && (
             <div className="space-y-5 md:space-y-7">
               <div className="rounded-md border border-border bg-muted/40 p-5">
-                <div className="mb-5 flex items-center gap-3">
-                  <div className="flex p-2 md:p-3 items-center justify-center bg-primary rounded-sm text-white">
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex p-2 md:p-2 items-center justify-center bg-primary rounded-sm text-white">
                     <img
                       src={Logo}
                       alt="Logo"
-                      className="h-6 w-6 md:h-7 md:w-7"
+                      className="h-6 w-6 md:h-8 md:w-8"
                     />
                   </div>
                   <div>

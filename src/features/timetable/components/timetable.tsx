@@ -240,7 +240,12 @@ export default function Timetable({
           {viewMode === "compact" && (
             <CompactTimetable timetable={timetable} days={days} />
           )}{" "}
+          <p className="font-light text-sm">
+            For simplicity, lab sessions have been assumed to end at 50 minutes
+            instead of the standard 40 minute duration.
+          </p>
         </div>
+
         <div>
           {selectedCourses.length > 0 && selectedFaculty.length > 0 && (
             <div className="rounded-lg border border-border bg-card p-4 md:p-5">
