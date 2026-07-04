@@ -2,36 +2,7 @@ import type { CoursesData } from "@/types/course";
 
 export const courses: CoursesData = {
   firstYear: {},
-  secondYear: {
-    BCE: [
-      { code: "CSE2011", name: "Data Structures", credits: 4 },
-      { code: "CSE2012", name: "Database Systems", credits: 4 },
-      { code: "CSE2013", name: "Operating Systems", credits: 4 },
-      { code: "CSE2014", name: "Computer Networks", credits: 4 },
-    ],
-
-    BCA: [
-      { code: "AIM2011", name: "Python for AI", credits: 4 },
-      { code: "AIM2012", name: "Discrete Mathematics", credits: 3 },
-      { code: "AIM2013", name: "Probability and Statistics", credits: 4 },
-      { code: "AIM2014", name: "Machine Learning Basics", credits: 4 },
-    ],
-
-    BCC: [
-      { code: "CCY2011", name: "Cyber Security", credits: 4 },
-      { code: "CCY2012", name: "Cryptography", credits: 4 },
-      { code: "CCY2013", name: "Ethical Hacking", credits: 4 },
-      { code: "CCY2014", name: "Linux Systems", credits: 3 },
-    ],
-
-    ECE: [
-      { code: "ECE2011", name: "Digital Electronics", credits: 4 },
-      { code: "ECE2012", name: "Signals and Systems", credits: 4 },
-      { code: "ECE2013", name: "Microprocessors", credits: 4 },
-      { code: "ECE2014", name: "Circuit Theory", credits: 4 },
-    ],
-  },
-
+  secondYear: {},
   thirdYear: {
     BCE: [
       {
@@ -95,9 +66,14 @@ export const courses: CoursesData = {
         credits: 4,
       },
       {
-        code: "FRL1005",
-        name: "German for Beginners - Theory Only",
-        credits: 2,
+        code: "STS3007",
+        name: "Advanced Competitive Coding - I - Theory Only",
+        credits: 3,
+      },
+      {
+        code: "CSE4012",
+        name: "UI UX User Experience Design - Embedded Theory and Lab",
+        credits: 4,
       },
       {
         code: "FRL2004",
@@ -107,14 +83,9 @@ export const courses: CoursesData = {
       { code: "FRL1001", name: "Basic French - Theory Only", credits: 2 },
       { code: "FRL1004", name: "Basic Spanish - Theory Only", credits: 2 },
       {
-        code: "STS3007",
-        name: "Advanced Competitive Coding - I - Theory Only",
-        credits: 3,
-      },
-      {
-        code: "CSE4012",
-        name: "UI UX User Experience Design - Embedded Theory and Lab",
-        credits: 4,
+        code: "FRL1005",
+        name: "German for Beginners - Theory Only",
+        credits: 2,
       },
     ],
 
@@ -127,10 +98,11 @@ export const courses: CoursesData = {
         credits: 4,
       },
       { code: "CSE2008", name: "Operating Systems", credits: 4 },
+      { code: "CSE3009", name: "NoSQL Databases", credits: 4 },
       {
-        code: "FRL1005",
-        name: "German for Beginners - Theory Only",
-        credits: 2,
+        code: "STS3007",
+        name: "Advanced Competitive Coding - ITH",
+        credits: 3,
       },
       {
         code: "FRL2004",
@@ -140,57 +112,63 @@ export const courses: CoursesData = {
       { code: "FRL1001", name: "Basic French - Theory Only", credits: 2 },
       { code: "FRL1004", name: "Basic Spanish - Theory Only", credits: 2 },
       {
-        code: "STS3007",
-        name: "Advanced Competitive Coding - ITH",
-        credits: 3,
+        code: "FRL1005",
+        name: "German for Beginners - Theory Only",
+        credits: 2,
       },
-      { code: "CSE3005", name: "NoSQL", credits: 4 },
-    ],
-
-    MCE: [
-      { code: "MEC3011", name: "Robotics", credits: 4 },
-      { code: "MEC3012", name: "CAD Modeling", credits: 4 },
-      { code: "MEC3013", name: "Thermodynamics", credits: 4 },
-      { code: "MEC3014", name: "Manufacturing Systems", credits: 4 },
-    ],
-
-    ECE: [
-      { code: "ECE3011", name: "VLSI Design", credits: 4 },
-      { code: "ECE3012", name: "Embedded Systems", credits: 4 },
-      { code: "ECE3013", name: "Communication Systems", credits: 4 },
-      { code: "ECE3014", name: "IoT Systems", credits: 4 },
-    ],
-  },
-
-  fourthYear: {
-    BCE: [
-      { code: "CSE4011", name: "Distributed Systems", credits: 4 },
-      { code: "CSE4012", name: "Artificial Intelligence", credits: 4 },
-      { code: "CSE4013", name: "DevOps Engineering", credits: 4 },
-      { code: "CSE4014", name: "Blockchain Technology", credits: 4 },
     ],
 
     BCA: [
-      { code: "AIM4011", name: "Generative AI", credits: 4 },
-      { code: "AIM4012", name: "Reinforcement Learning", credits: 4 },
-      { code: "AIM4013", name: "Computer Vision", credits: 4 },
-      { code: "AIM4014", name: "Natural Language Processing", credits: 4 },
-    ],
-
-    BCD: [
-      { code: "DSA4011", name: "Advanced Analytics", credits: 4 },
-      { code: "DSA4012", name: "Predictive Modeling", credits: 4 },
-      { code: "DSA4013", name: "Recommendation Systems", credits: 4 },
-      { code: "DSA4014", name: "AI for Business", credits: 4 },
-    ],
-
-    ECE: [
-      { code: "ECE4011", name: "Wireless Networks", credits: 4 },
-      { code: "ECE4012", name: "Satellite Communication", credits: 4 },
-      { code: "ECE4013", name: "Advanced Embedded Systems", credits: 4 },
-      { code: "ECE4014", name: "Nano Electronics", credits: 4 },
+      {
+        code: "CSE2008",
+        name: "Operating Systems - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "CSE2025",
+        name: "AWS Solution Architecture - Theory Only",
+        credits: 3,
+      },
+      {
+        code: "CSE3003",
+        name: "Computer Networks - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "CSE3004",
+        name: "Design and Analysis of Algorithms - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "CSE4006",
+        name: "Deep Learning",
+        credits: 4,
+      },
+      {
+        code: "CSE4007",
+        name: "Digital Image Processing - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "STS3007",
+        name: "Advanced Competitive Coding - I",
+        credits: 3,
+      },
+      {
+        code: "FRL2004",
+        name: "Korean for Beginners-I - Theory Only",
+        credits: 2,
+      },
+      { code: "FRL1001", name: "Basic French - Theory Only", credits: 2 },
+      { code: "FRL1004", name: "Basic Spanish - Theory Only", credits: 2 },
+      {
+        code: "FRL1005",
+        name: "German for Beginners - Theory Only",
+        credits: 2,
+      },
     ],
   },
+  fourthYear: {},
 };
 
 export const availablePrograms = Object.entries(courses).flatMap(

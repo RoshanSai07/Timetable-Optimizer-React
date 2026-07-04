@@ -242,7 +242,7 @@ export default function Timetable({
           )}{" "}
           <p className="font-light text-sm">
             For simplicity, lab sessions have been assumed to end at 50 minutes
-            instead of the standard 40 minute duration.
+            instead of the standard duration
           </p>
         </div>
 
