@@ -10,7 +10,7 @@ export type AcademicYear =
   | "thirdYear"
   | "fourthYear";
 
-export type Branch = "BCE" | "BCA" | "BCC" | "BCD" | "ECE" | "MCE";
+export type Branch = "BCE" | "BCA" | "BCD" | "BEC" | "MIC" | "MIS";
 
 export type CoursesData = {
   [year in AcademicYear]: {

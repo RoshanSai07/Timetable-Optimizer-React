@@ -1,0 +1,202 @@
+{
+  "CSE2027": {
+    "theory": [
+      {
+        "name": "Rajeev Sharma",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "Mohit Kumar",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "Rajeev Sharma",
+        "slots": ["F1", "TF1"]
+      },
+      {
+        "name": "Mohit Kumar",
+        "slots": ["F2", "TF2"]
+      },
+      {
+        "name": "Mohit Kumar",
+        "slots": ["G1", "TG1"]
+      }
+    ],
+    "lab": []
+  },
+  "ECE2003": {
+    "theory": [
+      {
+        "name": "SUNKESULA MOULANA ABDUL KALAM AZAD",
+        "slots": ["A1", "TA1"]
+      },
+      {
+        "name": "Pradosh Ranjan Sahoo",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "Subhasish Mahapatra",
+        "slots": ["C1", "TCC1"]
+      },
+      {
+        "name": "Subhasish Mahapatra",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "Pradosh Ranjan Sahoo",
+        "slots": ["C2", "TCC2"]
+      }
+    ],
+    "lab": []
+  },
+  "ECE2006": {
+    "theory": [
+      {
+        "name": "Suseela Vappangi",
+        "slots": ["B1", "TB1"]
+      },
+      {
+        "name": "Kalapraveen Bagadi",
+        "slots": ["B1", "TB1"]
+      },
+      {
+        "name": "Suseela Vappangi",
+        "slots": ["B2", "TB2"]
+      },
+      {
+        "name": "Kalapraveen Bagadi",
+        "slots": ["B2", "TB2"]
+      },
+      {
+        "name": "Chandu DS",
+        "slots": ["C1", "TCC1"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "Bappadittya Roy",
+        "slots": ["L35", "L36"]
+      },
+      {
+        "name": "Bappadittya Roy",
+        "slots": ["L43", "L44"]
+      },
+      {
+        "name": "Suseela Vappangi",
+        "slots": ["L51", "L52"]
+      },
+      {
+        "name": "Ravindra Dhuli",
+        "slots": ["L21", "L22"]
+      },
+      {
+        "name": "Hanumantharao Bitra",
+        "slots": ["L9", "L10"]
+      },
+      {
+        "name": "Bappadittya Roy",
+        "slots": ["L25", "L26"]
+      }
+    ]
+  },
+  "PHY2001": {
+    "theory": [
+      {
+        "name": "Anil Kumar Nayak",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Khaimar Vikas Vishnu",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Anil Kumar Nayak",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Chandu DS",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Nuthakki Venkata Rajasekhar",
+        "slots": ["B1", "TB1", "TBB1"]
+      }
+    ],
+    "lab": []
+  },
+  "STS3006": {
+    "theory": [
+      {
+        "name": "Prof.VISH Dig Crs Faculty-4",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Prof.VISH Dig Crs Faculty-7",
+        "slots": ["F1", "TF1"]
+      },
+      {
+        "name": "SRAVANI",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "SRAVANI",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "SRAVANI",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "SRAVANI",
+        "slots": ["F2", "TF2"]
+      },
+      {
+        "name": "PRASANNA LAKSHMI",
+        "slots": ["G2", "TG2"]
+      }
+    ],
+    "lab": []
+  },
+  "ECE3005": {
+    "theory": [
+      {
+        "name": "Rohit Lorenzo",
+        "slots": ["E2", "TE2"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "Rohit Lorenzo",
+        "slots": ["L5", "L6"]
+      }
+    ]
+  },
+  "ECE4006": {
+    "theory": [
+      {
+        "name": "Rohit Lorenzo",
+        "slots": ["F2", "TF2"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "Rohit Lorenzo",
+        "slots": ["L27", "L28"]
+      }
+    ]
+  },
+  "ECE4003": {
+    "theory": [
+      {
+        "name": "Samineni Peddakrishna",
+        "slots": ["F1", "TF1"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "Samineni Peddakrishna",
+        "slots": ["L55", "L56"]
+      }
+    ]
+  }
+}
