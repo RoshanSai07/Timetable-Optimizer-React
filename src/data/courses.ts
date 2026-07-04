@@ -192,14 +192,59 @@ export const courses: CoursesData = {
         credits: 4,
       },
       {
-        code: "LIB2021",
-        name: "Psychology for the Industrial Sector",
-        credits: 4,
-      },
-      {
         code: "STS2006",
         name: "Getting Started to Skill Enhancement",
         credits: 3,
+      },
+      {
+        code: "ENG1017",
+        name: "Film Appreciation - Theory Only",
+        credits: 3,
+      },
+      {
+        code: "ENG1018",
+        name: "Introduction to Fashion and Technology - Theory Only",
+        credits: 3,
+      },
+      {
+        code: "ENG2013",
+        name: "Cross-Cultural Communication Skills for Global Interaction - Theory Only",
+        credits: 3,
+      },
+      {
+        code: "ENG2014",
+        name: "Decoding Television in the Digital Age - Theory Only",
+        credits: 3,
+      },
+      {
+        code: "FRL1001",
+        name: "Basic French - Theory Only",
+        credits: 2,
+      },
+      {
+        code: "FRL1004",
+        name: "Basic Spanish - Theory Only",
+        credits: 2,
+      },
+      {
+        code: "FRL1005",
+        name: "German for Beginners - Theory Only",
+        credits: 2,
+      },
+      {
+        code: "FRL2004",
+        name: "Korean for Beginners-I - Theory Only",
+        credits: 2,
+      },
+      {
+        code: "HUM2014",
+        name: "Introduction of French Theatre from Classics to Contemporary - Theory Only",
+        credits: 2,
+      },
+      {
+        code: "LIB2021",
+        name: "Psychology for the Industrial Sector",
+        credits: 4,
       },
     ],
     BEC: [
