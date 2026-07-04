@@ -140,7 +140,7 @@ export default function ProfileDropdown() {
             <span>Logout</span>
           </button>
         </div>
-      </div>{" "}
+      </div>
       <RegistrationGuideDialog
         open={registrationGuideOpen}
         onClose={() => setRegistrationGuideOpen(false)}
