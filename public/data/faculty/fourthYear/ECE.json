@@ -1,0 +1,106 @@
+{
+  "ECE4011": {
+    "theory": [
+      { "name": "Prof. AGW. Uchit", "slots": ["A1", "TA1"] },
+      { "name": "Dr. AGX. Vritika", "slots": ["B1", "TB1"] },
+      { "name": "Prof. AGY. Wafiq", "slots": ["C1", "TC1"] },
+      { "name": "Dr. AGZ. Xaria", "slots": ["D1", "TD1"] },
+      { "name": "Prof. AHA. Yajur", "slots": ["E1", "TE1"] },
+      { "name": "Dr. AHB. Zaima", "slots": ["F1", "TF1"] },
+      { "name": "Prof. AHC. Aahana", "slots": ["G1", "TG1"] },
+      { "name": "Dr. AHD. Ayaan", "slots": ["A2", "TA2"] },
+      { "name": "Prof. AHE. Bhumija", "slots": ["B2", "TB2"] },
+      { "name": "Dr. AHF. Chitransh", "slots": ["C2", "TC2"] },
+      { "name": "Prof. AHG. Dev", "slots": ["D2", "TD2"] },
+      { "name": "Dr. AHH. Evanka", "slots": ["E2", "TE2"] },
+      { "name": "Prof. AHI. Farid", "slots": ["F2", "TF2"] },
+      { "name": "Dr. AHJ. Gargi", "slots": ["G2", "TG2"] },
+      { "name": "Prof. AHK. Hridika", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. AHL. Isha", "slots": ["L33", "L34"] },
+      { "name": "Prof. AHM. Jeevika", "slots": ["L39", "L40"] },
+      { "name": "Dr. AHN. Kshitij", "slots": ["L45", "L46"] },
+      { "name": "Prof. AHO. Luv", "slots": ["L51", "L52"] },
+      { "name": "Dr. AHP. Mahira", "slots": ["L57", "L58"] }
+    ]
+  },
+  "ECE4012": {
+    "theory": [
+      { "name": "Prof. AHQ. Nysa", "slots": ["A1", "TA1"] },
+      { "name": "Dr. AHR. Oishani", "slots": ["B1", "TB1"] },
+      { "name": "Prof. AHS. Pratit", "slots": ["C1", "TC1"] },
+      { "name": "Dr. AHT. Qaynat", "slots": ["D1", "TD1"] },
+      { "name": "Prof. AHU. Ruhani", "slots": ["E1", "TE1"] },
+      { "name": "Dr. AHV. Samaira", "slots": ["F1", "TF1"] },
+      { "name": "Prof. AHW. Tuvya", "slots": ["G1", "TG1"] },
+      { "name": "Dr. AHX. Ujwal", "slots": ["A2", "TA2"] },
+      { "name": "Prof. AHY. Viyaan", "slots": ["B2", "TB2"] },
+      { "name": "Dr. AHZ. Wriddhi", "slots": ["C2", "TC2"] },
+      { "name": "Prof. AIA. Xena", "slots": ["D2", "TD2"] },
+      { "name": "Dr. AIB. Yuvansh", "slots": ["E2", "TE2"] },
+      { "name": "Prof. AIC. Ziya", "slots": ["F2", "TF2"] },
+      { "name": "Dr. AID. Aadvik", "slots": ["G2", "TG2"] },
+      { "name": "Prof. AIE. Bani", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. AIF. Chandrika", "slots": ["L1", "L2"] },
+      { "name": "Prof. AIG. Ditya", "slots": ["L7", "L8"] },
+      { "name": "Dr. AIH. Elina", "slots": ["L13", "L14"] },
+      { "name": "Prof. AII. Fathima", "slots": ["L19", "L20"] },
+      { "name": "Dr. AIJ. Garv", "slots": ["L25", "L26"] }
+    ]
+  },
+  "ECE4013": {
+    "theory": [
+      { "name": "Prof. AIK. Harshav", "slots": ["A1", "TA1"] },
+      { "name": "Dr. AIL. Inika", "slots": ["B1", "TB1"] },
+      { "name": "Prof. AIM. Jiyansh", "slots": ["C1", "TC1"] },
+      { "name": "Dr. AIN. Kavya", "slots": ["D1", "TD1"] },
+      { "name": "Prof. AIO. Lian", "slots": ["E1", "TE1"] },
+      { "name": "Dr. AIP. Myon", "slots": ["F1", "TF1"] },
+      { "name": "Prof. AIQ. Nirav", "slots": ["G1", "TG1"] },
+      { "name": "Dr. AIR. Ovee", "slots": ["A2", "TA2"] },
+      { "name": "Prof. AIS. Pankti", "slots": ["B2", "TB2"] },
+      { "name": "Dr. AIT. Qasim", "slots": ["C2", "TC2"] },
+      { "name": "Prof. AIU. Rishabh", "slots": ["D2", "TD2"] },
+      { "name": "Dr. AIV. Saanvi", "slots": ["E2", "TE2"] },
+      { "name": "Prof. AIW. Tiyasha", "slots": ["F2", "TF2"] },
+      { "name": "Dr. AIX. Umika", "slots": ["G2", "TG2"] },
+      { "name": "Prof. AIY. Vihas", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. AIZ. Wisha", "slots": ["L3", "L4"] },
+      { "name": "Prof. AJA. Xyra", "slots": ["L9", "L10"] },
+      { "name": "Dr. AJB. Yuvaan", "slots": ["L15", "L16"] },
+      { "name": "Prof. AJC. Zivah", "slots": ["L21", "L22"] },
+      { "name": "Dr. AJD. Aadrit", "slots": ["L27", "L28"] }
+    ]
+  },
+  "ECE4014": {
+    "theory": [
+      { "name": "Prof. AJE. Anahita", "slots": ["A1", "TA1"] },
+      { "name": "Dr. AJF. Bhavin", "slots": ["B1", "TB1"] },
+      { "name": "Prof. AJG. Chitrita", "slots": ["C1", "TC1"] },
+      { "name": "Dr. AJH. Darshil", "slots": ["D1", "TD1"] },
+      { "name": "Prof. AJI. Ehan", "slots": ["E1", "TE1"] },
+      { "name": "Dr. AJJ. Faiha", "slots": ["F1", "TF1"] },
+      { "name": "Prof. AJK. Gauransh", "slots": ["G1", "TG1"] },
+      { "name": "Dr. AJL. Hiya", "slots": ["A2", "TA2"] },
+      { "name": "Prof. AJM. Inaaya", "slots": ["B2", "TB2"] },
+      { "name": "Dr. AJN. Jeevika", "slots": ["C2", "TC2"] },
+      { "name": "Prof. AJO. Kavyan", "slots": ["D2", "TD2"] },
+      { "name": "Dr. AJP. Lavya", "slots": ["E2", "TE2"] },
+      { "name": "Prof. AJQ. Mithil", "slots": ["F2", "TF2"] },
+      { "name": "Dr. AJR. Nandika", "slots": ["G2", "TG2"] },
+      { "name": "Prof. AJS. Ojaswin", "slots": ["TFF1", "TFF2"] }
+    ],
+    "lab": [
+      { "name": "Dr. AJT. Pravina", "slots": ["L5", "L6"] },
+      { "name": "Prof. AJU. Qaiza", "slots": ["L11", "L12"] },
+      { "name": "Dr. AJV. Rishan", "slots": ["L17", "L18"] },
+      { "name": "Prof. AJW. Shivika", "slots": ["L23", "L24"] },
+      { "name": "Dr. AJX. Tanishi", "slots": ["L29", "L30"] }
+    ]
+  }
+}

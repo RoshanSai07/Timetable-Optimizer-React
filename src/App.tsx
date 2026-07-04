@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Landing } from "./pages/Landing";
-import { Dashboard } from "./pages/Dashboard";
+import { Landing } from "./features/landing/Landing";
+import { Dashboard } from "./features/dashboard/Dashboard";
 import { Analytics } from "@vercel/analytics/react";
-import NotSupported from "./components/NotSupported";
+import NotSupported from "./shared/components/NotSupported";
 import "./App.css";
 
 function App() {
