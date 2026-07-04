@@ -70,6 +70,66 @@
     "theory": [{ "name": "K Kinjari", "slots": ["B1", "TB1", "TBB1"] }],
     "lab": []
   },
+  "ENG1017": {
+    "theory": [{ "name": "Anupama A.P", "slots": ["B1", "TB1"] }],
+    "lab": []
+  },
+  "ENG1018": {
+    "theory": [{ "name": "Karishma Bisht", "slots": ["E1", "TE1"] }],
+    "lab": []
+  },
+  "ENG2013": {
+    "theory": [{ "name": "Tanmisha Dasgupta", "slots": ["B2", "TB2"] }],
+    "lab": []
+  },
+  "ENG2014": {
+    "theory": [{ "name": "Amar Vayal", "slots": ["D1", "TD1"] }],
+    "lab": []
+  },
+  "FRL1001": {
+    "theory": [
+      { "name": "RITESH RANJAN", "slots": ["B1"] },
+      { "name": "RITESH RANJAN", "slots": ["E2"] },
+      { "name": "RITESH RANJAN", "slots": ["A1"] },
+      { "name": "Dheeraj Kumar", "slots": ["F1"] },
+      { "name": "Chandan Vishwes", "slots": ["G1"] },
+      { "name": "Chandan Vishwes", "slots": ["C1"] },
+      { "name": "Dheeraj Kumar", "slots": ["C2"] },
+      { "name": "Dheeraj Kumar", "slots": ["B1"] }
+    ],
+    "lab": []
+  },
+  "FRL1004": {
+    "theory": [
+      { "name": "Anindita Roy", "slots": ["F2"] },
+      { "name": "Anindita Roy", "slots": ["D1"] },
+      { "name": "Anindita Roy", "slots": ["E1"] },
+      { "name": "Anindita Roy", "slots": ["A1"] }
+    ],
+    "lab": []
+  },
+  "FRL1005": {
+    "theory": [
+      { "name": "Prof.VISH Dig Crs Faculty-1", "slots": ["G2"] },
+      { "name": "VELMALA SHARATH KUMAR", "slots": ["F2"] },
+      { "name": "VELMALA SHARATH KUMAR", "slots": ["A2"] },
+      { "name": "Renuprasad Hemkiran Patki", "slots": ["A2"] },
+      { "name": "Renuprasad Hemkiran Patki", "slots": ["G1"] },
+      { "name": "Prof.VISH Dig Crs Faculty-1", "slots": ["B2"] }
+    ],
+    "lab": []
+  },
+  "FRL2004": {
+    "theory": [
+      { "name": "Naveen Kumar Ranjan", "slots": ["D2"] },
+      { "name": "Naveen Kumar Ranjan", "slots": ["B2"] }
+    ],
+    "lab": []
+  },
+  "HUM2014": {
+    "theory": [{ "name": "Dheeraj Kumar", "slots": ["G2"] }],
+    "lab": []
+  },
   "STS2006": {
     "theory": [
       { "name": "Prof Musthaq", "slots": ["D1", "TD1"] },
