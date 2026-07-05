@@ -2,7 +2,40 @@ import type { CoursesData } from "@/types/course";
 
 export const courses: CoursesData = {
   firstYear: {},
-  secondYear: {},
+  secondYear: {
+    BCE: [
+      {
+        code: "CSE2001",
+        name: "Data Structures and Algorithms - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "CSE3002",
+        name: "Artificial Intelligence - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "ECE2001",
+        name: "Computer Organization and Architecture - Theory Only",
+        credits: 4,
+      },
+      {
+        code: "MAT1003",
+        name: "Discrete Mathematical Structures - Theory Only",
+        credits: 4,
+      },
+      {
+        code: "MGT1660",
+        name: "Entrepreneurship - Embedded Theory and Project",
+        credits: 4,
+      },
+      {
+        code: "STS2016",
+        name: "Qualitative And Quantitative Skills Practice - I - Theory Only",
+        credits: 3,
+      },
+    ],
+  },
   thirdYear: {
     BCE: [
       {
