@@ -1,1482 +1,988 @@
 {
-  "CSE2025": {
+  "MAT2003": {
     "theory": [
       {
-        "name": "S.Bharath Bhushan",
-        "slots": ["A1", "TA1"]
+        "name": "Yada Nandukumar",
+        "slots": ["E1", "TE1"]
       },
       {
-        "name": "PARITALA JHANSIRANI",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "Naresh Sammeta",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "THOTA RAMATHULASI",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "THOTA RAMATHULASI",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "Naresh Sammeta",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "S.Bharath Bhushan",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "PARITALA JHANSIRANI",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "S.Bharath Bhushan",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Renita R",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Gokul Yenduri",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "PARITALA JHANSIRANI",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Naresh Sammeta",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "THOTA RAMATHULASI",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Renita R",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Gayathri Dhara",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "Gayathri Dhara",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Battula Venkata Satish Babu",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Renita R",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "Gokul Yenduri",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Gayathri Dhara",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "SHAIK MOINUDDIN AHMED",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "Amgothu Shanthi",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "Battula Venkata Satish Babu",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Gokul Yenduri",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "Amgothu Shanthi",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Battula Venkata Satish Babu",
-        "slots": ["A1", "TA1"]
-      },
-      {
-        "name": "SHAIK MOINUDDIN AHMED",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "SHAIK MOINUDDIN AHMED",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "Amgothu Shanthi",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Jayanta Pratihar",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Jayanta Pratihar",
-        "slots": ["A2", "TA2"]
-      },
-      {
-        "name": "Jayanta Pratihar",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-21",
-        "slots": ["B2", "TB2"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-21",
-        "slots": ["B1", "TB1"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-21",
-        "slots": ["A1", "TA1"]
+        "name": "LOLUGU GOVINDARAO",
+        "slots": ["E2", "TE2"]
       }
     ],
-    "lab": []
+    "lab": [
+      {
+        "name": "Yada Nandukumar",
+        "slots": ["L45", "L46"]
+      },
+      {
+        "name": "LOLUGU GOVINDARAO",
+        "slots": ["L5", "L6"]
+      }
+    ]
   },
-  "CSE3003": {
+  "CSF3006": {
     "theory": [
       {
-        "name": "RUPA CHIRAMADASU",
-        "slots": ["E1", "TE1"]
+        "name": "Sachi Nandan Mohanty",
+        "slots": ["C2", "TC2"]
       },
       {
-        "name": "Asish Kumar Dalai",
-        "slots": ["E1", "TE1"]
+        "name": "Surendra Reddy Vinta",
+        "slots": ["F2", "TFF2"]
       },
       {
-        "name": "Mohinder Singh. B",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Karrothu Aravind",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "MOHAMMAD SIRAJUDDIN",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "INAMPUDI GOVARDHANA RAO",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "G. Deepthi",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "D. Santhadevi",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "LANKA DIVYA",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Tauseef Khan",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "RUPA CHIRAMADASU",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Mohinder Singh. B",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Karrothu Aravind",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "G. Deepthi",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "MOHAMMAD SIRAJUDDIN",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Asish Kumar Dalai",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Tauseef Khan",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "D. Santhadevi",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Nandha Kumar R",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "D. Kothandaraman",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "MOHAMMAD SIRAJUDDIN",
+        "name": "Surendra Reddy Vinta",
         "slots": ["F1", "TF1"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "Surendra Reddy Vinta",
+        "slots": ["L29", "L30"]
       },
       {
-        "name": "Asish Kumar Dalai",
-        "slots": ["F1", "TF1"]
+        "name": "Surendra Reddy Vinta",
+        "slots": ["L3", "L4"]
       },
       {
-        "name": "INAMPUDI GOVARDHANA RAO",
-        "slots": ["F1", "TF1"]
+        "name": "Sachi Nandan Mohanty",
+        "slots": ["L39", "L40"]
+      }
+    ]
+  },
+  "CSE1006": {
+    "theory": [
+      {
+        "name": "Prashanth Rajam",
+        "slots": ["C2", "TCC2"]
       },
       {
-        "name": "Venkata Bhikshapathi Chenam",
-        "slots": ["F1", "TF1"]
+        "name": "RUPA CHIRAMDASU",
+        "slots": ["F2", "TF2"]
       },
       {
-        "name": "D. Kothandaraman",
-        "slots": ["F1", "TF1"]
+        "name": "Lalitha Kumari P",
+        "slots": ["C1", "TCC1"]
       },
       {
-        "name": "ANIL VITTHALRAO TURUKMANE",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "G. Deepthi",
+        "name": "Palacharla Ravi Kumar",
         "slots": ["F1", "TFF1"]
       },
       {
-        "name": "TIRUMANADHAM N S KOTI MANIKUMAR",
-        "slots": ["F1", "TFF1"]
-      },
-      {
-        "name": "JAVVAJI VENKATA KANAKA RATNAM",
+        "name": "RUPA CHIRAMDASU",
         "slots": ["F1", "TF1"]
       },
       {
-        "name": "K Aravind",
-        "slots": ["F1", "TFF1"]
+        "name": "Palacharla Ravi Kumar",
+        "slots": ["C2", "TC2"]
       },
       {
         "name": "Prashanth Rajam",
         "slots": ["F2", "TF2"]
       },
       {
-        "name": "ANIL VITTHALRAO TURUKMANE",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "JAVVAJI VENKATA KANAKA RATNAM",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "K Aravind",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "Nandha Kumar R",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "TIRUMANADHAM N S KOTI MANIKUMAR",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "KARNAM BALAJI",
+        "name": "Debasis Dwibedy",
         "slots": ["F2", "TFF2"]
       },
       {
-        "name": "D. Kothandaraman",
-        "slots": ["F2", "TFF2"]
+        "name": "MOHD IRFAN",
+        "slots": ["C1", "TC1"]
       },
       {
-        "name": "Kommerla Siva Kumar",
-        "slots": ["F2", "TFF2"]
+        "name": "Voddelli SriLakshmi",
+        "slots": ["F1", "TF1"]
       },
       {
-        "name": "Venkata Bhikshapathi Chenam",
-        "slots": ["F2", "TFF2"]
+        "name": "Prashanth Rajam",
+        "slots": ["C1", "TC1"]
       },
       {
-        "name": "INAMPUDI GOVARDHANA RAO",
-        "slots": ["F2", "TFF2"]
+        "name": "Lalitha Kumari P",
+        "slots": ["C2", "TC2"]
       },
       {
-        "name": "LANKA DIVYA",
-        "slots": ["E1", "TE1"]
+        "name": "Palacharla Ravi Kumar",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "Naga Jagadesh Bommagani",
+        "slots": ["F2", "TF2"]
+      },
+      {
+        "name": "Lalitha Kumari P",
+        "slots": ["F1", "TF1"]
       }
     ],
     "lab": [
       {
-        "name": "Asish Kumar Dalai",
-        "slots": ["L45", "L46"]
+        "name": "Palacharla Ravi Kumar",
+        "slots": ["L29", "L30"]
       },
       {
-        "name": "Nandha Kumar R",
-        "slots": ["L11", "L12"]
+        "name": "Palacharla Ravi Kumar",
+        "slots": ["L37", "L38"]
       },
       {
-        "name": "Nandha Kumar R",
-        "slots": ["L21", "L22"]
+        "name": "Palacharla Ravi Kumar",
+        "slots": ["L51", "L52"]
       },
       {
-        "name": "Tauseef Khan",
-        "slots": ["L1", "L2"]
-      },
-      {
-        "name": "Mohinder Singh. B",
-        "slots": ["L13", "L14"]
-      },
-      {
-        "name": "Tauseef Khan",
-        "slots": ["L15", "L16"]
-      },
-      {
-        "name": "TIRUMANADHAM N S KOTI MANIKUMAR",
-        "slots": ["L15", "L16"]
-      },
-      {
-        "name": "Karrothu Aravind",
-        "slots": ["L19", "L20"]
-      },
-      {
-        "name": "MOHAMMAD SIRAJUDDIN",
-        "slots": ["L19", "L20"]
-      },
-      {
-        "name": "LANKA DIVYA",
-        "slots": ["L21", "L22"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-11",
+        "name": "Debasis Dwibedy",
         "slots": ["L23", "L24"]
       },
       {
-        "name": "D. Kothandaraman",
-        "slots": ["L25", "L26"]
+        "name": "RUPA CHIRAMDASU",
+        "slots": ["L5", "L6"]
       },
       {
-        "name": "K Aravind",
-        "slots": ["L27", "L28"]
+        "name": "Prashanth Rajam",
+        "slots": ["L11", "L12"]
       },
       {
-        "name": "LANKA DIVYA",
-        "slots": ["L27", "L28"]
-      },
-      {
-        "name": "Kommerla Siva Kumar",
-        "slots": ["L29", "L30"]
-      },
-      {
-        "name": "TIRUMANADHAM N S KOTI MANIKUMAR",
-        "slots": ["L29", "L30"]
-      },
-      {
-        "name": "K Aravind",
-        "slots": ["L3", "L4"]
-      },
-      {
-        "name": "INAMPUDI GOVARDHANA RAO",
-        "slots": ["L3", "L4"]
-      },
-      {
-        "name": "Karrothu Aravind",
-        "slots": ["L31", "L32"]
-      },
-      {
-        "name": "RUPA CHIRAMADASU",
-        "slots": ["L31", "L32"]
-      },
-      {
-        "name": "K Aravind",
-        "slots": ["L33", "L34"]
-      },
-      {
-        "name": "TIRUMANADHAM N S KOTI MANIKUMAR",
-        "slots": ["L33", "L34"]
-      },
-      {
-        "name": "D. Kothandaraman",
-        "slots": ["L35", "L36"]
-      },
-      {
-        "name": "Venkata Bhikshapathi Chenam",
-        "slots": ["L35", "L36"]
-      },
-      {
-        "name": "Karrothu Aravind",
-        "slots": ["L37", "L38"]
-      },
-      {
-        "name": "LANKA DIVYA",
-        "slots": ["L37", "L38"]
-      },
-      {
-        "name": "K Aravind",
+        "name": "MOHD IRFAN",
         "slots": ["L39", "L40"]
       },
       {
-        "name": "INAMPUDI GOVARDHANA RAO",
-        "slots": ["L39", "L40"]
+        "name": "RUPA CHIRAMDASU",
+        "slots": ["L1", "L2"]
       },
       {
-        "name": "Tauseef Khan",
-        "slots": ["L41", "L42"]
+        "name": "Voddelli SriLakshmi",
+        "slots": ["L33", "L34"]
       },
       {
-        "name": "TIRUMANADHAM N S KOTI MANIKUMAR",
-        "slots": ["L43", "L44"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-11",
-        "slots": ["L43", "L44"]
-      },
-      {
-        "name": "RUPA CHIRAMADASU",
+        "name": "Prashanth Rajam",
         "slots": ["L45", "L46"]
       },
       {
-        "name": "G. Deepthi",
-        "slots": ["L47", "L48"]
+        "name": "Lalitha Kumari P",
+        "slots": ["L37", "L38"]
       },
       {
-        "name": "G. Deepthi",
-        "slots": ["L49", "L50"]
+        "name": "Lalitha Kumari P",
+        "slots": ["L15", "L16"]
       },
       {
-        "name": "Tauseef Khan",
-        "slots": ["L49", "L50"]
+        "name": "Naga Jagadesh Bommagani",
+        "slots": ["L41", "L42"]
       },
       {
-        "name": "Karrothu Aravind",
-        "slots": ["L5", "L6"]
+        "name": "Prashanth Rajam",
+        "slots": ["L15", "L16"]
       },
       {
-        "name": "MOHAMMAD SIRAJUDDIN",
-        "slots": ["L5", "L6"]
-      },
-      {
-        "name": "Mohinder Singh. B",
-        "slots": ["L51", "L52"]
-      },
-      {
-        "name": "LANKA DIVYA",
-        "slots": ["L51", "L52"]
-      },
-      {
-        "name": "Venkata Bhikshapathi Chenam",
+        "name": "Lalitha Kumari P",
         "slots": ["L55", "L56"]
-      },
-      {
-        "name": "JAVVAJI VENKATA KANAKA RATNAM",
-        "slots": ["L55", "L56"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-12",
-        "slots": ["L7", "L8"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-12",
-        "slots": ["L9", "L10"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-14",
-        "slots": ["L9", "L10"]
-      },
-      {
-        "name": "Venkata Bhikshapathi Chenam",
-        "slots": ["L11", "L12"]
       }
     ]
   },
-  "CSE3004": {
+  "CSE4004": {
     "theory": [
       {
-        "name": "Hemant Kumar Reddy",
-        "slots": ["D1", "TD1"]
+        "name": "MITHILESH KUMAR DUBEY",
+        "slots": ["E2", "TE2"]
       },
       {
-        "name": "Vikash Kumar Singh",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Yamarthi Narasimha Rao",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Somya Ranjan Sahoo",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Sachi Nandan Mohanty",
+        "name": "MITHILESH KUMAR DUBEY",
         "slots": ["D1", "TDD1"]
       },
       {
-        "name": "REGONDA NAGARAJU",
+        "name": "MITHILESH KUMAR DUBEY",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "TATIREDDY SUBBAREDDY",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Kommerla Siva Kumar",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Kommerla Siva Kumar",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Madugula Kiran Kumar",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Selva Kumar S",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "TATIREDDY SUBBAREDDY",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "PRAKASH KUMAR SARANGI",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "GOSALA BETHANY",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "TATIREDDY SUBBAREDDY",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Shalini Ramanathan",
+        "slots": ["D2", "TDD2"]
+      },
+      {
+        "name": "Ganesh Reddy Karri",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Amgothu Shanthi",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Kommerla Siva Kumar",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "PRAKASH KUMAR SARANGI",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "Selva Kumar S",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "Madugula Kiran Kumar",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Amgothu Shanthi",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Kailash Chandra Mishra",
         "slots": ["D1", "TDD1"]
       },
       {
-        "name": "Sachi Nandan Mohanty",
+        "name": "Adla Padma",
         "slots": ["D2", "TD2"]
       },
       {
-        "name": "Yamarthi Narasimha Rao",
+        "name": "Guruprakash Jayabalasamy",
         "slots": ["D2", "TD2"]
       },
       {
-        "name": "Hemant Kumar Reddy",
+        "name": "GOSALA BETHANY",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Ganji Tejasree",
+        "slots": ["D1", "TDD1"]
+      },
+      {
+        "name": "Adla Padma",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Shalini Ramanathan",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "GOSALA BETHANY",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "Ganesh Reddy Karri",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Guruprakash Jayabalasamy",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Ganji Tejasree",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Adla Padma",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "Chirra Venkata Ramireddy",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "Gayathri Dhara",
+        "slots": ["D2", "TDD2"]
+      },
+      {
+        "name": "Kailash Chandra Mishra",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "Ganji Tejasree",
         "slots": ["D2", "TD2"]
       },
       {
         "name": "Shalini Ramanathan",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Somya Ranjan Sahoo",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Eswaraiah Rayachoti",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "REGONDA NAGARAJU",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Udit Narayana Kar",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Vikash Kumar Singh",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Debasis Dwibedy",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Kailash Chandra Mishra",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "N Lakshmipathi Anantha",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Udit Narayana Kar",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Dasari Venkata Lakshmi",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Bileesh P Babu",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "JAWAHAR MUTHUSAMY",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Debasis Dwibedy",
-        "slots": ["E2", "TE2"]
+        "slots": ["D1", "TD1"]
       },
       {
         "name": "Kailash Chandra Mishra",
         "slots": ["E2", "TE2"]
       },
       {
-        "name": "N Lakshmipathi Anantha",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Udit Narayana Kar",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Dasari Venkata Lakshmi",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Manomita Chakraborty",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "JAWAHAR MUTHUSAMY",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Somya Ranjan Sahoo",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Vikash Kumar Singh",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Posham Uppamma",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-14",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-15",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-16",
-        "slots": ["D1", "TDD1"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-14",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-15",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-13",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Posham Uppamma",
+        "name": "Pujari Jeevana Jyothi",
         "slots": ["E1", "TE1"]
       },
       {
-        "name": "Posham Uppamma",
-        "slots": ["E2", "TE2"]
+        "name": "Pujari Jeevana Jyothi",
+        "slots": ["D2", "TDD2"]
+      },
+      {
+        "name": "Chirra Venkata Ramireddy",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "Pujari Jeevana Jyothi",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "Gayathri Dhara",
+        "slots": ["D1", "TD1"]
       }
     ],
     "lab": [
       {
-        "name": "Somya Ranjan Sahoo",
-        "slots": ["L31", "L32"]
+        "name": "TATIREDDY SUBBAREDDY",
+        "slots": ["L57", "L58"]
       },
       {
-        "name": "N Lakshmipathi Anantha",
+        "name": "TATIREDDY SUBBAREDDY",
         "slots": ["L1", "L2"]
       },
       {
-        "name": "Manomita Chakraborty",
-        "slots": ["L1", "L2"]
-      },
-      {
-        "name": "Sachi Nandan Mohanty",
-        "slots": ["L11", "L12"]
-      },
-      {
-        "name": "N Lakshmipathi Anantha",
-        "slots": ["L13", "L14"]
-      },
-      {
-        "name": "Dasari Venkata Lakshmi",
-        "slots": ["L15", "L16"]
-      },
-      {
-        "name": "Posham Uppamma",
-        "slots": ["L19", "L20"]
-      },
-      {
-        "name": "Debasis Dwibedy",
-        "slots": ["L21", "L22"]
-      },
-      {
-        "name": "Sachi Nandan Mohanty",
-        "slots": ["L21", "L22"]
-      },
-      {
-        "name": "Yamarthi Narasimha Rao",
-        "slots": ["L23", "L24"]
-      },
-      {
-        "name": "Hemant Kumar Reddy",
-        "slots": ["L23", "L24"]
-      },
-      {
-        "name": "GOSALA BETHANY",
-        "slots": ["L25", "L26"]
-      },
-      {
-        "name": "N Lakshmipathi Anantha",
-        "slots": ["L27", "L28"]
-      },
-      {
-        "name": "REGONDA NAGARAJU",
-        "slots": ["L27", "L28"]
-      },
-      {
-        "name": "Kailash Chandra Mishra",
-        "slots": ["L29", "L30"]
-      },
-      {
-        "name": "Hemant Kumar Reddy",
-        "slots": ["L29", "L30"]
-      },
-      {
-        "name": "Hemant Kumar Reddy",
-        "slots": ["L3", "L4"]
-      },
-      {
-        "name": "Dasari Venkata Lakshmi",
-        "slots": ["L3", "L4"]
-      },
-      {
-        "name": "Manomita Chakraborty",
-        "slots": ["L31", "L32"]
-      },
-      {
-        "name": "Dasari Venkata Lakshmi",
-        "slots": ["L33", "L34"]
-      },
-      {
-        "name": "Yamarthi Narasimha Rao",
-        "slots": ["L33", "L34"]
-      },
-      {
-        "name": "Sachi Nandan Mohanty",
-        "slots": ["L35", "L36"]
-      },
-      {
-        "name": "Debasis Dwibedy",
-        "slots": ["L37", "L38"]
-      },
-      {
-        "name": "N Lakshmipathi Anantha",
-        "slots": ["L37", "L38"]
-      },
-      {
-        "name": "REGONDA NAGARAJU",
-        "slots": ["L39", "L40"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-15",
-        "slots": ["L39", "L40"]
-      },
-      {
-        "name": "GOSALA BETHANY",
-        "slots": ["L41", "L42"]
-      },
-      {
-        "name": "Kailash Chandra Mishra",
-        "slots": ["L41", "L42"]
-      },
-      {
-        "name": "REGONDA NAGARAJU",
-        "slots": ["L43", "L44"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-16",
-        "slots": ["L43", "L44"]
-      },
-      {
-        "name": "REGONDA NAGARAJU",
-        "slots": ["L45", "L46"]
-      },
-      {
-        "name": "Kailash Chandra Mishra",
-        "slots": ["L45", "L46"]
-      },
-      {
-        "name": "Hemant Kumar Reddy",
-        "slots": ["L47", "L48"]
-      },
-      {
-        "name": "Dasari Venkata Lakshmi",
-        "slots": ["L49", "L50"]
-      },
-      {
-        "name": "Manomita Chakraborty",
-        "slots": ["L49", "L50"]
-      },
-      {
-        "name": "Kailash Chandra Mishra",
-        "slots": ["L5", "L6"]
-      },
-      {
-        "name": "Sachi Nandan Mohanty",
+        "name": "TATIREDDY SUBBAREDDY",
         "slots": ["L51", "L52"]
       },
       {
-        "name": "Vikash Kumar Singh",
+        "name": "MITHILESH KUMAR DUBEY",
         "slots": ["L51", "L52"]
       },
       {
-        "name": "Debasis Dwibedy",
-        "slots": ["L53", "L54"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-16",
-        "slots": ["L55", "L56"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-17",
-        "slots": ["L55", "L56"]
-      },
-      {
-        "name": "Debasis Dwibedy",
-        "slots": ["L7", "L8"]
-      },
-      {
-        "name": "JAWAHAR MUTHUSAMY",
-        "slots": ["L7", "L8"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-17",
-        "slots": ["L9", "L10"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-18",
-        "slots": ["L9", "L10"]
-      }
-    ]
-  },
-  "CSE3009": {
-    "theory": [
-      {
-        "name": "Gopikrishnan S",
-        "slots": ["C1", "TC1"]
-      },
-      {
-        "name": "Madugula Kiran Kumar",
-        "slots": ["C1", "TCC1"]
-      },
-      {
-        "name": "Gopikrishnan S",
-        "slots": ["C2", "TC2"]
-      },
-      {
-        "name": "Nagendra Panini Challa",
-        "slots": ["C2", "TCC2"]
-      },
-      {
-        "name": "Karthika Natarajan",
-        "slots": ["C1", "TC1"]
-      },
-      {
-        "name": "Karthika Natarajan",
-        "slots": ["C2", "TC2"]
-      },
-      {
-        "name": "Madugula Kiran Kumar",
-        "slots": ["C2", "TCC2"]
-      }
-    ],
-    "lab": [
-      {
-        "name": "Gopikrishnan S",
-        "slots": ["L15", "L16"]
-      },
-      {
-        "name": "Gopikrishnan S",
-        "slots": ["L21", "L22"]
-      },
-      {
-        "name": "Madugula Kiran Kumar",
-        "slots": ["L1", "L2"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-11",
-        "slots": ["L27", "L28"]
-      },
-      {
-        "name": "Karthika Natarajan",
+        "name": "Chirra Venkata Ramireddy",
         "slots": ["L29", "L30"]
-      },
-      {
-        "name": "Madugula Kiran Kumar",
-        "slots": ["L31", "L32"]
-      },
-      {
-        "name": "Karthika Natarajan",
-        "slots": ["L39", "L40"]
-      },
-      {
-        "name": "Madugula Kiran Kumar",
-        "slots": ["L45", "L46"]
-      },
-      {
-        "name": "Madugula Kiran Kumar",
-        "slots": ["L51", "L52"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-11",
-        "slots": ["L53", "L54"]
-      }
-    ]
-  },
-  "CSE2008": {
-    "theory": [
-      {
-        "name": "Srinivasarao.Pokuri",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Ravi Kumar Poluru",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Lalitha Kumari P",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "TATA GAYATHRI",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Bolem Sai Chandana",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "THANGAM SIVANANTHAM",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Ngangbam Indrason",
-        "slots": ["D1", "TD1"]
-      },
-      {
-        "name": "Voddelli SriLakshmi",
-        "slots": ["D1", "TDD1"]
-      },
-      {
-        "name": "Annapureddy V N Reddy",
-        "slots": ["D1", "TDD1"]
-      },
-      {
-        "name": "Shalini Subramani",
-        "slots": ["D1", "TDD1"]
-      },
-      {
-        "name": "Srinivasarao.Pokuri",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Voddelli SriLakshmi",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Lalitha Kumari P",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Visalakshi Annepu",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "TATA GAYATHRI",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Annapureddy V N Reddy",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Ravi Kumar Poluru",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Bolem Sai Chandana",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "Ngangbam Indrason",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "CHATTU KANNAIAH",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "ARUN KUMAR MARANDI",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Shalini Subramani",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "MATTAKOYYA AHARONU",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "ARUN KUMAR MARANDI",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "Voddelli SriLakshmi",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "CHATTU KANNAIAH",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "Lalitha Kumari P",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "Sudhakar Ilango S",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "G.Muneeswari",
-        "slots": ["F1", "TFF1"]
       },
       {
         "name": "Guruprakash Jayabalasamy",
-        "slots": ["F1", "TFF1"]
-      },
-      {
-        "name": "VENKATA SIVANARAYANA GAYYI",
-        "slots": ["F1", "TFF1"]
-      },
-      {
-        "name": "Ngangbam Indrason",
-        "slots": ["F1", "TFF1"]
-      },
-      {
-        "name": "Shalini Subramani",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "ARUN KUMAR MARANDI",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "G.Muneeswari",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "Ravi Kumar Poluru",
-        "slots": ["F2", "TFF2"]
-      },
-      {
-        "name": "THANGAM SIVANANTHAM",
-        "slots": ["F2", "TFF2"]
-      },
-      {
-        "name": "Palacharla Ravi Kumar",
-        "slots": ["F2", "TFF2"]
-      },
-      {
-        "name": "Kumar Debasis",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "Monalisa Sahu",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "Guruprakash Jayabalasamy",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-5",
-        "slots": ["F2", "TF2"]
-      }
-    ],
-    "lab": [
-      {
-        "name": "Sudhakar Ilango S",
-        "slots": ["L5", "L6"]
-      },
-      {
-        "name": "Bolem Sai Chandana",
-        "slots": ["L1", "L2"]
-      },
-      {
-        "name": "Bommareddy Lokesh",
-        "slots": ["L11", "L12"]
-      },
-      {
-        "name": "Bolem Sai Chandana",
-        "slots": ["L11", "L12"]
-      },
-      {
-        "name": "Srinivasarao.Pokuri",
-        "slots": ["L13", "L14"]
-      },
-      {
-        "name": "ARUN KUMAR MARANDI",
-        "slots": ["L13", "L14"]
-      },
-      {
-        "name": "Shalini Subramani",
-        "slots": ["L15", "L16"]
-      },
-      {
-        "name": "VENKATESH B",
-        "slots": ["L15", "L16"]
-      },
-      {
-        "name": "Lalitha Kumari P",
-        "slots": ["L19", "L20"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-1",
-        "slots": ["L19", "L20"]
-      },
-      {
-        "name": "Bommareddy Lokesh",
-        "slots": ["L21", "L22"]
-      },
-      {
-        "name": "Srinivasarao.Pokuri",
-        "slots": ["L21", "L22"]
-      },
-      {
-        "name": "Bolem Sai Chandana",
-        "slots": ["L23", "L24"]
-      },
-      {
-        "name": "Srinivasarao.Pokuri",
-        "slots": ["L23", "L24"]
-      },
-      {
-        "name": "S. Kalyani",
-        "slots": ["L25", "L26"]
-      },
-      {
-        "name": "Ravi Kumar Poluru",
-        "slots": ["L27", "L28"]
-      },
-      {
-        "name": "Ngangbam Indrason",
         "slots": ["L29", "L30"]
-      },
-      {
-        "name": "VENKATESH B",
-        "slots": ["L29", "L30"]
-      },
-      {
-        "name": "ARUN KUMAR MARANDI",
-        "slots": ["L3", "L4"]
-      },
-      {
-        "name": "MATTAKOYYA AHARONU",
-        "slots": ["L3", "L4"]
-      },
-      {
-        "name": "Lalitha Kumari P",
-        "slots": ["L31", "L32"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-7",
-        "slots": ["L31", "L32"]
-      },
-      {
-        "name": "Mohinder Singh. B",
-        "slots": ["L33", "L34"]
-      },
-      {
-        "name": "Ravi Kumar Poluru",
-        "slots": ["L33", "L34"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-7",
-        "slots": ["L35", "L36"]
       },
       {
         "name": "Prof.SCOPE Dig Crs Faculty-8",
-        "slots": ["L37", "L38"]
+        "slots": ["L55", "L56"]
       },
       {
-        "name": "Prof.SCOPE Dig Crs Faculty-9",
-        "slots": ["L37", "L38"]
+        "name": "Adla Padma",
+        "slots": ["L21", "L22"]
       },
       {
-        "name": "Prof.SCOPE Dig Crs Faculty-9",
-        "slots": ["L39", "L40"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-10",
-        "slots": ["L39", "L40"]
-      },
-      {
-        "name": "S. Kalyani",
+        "name": "Amgothu Shanthi",
         "slots": ["L41", "L42"]
       },
       {
-        "name": "Shalini Subramani",
-        "slots": ["L41", "L42"]
-      },
-      {
-        "name": "Bommareddy Lokesh",
-        "slots": ["L43", "L44"]
-      },
-      {
-        "name": "Ngangbam Indrason",
-        "slots": ["L45", "L46"]
-      },
-      {
-        "name": "MATTAKOYYA AHARONU",
-        "slots": ["L45", "L46"]
-      },
-      {
-        "name": "Narendra Kumar",
-        "slots": ["L47", "L48"]
-      },
-      {
-        "name": "Mohinder Singh. B",
-        "slots": ["L47", "L48"]
-      },
-      {
-        "name": "Bommareddy Lokesh",
+        "name": "Selva Kumar S",
         "slots": ["L49", "L50"]
       },
       {
-        "name": "Voddelli SriLakshmi",
-        "slots": ["L49", "L50"]
+        "name": "Ganesh Reddy Karri",
+        "slots": ["L1", "L2"]
       },
       {
-        "name": "Prof.SCOPE Dig Crs Faculty-10",
-        "slots": ["L5", "L6"]
+        "name": "Shalini Ramanathan",
+        "slots": ["L25", "L26"]
       },
       {
-        "name": "Bolem Sai Chandana",
-        "slots": ["L51", "L52"]
+        "name": "MITHILESH KUMAR DUBEY",
+        "slots": ["L37", "L38"]
       },
       {
-        "name": "Prof.SCOPE Dig Crs Faculty-9",
-        "slots": ["L51", "L52"]
+        "name": "Guruprakash Jayabalasamy",
+        "slots": ["L47", "L48"]
       },
       {
-        "name": "Srinivasarao.Pokuri",
+        "name": "Kommerla Siva Kumar",
+        "slots": ["L13", "L14"]
+      },
+      {
+        "name": "Kommerla Siva Kumar",
+        "slots": ["L3", "L4"]
+      },
+      {
+        "name": "Ganji Tejasree",
         "slots": ["L53", "L54"]
       },
       {
-        "name": "THANGAM SIVANANTHAM",
-        "slots": ["L55", "L56"]
+        "name": "GOSALA BETHANY",
+        "slots": ["L13", "L14"]
       },
       {
-        "name": "S. Kalyani",
-        "slots": ["L55", "L56"]
-      },
-      {
-        "name": "Prof.SCOPE Dig Crs Faculty-7",
+        "name": "Madugula Kiran Kumar",
         "slots": ["L7", "L8"]
       },
       {
-        "name": "Annapureddy V N Reddy",
+        "name": "Adla Padma",
+        "slots": ["L11", "L12"]
+      },
+      {
+        "name": "PRAKASH KUMAR SARANGI",
+        "slots": ["L41", "L42"]
+      },
+      {
+        "name": "Kailash Chandra Mishra",
+        "slots": ["L27", "L28"]
+      },
+      {
+        "name": "Kailash Chandra Mishra",
+        "slots": ["L21", "L22"]
+      },
+      {
+        "name": "Shalini Ramanathan",
+        "slots": ["L23", "L24"]
+      },
+      {
+        "name": "Amgothu Shanthi",
+        "slots": ["L45", "L46"]
+      },
+      {
+        "name": "Ganji Tejasree",
+        "slots": ["L51", "L52"]
+      },
+      {
+        "name": "Gayathri Dhara",
+        "slots": ["L19", "L20"]
+      },
+      {
+        "name": "GOSALA BETHANY",
+        "slots": ["L5", "L6"]
+      },
+      {
+        "name": "Selva Kumar S",
         "slots": ["L9", "L10"]
       },
       {
-        "name": "Prof.SCOPE Dig Crs Faculty-6",
-        "slots": ["L9", "L10"]
+        "name": "Ganji Tejasree",
+        "slots": ["L15", "L16"]
+      },
+      {
+        "name": "MITHILESH KUMAR DUBEY",
+        "slots": ["L31", "L32"]
+      },
+      {
+        "name": "Madugula Kiran Kumar",
+        "slots": ["L15", "L16"]
+      },
+      {
+        "name": "Adla Padma",
+        "slots": ["L33", "L34"]
+      },
+      {
+        "name": "Shalini Ramanathan",
+        "slots": ["L33", "L34"]
+      },
+      {
+        "name": "GOSALA BETHANY",
+        "slots": ["L35", "L36"]
+      },
+      {
+        "name": "PRAKASH KUMAR SARANGI",
+        "slots": ["L43", "L44"]
+      },
+      {
+        "name": "Kailash Chandra Mishra",
+        "slots": ["L49", "L50"]
+      },
+      {
+        "name": "Gayathri Dhara",
+        "slots": ["L11", "L12"]
+      },
+      {
+        "name": "Pujari Jeevana Jyothi",
+        "slots": ["L27", "L28"]
+      },
+      {
+        "name": "Ganesh Reddy Karri",
+        "slots": ["L31", "L32"]
+      },
+      {
+        "name": "Pujari Jeevana Jyothi",
+        "slots": ["L39", "L40"]
+      },
+      {
+        "name": "Chirra Venkata Ramireddy",
+        "slots": ["L3", "L4"]
+      },
+      {
+        "name": "Kommerla Siva Kumar",
+        "slots": ["L45", "L46"]
+      },
+      {
+        "name": "Pujari Jeevana Jyothi",
+        "slots": ["L43", "L44"]
       }
     ]
   },
-  "STS3007": {
+  "CSE1008": {
     "theory": [
       {
-        "name": "ARIVARASAN A",
-        "slots": ["C1", "TC1"]
+        "name": "MAHENDRA SAHARE",
+        "slots": ["B2", "TB2", "TBB2"]
       },
       {
-        "name": "Prof.VISH Dig Crs Faculty-6",
-        "slots": ["C1", "TCC1"]
+        "name": "Bommareddy Lokesh",
+        "slots": ["A2", "TA2", "TAA2"]
       },
       {
-        "name": "SUJITHA",
-        "slots": ["D1", "TD1"]
+        "name": "TARUN NARAYAN SHANKAR",
+        "slots": ["A2", "TA2", "TAA2"]
       },
       {
-        "name": "SUJITHA",
-        "slots": ["E1", "TE1"]
+        "name": "TARUN NARAYAN SHANKAR",
+        "slots": ["A1", "TA1", "TAA1"]
       },
       {
-        "name": "Prof.VISH Dig Crs Faculty-6",
+        "name": "MAHENDRA SAHARE",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Sachi Nandan Mohanty",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Radha Mohan Pattanayak",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Srinivasa Reddy Konda",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Sudhakar Ilango S",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Sachi Nandan Mohanty",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Bommareddy Lokesh",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "MAHENDRA SAHARE",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Radha Mohan Pattanayak",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Bolem Sai Chandana",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Sudhakar Ilango S",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Radha Mohan Pattanayak",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Saroja Kumar Rout",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Bolem Sai Chandana",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Sandipan Maiti",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Renita R",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Sandipan Maiti",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Renita R",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "SANAL KUMAR T S",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Bolem Sai Chandana",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Srinivasarao.Pokuri",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Renita R",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Vikash Kumar Singh",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "JAWAHAR MUTHUSAMY",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "Vikash Kumar Singh",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Yamarthi Narasimha Rao",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Srinivasarao.Pokuri",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "SANAL KUMAR T S",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "SHAIK MOINUDDIN AHMED",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "SANAL KUMAR T S",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Srinivasarao.Pokuri",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "MOHAMMAD SIRAJUDDIN",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Saroja Kumar Rout",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Saroja Kumar Rout",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "JAWAHAR MUTHUSAMY",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "SHAIK MOINUDDIN AHMED",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Yamarthi Narasimha Rao",
+        "slots": ["A2", "TA2", "TAA2"]
+      },
+      {
+        "name": "JAWAHAR MUTHUSAMY",
+        "slots": ["B2", "TB2", "TBB2"]
+      },
+      {
+        "name": "Dasari Venkata Lakshmi",
+        "slots": ["A1", "TA1", "TAA1"]
+      },
+      {
+        "name": "Dasari Venkata Lakshmi",
+        "slots": ["B1", "TB1", "TBB1"]
+      },
+      {
+        "name": "Dasari Venkata Lakshmi",
+        "slots": ["B2", "TB2", "TBB2"]
+      }
+    ],
+    "lab": []
+  },
+  "STS4006": {
+    "theory": [
+      {
+        "name": "PRASANNA LAKSHMI",
         "slots": ["D2", "TDD2"]
       },
       {
-        "name": "Prof.VISH Dig Crs Faculty-5",
-        "slots": ["E2", "TE2"]
+        "name": "VENKATA SAI SUDHEER PAVULURI",
+        "slots": ["G1", "TG1"]
       },
       {
-        "name": "Prof.Ethnus Faculty-4",
-        "slots": ["C1", "TC1"]
-      },
-      {
-        "name": "Prof.Ethnus Faculty-4",
-        "slots": ["C2", "TC2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-6",
-        "slots": ["C2", "TC2"]
-      },
-      {
-        "name": "SUJITHA",
-        "slots": ["C2", "TCC2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-6",
+        "name": "RAGHUNATH",
         "slots": ["D1", "TDD1"]
       },
       {
-        "name": "Prof.VISH Dig Crs Faculty-7",
+        "name": "VENKATA SAI SUDHEER PAVULURI",
         "slots": ["D2", "TDD2"]
       },
       {
-        "name": "Prof.Ethnus Faculty-4",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Prof.Ethnus Faculty-4",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "SUJITHA",
-        "slots": ["F1", "TF1"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-6",
-        "slots": ["F1", "TFF1"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-6",
-        "slots": ["F2", "TF2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-7",
-        "slots": ["C1", "TC1"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-3",
-        "slots": ["C1", "TCC1"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-7",
-        "slots": ["C2", "TC2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-7",
-        "slots": ["D1", "TDD1"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-3",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-3",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-3",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-7",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "DEEPTHI KATTERA",
-        "slots": ["D1", "TDD1"]
-      },
-      {
-        "name": "DEEPTHI KATTERA",
-        "slots": ["C2", "TCC2"]
-      },
-      {
-        "name": "DEEPTHI KATTERA",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "DEEPTHI KATTERA",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "DEEPTHI KATTERA",
-        "slots": ["F2", "TFF2"]
-      },
-      {
-        "name": "YAMUNA DURGA A",
+        "name": "RAKSHITHA KARRA",
         "slots": ["G2", "TG2"]
       },
       {
-        "name": "ARIVARASAN A",
-        "slots": ["D2", "TD2"]
-      },
-      {
-        "name": "PRASANNA LAKSHMI",
-        "slots": ["C2", "TCC2"]
-      },
-      {
-        "name": "PRASANNA LAKSHMI",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "PRASANNA LAKSHMI",
-        "slots": ["C1", "TCC1"]
-      },
-      {
-        "name": "PRASANNA LAKSHMI",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "PRASANNA LAKSHMI",
-        "slots": ["F2", "TFF2"]
-      },
-      {
-        "name": "YAMUNA DURGA A",
+        "name": "ISHU KUMAR",
         "slots": ["D1", "TDD1"]
       },
       {
-        "name": "YAMUNA DURGA A",
-        "slots": ["C2", "TCC2"]
-      },
-      {
-        "name": "YAMUNA DURGA A",
-        "slots": ["D2", "TDD2"]
-      },
-      {
-        "name": "YAMUNA DURGA A",
-        "slots": ["C1", "TCC1"]
-      },
-      {
         "name": "DEEPTHI KATTERA",
-        "slots": ["C1", "TC1"]
+        "slots": ["G2", "TG2"]
       },
       {
-        "name": "YAMUNA DURGA A",
-        "slots": ["F1", "TFF1"]
-      },
-      {
-        "name": "ARIVARASAN A",
-        "slots": ["E1", "TE1"]
-      },
-      {
-        "name": "ARIVARASAN A",
-        "slots": ["C2", "TC2"]
-      },
-      {
-        "name": "ARIVARASAN A",
-        "slots": ["E2", "TE2"]
-      },
-      {
-        "name": "ARIVARASAN A",
+        "name": "ISHU KUMAR",
         "slots": ["F2", "TF2"]
       },
       {
         "name": "PRASANNA LAKSHMI",
+        "slots": ["C2", "TCC2"]
+      },
+      {
+        "name": "ISHU KUMAR",
+        "slots": ["C1", "TCC1"]
+      },
+      {
+        "name": "VENKATA SAI SUDHEER PAVULURI",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "RAGHUNATH",
+        "slots": ["F2", "TFF2"]
+      },
+      {
+        "name": "DEEPTHI KATTERA",
+        "slots": ["A2", "TA2"]
+      },
+      {
+        "name": "VIJAYKUMAR THALLA",
+        "slots": ["D2", "TD2"]
+      },
+      {
+        "name": "ARIVARASAN A",
         "slots": ["G1", "TG1"]
+      },
+      {
+        "name": "RAGHUNATH",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "RAGHUNATH",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "PRASANNA LAKSHMI",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "ISHU KUMAR",
+        "slots": ["F1", "TF1"]
+      },
+      {
+        "name": "DURGA PRASAD L",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "VIJAYKUMAR THALLA",
+        "slots": ["F2", "TF2"]
+      },
+      {
+        "name": "RAKSHITHA KARRA",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "DEEPTHI KATTERA",
+        "slots": ["F1", "TFF1"]
+      },
+      {
+        "name": "ARIVARASAN A",
+        "slots": ["F2", "TFF2"]
+      },
+      {
+        "name": "ARIVARASAN A",
+        "slots": ["A2", "TA2"]
+      },
+      {
+        "name": "ARIVARASAN A",
+        "slots": ["F1", "TFF1"]
+      },
+      {
+        "name": "RAJKISHORE G",
+        "slots": ["C2", "TCC2"]
+      },
+      {
+        "name": "VENKATA SAI SUDHEER PAVULURI",
+        "slots": ["B1", "TB1"]
+      },
+      {
+        "name": "PRASANNA LAKSHMI",
+        "slots": ["D1", "TD1"]
+      },
+      {
+        "name": "RAKSHITHA KARRA",
+        "slots": ["A1", "TA1"]
+      },
+      {
+        "name": "DEEPTHI KATTERA",
+        "slots": ["B1", "TB1"]
+      },
+      {
+        "name": "DEEPTHI KATTERA",
+        "slots": ["B2", "TB2"]
+      },
+      {
+        "name": "DURGA PRASAD L",
+        "slots": ["B2", "TB2"]
+      },
+      {
+        "name": "DURGA PRASAD L",
+        "slots": ["C1", "TCC1"]
+      },
+      {
+        "name": "VENKATA SAI SUDHEER PAVULURI",
+        "slots": ["A1", "TA1"]
+      },
+      {
+        "name": "DEEPTHI KATTERA",
+        "slots": ["A1", "TA1"]
+      },
+      {
+        "name": "VIJAYKUMAR THALLA",
+        "slots": ["A2", "TA2"]
+      },
+      {
+        "name": "VIJAYKUMAR THALLA",
+        "slots": ["B1", "TB1"]
+      },
+      {
+        "name": "VIJAYKUMAR THALLA",
+        "slots": ["F1", "TF1"]
+      },
+      {
+        "name": "RAKSHITHA KARRA",
+        "slots": ["A2", "TA2"]
+      },
+      {
+        "name": "DURGA PRASAD L",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "ARIVARASAN A",
+        "slots": ["B1", "TB1"]
+      },
+      {
+        "name": "ARIVARASAN A",
+        "slots": ["A1", "TA1"]
+      },
+      {
+        "name": "RAKSHITHA KARRA",
+        "slots": ["B2", "TB2"]
+      },
+      {
+        "name": "VIJAYKUMAR THALLA",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "DURGA PRASAD L",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "PRASANNA LAKSHMI",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "VENKATA SAI SUDHEER PAVULURI",
+        "slots": ["C2", "TC2"]
+      }
+    ],
+    "lab": []
+  },
+  "FRL1001": {
+    "theory": [
+      {
+        "name": "Dheeraj Kumar",
+        "slots": ["G1"]
+      },
+      {
+        "name": "Dheeraj Kumar",
+        "slots": ["D2"]
+      },
+      {
+        "name": "RITESH RANJAN",
+        "slots": ["D2"]
+      },
+      {
+        "name": "RITESH RANJAN",
+        "slots": ["D1"]
+      },
+      {
+        "name": "Chandan Vishwas",
+        "slots": ["D2"]
+      },
+      {
+        "name": "Chandan Vishwas",
+        "slots": ["B1"]
+      },
+      {
+        "name": "Dheeraj Kumar",
+        "slots": ["F1"]
+      },
+      {
+        "name": "RITESH RANJAN",
+        "slots": ["C1"]
+      }
+    ],
+    "lab": []
+  },
+  "FRL1004": {
+    "theory": [
+      {
+        "name": "HALAVATH RAJESH",
+        "slots": ["F2"]
+      },
+      {
+        "name": "Rafael Gonzalez Macho",
+        "slots": ["G2"]
+      },
+      {
+        "name": "HALAVATH RAJESH",
+        "slots": ["G2"]
+      },
+      {
+        "name": "Anindita Roy",
+        "slots": ["F2"]
+      },
+      {
+        "name": "Anindita Roy",
+        "slots": ["E2"]
+      },
+      {
+        "name": "Anindita Roy",
+        "slots": ["A2"]
+      },
+      {
+        "name": "Rafael Gonzalez Macho",
+        "slots": ["A1"]
+      },
+      {
+        "name": "Rafael Gonzalez Macho",
+        "slots": ["F1"]
       }
     ],
     "lab": []
@@ -1485,27 +991,35 @@
     "theory": [
       {
         "name": "VELMALA SHARATH KUMAR",
-        "slots": ["F2"]
-      },
-      {
-        "name": "Prof.VISH Dig Crs Faculty-1",
-        "slots": ["G2"]
-      },
-      {
-        "name": "VELMALA SHARATH KUMAR",
-        "slots": ["A2"]
+        "slots": ["E1"]
       },
       {
         "name": "Renuprasad Hemkiran Patki",
         "slots": ["G1"]
       },
       {
-        "name": "Renuprasad Hemkiran Patki",
-        "slots": ["A2"]
+        "name": "CHARU WALIYAN",
+        "slots": ["E1"]
       },
       {
-        "name": "Prof.VISH Dig Crs Faculty-1",
+        "name": "CHARU WALIYAN",
+        "slots": ["D2"]
+      },
+      {
+        "name": "VELMALA SHARATH KUMAR",
+        "slots": ["D1"]
+      },
+      {
+        "name": "VELMALA SHARATH KUMAR",
         "slots": ["B2"]
+      },
+      {
+        "name": "CHARU WALIYAN",
+        "slots": ["C1"]
+      },
+      {
+        "name": "Renuprasad Hemkiran Patki",
+        "slots": ["C2"]
       }
     ],
     "lab": []
@@ -1514,69 +1028,16 @@
     "theory": [
       {
         "name": "Naveen Kumar Ranjan",
-        "slots": ["D2"]
-      },
-      {
-        "name": "Naveen Kumar Ranjan",
-        "slots": ["B2"]
-      }
-    ],
-    "lab": []
-  },
-  "FRL1001": {
-    "theory": [
-      {
-        "name": "RITESH RANJAN",
-        "slots": ["B1"]
-      },
-      {
-        "name": "RITESH RANJAN",
         "slots": ["E2"]
-      },
-      {
-        "name": "Dheeraj Kumar",
-        "slots": ["F1"]
-      },
-      {
-        "name": "RITESH RANJAN",
-        "slots": ["A1"]
-      },
-      {
-        "name": "Chandan Vishwas",
-        "slots": ["G1"]
-      },
-      {
-        "name": "Dheeraj Kumar",
-        "slots": ["C2"]
-      },
-      {
-        "name": "Chandan Vishwas",
-        "slots": ["C1"]
-      },
-      {
-        "name": "Dheeraj Kumar",
-        "slots": ["B1"]
       }
     ],
     "lab": []
   },
-  "FRL1004": {
+  "FRL2005": {
     "theory": [
       {
-        "name": "Anindita Roy",
-        "slots": ["D1"]
-      },
-      {
-        "name": "Anindita Roy",
-        "slots": ["F2"]
-      },
-      {
-        "name": "Anindita Roy",
-        "slots": ["E1"]
-      },
-      {
-        "name": "Anindita Roy",
-        "slots": ["A1"]
+        "name": "Renuprasad Hemkiran Patki",
+        "slots": ["E2", "TE2"]
       }
     ],
     "lab": []
