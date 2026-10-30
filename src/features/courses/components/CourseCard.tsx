@@ -24,8 +24,8 @@ export default function CourseCard({
           : "border-border bg-card hover:border-primary/40 hover:bg-muted/40"
       }`}
     >
-      <div className="flex items-start justify-between">
-        <div>
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
           <div className="text-[12px] md:text-[16px] text-muted-foreground">
             {code}
           </div>
@@ -33,10 +33,12 @@ export default function CourseCard({
             {name}
           </div>
         </div>
-        <div className="text-[12px] md:text-md font-medium text-primary">
+
+        <div className="shrink-0 whitespace-nowrap text-[12px] md:text-md font-medium text-primary">
           {credits} Credits
         </div>
       </div>
+
       {selected && (
         <div className="mt-2 text-xs font-medium text-primary">Selected</div>
       )}
