@@ -72,7 +72,7 @@ export default function Courses({
             <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
             <div>
               <p className="text-sm font-medium text-foreground md:text-sm">
-                Timetable Optimizer v6.0.0
+                Timetable Optimizer v6
               </p>
               <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground md:text-xs">
                 This release brings updated course and slot information for BCE,
