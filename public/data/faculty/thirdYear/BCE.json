@@ -405,6 +405,250 @@
     ],
     "lab": []
   },
+  "CSE3042": {
+    "theory": [
+      {
+        "name": "S.Bharath Bhushan",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "Rajesh Duvvuru",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "KAMEPALLI S L PRASANNA",
+        "slots": ["C1", "TC1"]
+      },
+      {
+        "name": "Kandru Lakshmi Sai Praneeth",
+        "slots": ["C1", "TCC1"]
+      },
+      {
+        "name": "S.Bharath Bhushan",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "KAMEPALLI S L PRASANNA",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "MANIMUTHU A",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "Madala Guru Brahmam",
+        "slots": ["C2", "TC2"]
+      },
+      {
+        "name": "K Aravind",
+        "slots": ["C2", "TCC2"]
+      },
+      {
+        "name": "K Aravind",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "S.Bharath Bhushan",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "MANIMUTHU A",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Madala Guru Brahmam",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "MANIMUTHU A",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "KAMEPALLI S L PRASANNA",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Madala Guru Brahmam",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Kandru Lakshmi Sai Praneeth",
+        "slots": ["E2", "TE2"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "S.Bharath Bhushan",
+        "slots": ["L29", "L30"]
+      },
+      {
+        "name": "S.Bharath Bhushan",
+        "slots": ["L37", "L38"]
+      },
+      {
+        "name": "KAMEPALLI S L PRASANNA",
+        "slots": ["L1", "L2"]
+      },
+      {
+        "name": "KAMEPALLI S L PRASANNA",
+        "slots": ["L11", "L12"]
+      },
+      {
+        "name": "KAMEPALLI S L PRASANNA",
+        "slots": ["L31", "L32"]
+      },
+      {
+        "name": "Madala Guru Brahmam",
+        "slots": ["L15", "L16"]
+      },
+      {
+        "name": "S.Bharath Bhushan",
+        "slots": ["L51", "L52"]
+      },
+      {
+        "name": "MANIMUTHU A",
+        "slots": ["L19", "L20"]
+      },
+      {
+        "name": "K Aravind",
+        "slots": ["L21", "L22"]
+      },
+      {
+        "name": "Kandru Lakshmi Sai Praneeth",
+        "slots": ["L23", "L24"]
+      },
+      {
+        "name": "MANIMUTHU A",
+        "slots": ["L27", "L28"]
+      },
+      {
+        "name": "Kandru Lakshmi Sai Praneeth",
+        "slots": ["L33", "L34"]
+      },
+      {
+        "name": "Rajesh Duvvuru",
+        "slots": ["L41", "L42"]
+      },
+      {
+        "name": "K Aravind",
+        "slots": ["L55", "L56"]
+      },
+      {
+        "name": "K Aravind",
+        "slots": ["L53", "L54"]
+      },
+      {
+        "name": "MANIMUTHU A",
+        "slots": ["L51", "L52"]
+      },
+      {
+        "name": "Madala Guru Brahmam",
+        "slots": ["L5", "L6"]
+      },
+      {
+        "name": "Madala Guru Brahmam",
+        "slots": ["L45", "L46"]
+      }
+    ]
+  },
+  "CSE3012": {
+    "theory": [
+      {
+        "name": "Shalini Subramani",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Azees Maria John Francis",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Venkata Bhikshapathi Chenam",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "TARUN NARAYAN SHANKAR",
+        "slots": ["F2", "TF2"]
+      },
+      {
+        "name": "Venkata Bhikshapathi Chenam",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "THANGAM SIVANANTHAM",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Shalini Subramani",
+        "slots": ["F2", "TF2"]
+      },
+      {
+        "name": "Varunkumar Anantharaman",
+        "slots": ["F2", "TFF2"]
+      },
+      {
+        "name": "Azees Maria John Francis",
+        "slots": ["E1", "TE1"]
+      },
+      {
+        "name": "Shalini Subramani",
+        "slots": ["F1", "TF1"]
+      },
+      {
+        "name": "THANGAM SIVANANTHAM",
+        "slots": ["F1", "TFF1"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "Azees Maria John Francis",
+        "slots": ["L27", "L28"]
+      },
+      {
+        "name": "Venkata Bhikshapathi Chenam",
+        "slots": ["L3", "L4"]
+      },
+      {
+        "name": "Shalini Subramani",
+        "slots": ["L11", "L12"]
+      },
+      {
+        "name": "Shalini Subramani",
+        "slots": ["L5", "L6"]
+      },
+      {
+        "name": "TARUN NARAYAN SHANKAR",
+        "slots": ["L19", "L20"]
+      },
+      {
+        "name": "Shalini Subramani",
+        "slots": ["L35", "L36"]
+      },
+      {
+        "name": "THANGAM SIVANANTHAM",
+        "slots": ["L33", "L34"]
+      },
+      {
+        "name": "Varunkumar Anantharaman",
+        "slots": ["L37", "L38"]
+      },
+      {
+        "name": "Venkata Bhikshapathi Chenam",
+        "slots": ["L45", "L46"]
+      },
+      {
+        "name": "Venkata Bhikshapathi Chenam",
+        "slots": ["L15", "L16"]
+      },
+      {
+        "name": "THANGAM SIVANANTHAM",
+        "slots": ["L43", "L44"]
+      },
+      {
+        "name": "Azees Maria John Francis",
+        "slots": ["L49", "L50"]
+      }
+    ]
+  },
   "CSE4004": {
     "theory": [
       {

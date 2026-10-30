@@ -16,6 +16,16 @@ export const courses: CoursesData = {
         credits: 4,
       },
       {
+        code: "CSE3042",
+        name: "DevOps Engineering - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
+        code: "CSE3012",
+        name: "Network Security - Embedded Theory and Lab",
+        credits: 4,
+      },
+      {
         code: "STS4006",
         name: "Advanced Competitive Coding - II - Theory Only",
         credits: 3,
