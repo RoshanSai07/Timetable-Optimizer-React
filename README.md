@@ -1,75 +1,57 @@
-# React + TypeScript + Vite
+# Timetable Optimizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based timetable planning tool built for students of **VIT-AP University**.
 
-Currently, two official plugins are available:
+Timetable Optimizer helps students explore course offerings, compare faculty and slot combinations, identify timetable clashes, and generate possible schedules before completing their registration through VTOP.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Course Selection** – Browse available courses and select the ones you intend to register for.
+- **Faculty & Slot Exploration** – View available faculty members and their corresponding theory and lab slots.
+- **Timetable Generation** – Generate possible timetables based on selected courses.
+- **Clash Detection** – Identify conflicting slots and avoid overlapping classes.
+- **Interactive Planning** – Experiment with different course and faculty combinations.
+- **Responsive Interface** – Plan your timetable across desktop and mobile devices.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Supported Branches
 
-Note: This will impact Vite dev & build performances.
+The current `main` branch includes updated course and slot datasets for:
 
-## Expanding the ESLint configuration
+- BCE
+- BCA
+- BCD
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Course information is maintained in structured JSON datasets, separate from the application logic.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started
+
+**Requirements:** Node.js and npm.
+
+```bash
+git clone <repository-url>
+cd timetable-optimizer
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+For a production build:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+## Important Notice
+
+Timetable Optimizer is an independent student-built planning tool and is not affiliated with or an official service of VIT-AP University.
+Course availability, faculty assignments, and slot information may change. Always verify the latest details on the official portal before registering.
+
+---
+
+**Current Version:** `v6
