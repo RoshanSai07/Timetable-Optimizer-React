@@ -44,34 +44,73 @@ export default function SupportedPrograms() {
   return (
     <section className="border-t border-foreground/15 py-8 md:py-10">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-2 md:mb-5 text-center">
-          <p className="text-[11px] md:text-sm font-medium uppercase tracking-[0.15em] text-muted-foreground">
+        <div className="mb-2 text-center md:mb-3">
+          <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted-foreground md:text-sm">
             Currently Available For
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 p-3 md:p-5 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
+        {/* Data Update Notice */}
+        <div className="mx-3 mb-3 rounded-md border border-foreground/10 bg-muted/30 px-4 py-3 md:mx-auto md:mb-4 md:max-w-2xl">
+          <div className="flex items-start gap-2.5">
+            <span className="mt-0.5 text-muted-foreground">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4" />
+                <path d="M12 16h.01" />
+              </svg>
+            </span>
+
+            <div>
+              <p className="text-xs font-medium text-foreground md:text-sm">
+                A note on data and maintenance
+              </p>
+              <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground md:text-xs">
+                Course and slot data for{" "}
+                <span className="font-medium text-foreground">
+                  BCE, BCA and BCD
+                </span>{" "}
+                has been updated for the current semester. Timetable Optimizer
+                is currently receiving limited maintenance, so future updates
+                and other branch information may not always be up to date.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Available Programs */}
+        <div className="mx-auto grid max-w-3xl grid-cols-2 justify-items-center gap-2 p-3 md:grid-cols-3 md:gap-4 md:p-5 lg:grid-cols-3">
           {availablePrograms.map((program) => {
             const styles = yearStyles[program.year as keyof typeof yearStyles];
 
             return (
               <div
                 key={`${program.year}-${program.branch}`}
-                className={`rounded-md border p-3 md:p-4 md:py-5 transition-all hover:shadow-sm ${styles.card}`}
+                className={`w-full max-w-[240px] rounded-md border p-3 transition-all hover:shadow-sm md:p-4 md:py-5 ${styles.card}`}
               >
                 <div className="flex items-center gap-2 md:gap-3">
                   <div
-                    className={`flex h-8 w-8 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-md text-[9px] md:text-xs font-semibold ${styles.badge}`}
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-[9px] font-semibold md:h-10 md:w-10 md:text-xs ${styles.badge}`}
                   >
                     {program.branch}
                   </div>
 
                   <div className="min-w-0">
-                    <div className="text-xs md:text-sm font-semibold text-foreground">
+                    <div className="text-xs font-semibold text-foreground md:text-sm">
                       {formatYear(program.year)}
                     </div>
 
-                    <div className="text-[9px] md:text-xs text-muted-foreground">
+                    <div className="text-[9px] text-muted-foreground md:text-xs">
                       {program.branch}
                     </div>
                   </div>
@@ -81,8 +120,10 @@ export default function SupportedPrograms() {
           })}
         </div>
 
-        <p className="mt-2 md:mt-3 text-center text-[11px] md:text-sm text-muted-foreground">
-          More branches being added - check back each semester
+        {/* Footer Note */}
+        <p className="mt-2 px-4 text-center text-[11px] leading-relaxed text-muted-foreground md:mt-3 md:text-sm">
+          Please verify course availability and slot details on official
+          channels before making your registration decisions
         </p>
       </div>
     </section>

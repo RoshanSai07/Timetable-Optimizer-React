@@ -1,4 +1,4 @@
-import { Search, ArrowRight, X } from "lucide-react";
+import { Search, ArrowRight, X, Info } from "lucide-react";
 import { useState } from "react";
 import { courses } from "@/data/courses";
 import type { Student } from "@/types/student";
@@ -67,6 +67,22 @@ export default function Courses({
   return (
     <section className="flex flex-1 items-start justify-center px-5 pt-15 pb-5 sm:px-8 md:px-10 lg:px-20 lg:py-20">
       <div className="w-full max-w-7xl space-y-6 md:space-y-8">
+        <div className="rounded-md border border-foreground/10 bg-muted/30 px-4 py-3">
+          <div className="flex items-start gap-2.5">
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+            <div>
+              <p className="text-xs font-medium text-foreground md:text-sm">
+                Timetable Optimizer v6.0.0
+              </p>
+              <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground md:text-xs">
+                This release brings updated course and slot information for
+                BCE, BCA and BCD, along with a few interface refinements and
+                maintenance updates. Thank you to everyone who has used the
+                project, shared feedback, and made it worth maintaining.
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="space-y-1">
           <h1 className="text-xl md:text-3xl font-bold tracking-tight text-foreground">
             Let’s organize your semester
