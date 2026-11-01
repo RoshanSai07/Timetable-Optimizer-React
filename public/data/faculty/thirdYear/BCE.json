@@ -1111,6 +1111,23 @@
       }
     ]
   },
+  "CSE4006": {
+    "theory": [
+      {"name": "Edara Sreenivasa Reddy", "slots": ["C1", "TC1"]},
+      {"name": "Afzal Hussain Shahid", "slots": ["C1", "TC1"]},
+      {"name": "Suma Kamalesh Gandhimathi", "slots": ["C1", "TCC1"]},
+      {"name": "Aravapalli Rama Satish", "slots": ["C2", "TC2"]},
+      {"name": "Somya Ranjan Sahoo", "slots": ["C2", "TC2"]},
+      {"name": "Afzal Hussain Shahid", "slots": ["C2", "TCC2"]},
+      {"name": "Bileesh P Babu", "slots": ["D1", "TD1"]},
+      {"name": "Suma Kamalesh Gandhimathi", "slots": ["D1", "TD1"]},
+      {"name": "Prof.SCOPE Dig Crs Faculty-4", "slots": ["D1", "TD1"]},
+      {"name": "Bileesh P Babu", "slots": ["D2", "TD2"]},
+      {"name": "Suma Kamalesh Gandhimathi", "slots": ["D2", "TD2"]},
+      {"name": "Karrothu Aravind", "slots": ["D2", "TD2"]}
+    ],
+    "lab": []
+  },
   "FRL2005": {
     "theory": [
       {
