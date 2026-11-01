@@ -1041,5 +1041,35 @@
       }
     ],
     "lab": []
+  },
+  "CSE4040": {
+    "theory": [
+      {
+        "name": "SHAIK MOINUDDIN AHMED",
+        "slots": ["G2", "TG2"]
+      },
+      {
+        "name": "Rajesh Duvvuru",
+        "slots": ["E2", "TE2"]
+      },
+      {
+        "name": "Rajesh Duvvuru",
+        "slots": ["F1", "TE1"]
+      }
+    ],
+    "lab": [
+      {
+        "name": "SHAIK MOINUDDIN AHMED",
+        "slots": ["L27", "L28"]
+      },
+      {
+        "name": "Rajesh Duvvuru",
+        "slots": ["L21", "L22"]
+      },
+      {
+        "name": "Rajesh Duvvuru",
+        "slots": ["L49", "L50"]
+      }
+    ]
   }
 }

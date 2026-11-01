@@ -175,6 +175,11 @@ export const courses: CoursesData = {
         credits: 3,
       },
       {
+  code: "CSE4040",
+  name: "Mining Massive Data Sets - Embedded Theory and Lab",
+  credits: 4,
+},
+      {
         code: "MAT2003",
         name: "Optimization Techniques - Embedded Theory and Lab",
         credits: 4,
