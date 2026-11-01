@@ -31,6 +31,11 @@ export const courses: CoursesData = {
         credits: 3,
       },
       {
+        code: "CSE4006",
+        name: "Deep Learning - Embedded Theory and Project",
+        credits: 4,
+      },
+      {
         code: "CSE3005",
         name: "Distributed Systems - Embedded Theory and Lab",
         credits: 4,
